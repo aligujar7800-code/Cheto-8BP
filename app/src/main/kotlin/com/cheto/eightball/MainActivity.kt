@@ -2,6 +2,7 @@ package com.cheto.eightball
 
 import android.Manifest
 import android.app.Activity
+import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -47,7 +48,11 @@ class MainActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
             if (checkOverlayPermission()) {
                 if (checkNotificationPermission()) {
-                    requestScreenCapture()
+                    if (checkUsageStatsPermission()) {
+                        requestScreenCapture()
+                    } else {
+                        requestUsageStatsPermission()
+                    }
                 } else {
                     requestNotificationPermission()
                 }
@@ -99,6 +104,21 @@ class MainActivity : AppCompatActivity() {
                 NOTIFICATION_PERMISSION_REQ_CODE
             )
         }
+    }
+
+    private fun checkUsageStatsPermission(): Boolean {
+        val appOps = getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+        val mode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            appOps.unsafeCheckOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), packageName)
+        } else {
+            appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), packageName)
+        }
+        return mode == AppOpsManager.MODE_ALLOWED
+    }
+
+    private fun requestUsageStatsPermission() {
+        Toast.makeText(this, "Please allow Usage Access for Auto-Hide feature.", Toast.LENGTH_LONG).show()
+        startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
     }
 
     private fun requestScreenCapture() {

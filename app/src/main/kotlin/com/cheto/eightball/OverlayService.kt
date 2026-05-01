@@ -4,6 +4,7 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
@@ -23,6 +24,12 @@ import android.view.WindowManager
 import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.core.app.NotificationCompat
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 class OverlayService : Service() {
 
@@ -37,6 +44,10 @@ class OverlayService : Service() {
     private var virtualDisplay: VirtualDisplay? = null
     private var imageReader: ImageReader? = null
 
+    // Auto-Hide Loop
+    private var isGameInForeground = false
+    private val scope = CoroutineScope(Dispatchers.Main + Job())
+
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
@@ -49,6 +60,7 @@ class OverlayService : Service() {
         
         setupGuidelines()
         setupBubble()
+        startVisibilityChecker()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -107,6 +119,7 @@ class OverlayService : Service() {
         params.gravity = Gravity.TOP or Gravity.START
         
         guidelineView = GuidelineView(this)
+        guidelineView?.visibility = View.GONE
         try {
             windowManager.addView(guidelineView, params)
         } catch (e: Exception) {
@@ -173,9 +186,50 @@ class OverlayService : Service() {
         })
 
         try {
+            floatingBubble?.visibility = View.GONE
             windowManager.addView(floatingBubble, bubbleParams)
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    private fun startVisibilityChecker() {
+        scope.launch(Dispatchers.IO) {
+            val usageStatsManager = getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
+            while (isActive) {
+                val endTime = System.currentTimeMillis()
+                val beginTime = endTime - 2000 // Check last 2 seconds
+                
+                val usageEvents = usageStatsManager.queryEvents(beginTime, endTime)
+                var currentApp = ""
+                val event = android.app.usage.UsageEvents.Event()
+                
+                while (usageEvents.hasNextEvent()) {
+                    usageEvents.getNextEvent(event)
+                    if (event.eventType == android.app.usage.UsageEvents.Event.ACTIVITY_RESUMED) {
+                        currentApp = event.packageName
+                    }
+                }
+
+                val wasInForeground = isGameInForeground
+                isGameInForeground = (currentApp == "com.miniclip.eightballpool")
+
+                if (isGameInForeground != wasInForeground) {
+                    kotlinx.coroutines.withContext(Dispatchers.Main) {
+                        updateOverlayVisibility(isGameInForeground)
+                    }
+                }
+                delay(1000) // Check every 1 second
+            }
+        }
+    }
+
+    private fun updateOverlayVisibility(visible: Boolean) {
+        val visibility = if (visible) View.VISIBLE else View.GONE
+        guidelineView?.visibility = visibility
+        floatingBubble?.visibility = visibility
+        if (!visible && menuView != null) {
+            toggleMenu() // close menu if game is backgrounded
         }
     }
 
