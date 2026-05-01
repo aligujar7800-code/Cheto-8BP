@@ -118,6 +118,11 @@ class GuidelineView(context: Context) : View(context) {
         if (showFullScan) {
             drawMultiBallPrediction(canvas, width, height)
         }
+
+        // Draw AI Detections
+        if (detections.isNotEmpty()) {
+            drawDetections(canvas)
+        }
     }
 
     private fun drawMultiBallPrediction(canvas: Canvas, width: Float, height: Float) {
@@ -176,6 +181,54 @@ class GuidelineView(context: Context) : View(context) {
         if (autoAimEnabled) {
              canvas.drawText("MAGNETIC AIM: ON", centerX, centerY + 200, textPaint)
              canvas.drawCircle(centerX, centerY, 50f, centerPaint)
+        }
+    }
+
+    var detections: List<YoloDetector.Detection> = emptyList()
+
+    private val detectionPaint = Paint().apply {
+        color = Color.GREEN
+        strokeWidth = 4f
+        style = Paint.Style.STROKE
+    }
+
+    private val detectionTextPaint = Paint().apply {
+        color = Color.WHITE
+        textSize = 30f
+        style = Paint.Style.FILL
+    }
+
+    private fun drawDetections(canvas: Canvas) {
+        // AI Model expects 640x640, so we need to map back the coordinates
+        // Assuming the image was scaled from screen size to 640x640
+        val scaleX = width / 640f
+        val scaleY = height / 640f
+
+        val classNames = arrayOf("Ball", "Force", "Guideline", "Hole", "Play_Area", "Spin", "White")
+
+        for (det in detections) {
+            val x = det.x * scaleX
+            val y = det.y * scaleY
+            val w = det.w * scaleX
+            val h = det.h * scaleY
+
+            val left = x - w / 2
+            val top = y - h / 2
+            val right = x + w / 2
+            val bottom = y + h / 2
+
+            // Change color based on class
+            detectionPaint.color = when (det.label) {
+                0 -> Color.YELLOW // Ball
+                3 -> Color.DKGRAY // Hole
+                6 -> Color.WHITE // White
+                else -> Color.GREEN
+            }
+
+            canvas.drawRect(left, top, right, bottom, detectionPaint)
+            
+            val name = if (det.label in classNames.indices) classNames[det.label] else "Unknown"
+            canvas.drawText("$name ${String.format("%.2f", det.confidence)}", left, top - 10, detectionTextPaint)
         }
     }
 }

@@ -7,6 +7,7 @@ import android.app.Service
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.PixelFormat
 import android.hardware.display.DisplayManager
 import android.hardware.display.VirtualDisplay
@@ -14,8 +15,11 @@ import android.media.ImageReader
 import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
 import android.os.Build
+import android.os.Handler
+import android.os.HandlerThread
 import android.os.IBinder
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -44,6 +48,13 @@ class OverlayService : Service() {
     private var virtualDisplay: VirtualDisplay? = null
     private var imageReader: ImageReader? = null
 
+    // AI Model
+    private var yoloDetector: YoloDetector? = null
+    private var lastProcessedTime = 0L
+    private val FRAME_INTERVAL_MS = 300L // Process every 300ms to avoid overload
+    private var processingThread: HandlerThread? = null
+    private var processingHandler: Handler? = null
+
     // Auto-Hide Loop
     private var isGameInForeground = false
     private val scope = CoroutineScope(Dispatchers.Main + Job())
@@ -57,7 +68,19 @@ class OverlayService : Service() {
 
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-        
+
+        // Initialize AI Model
+        try {
+            yoloDetector = YoloDetector(this)
+            Log.d("OverlayService", "✅ YOLO Model loaded successfully")
+        } catch (e: Exception) {
+            Log.e("OverlayService", "❌ Failed to load YOLO Model", e)
+        }
+
+        // Background thread for AI processing
+        processingThread = HandlerThread("YoloProcessing").also { it.start() }
+        processingHandler = Handler(processingThread!!.looper)
+
         setupGuidelines()
         setupBubble()
         startVisibilityChecker()
@@ -99,10 +122,55 @@ class OverlayService : Service() {
         imageReader?.setOnImageAvailableListener({ reader ->
             val image = reader.acquireLatestImage()
             if (image != null) {
-                // TODO: OpenCV Processing will go here
-                image.close()
+                val now = System.currentTimeMillis()
+                if (now - lastProcessedTime >= FRAME_INTERVAL_MS && yoloDetector != null) {
+                    lastProcessedTime = now
+                    try {
+                        // Convert Image to Bitmap
+                        val planes = image.planes
+                        val buffer = planes[0].buffer
+                        val pixelStride = planes[0].pixelStride
+                        val rowStride = planes[0].rowStride
+                        val rowPadding = rowStride - pixelStride * image.width
+                        
+                        val bitmap = Bitmap.createBitmap(
+                            image.width + rowPadding / pixelStride,
+                            image.height,
+                            Bitmap.Config.ARGB_8888
+                        )
+                        bitmap.copyPixelsFromBuffer(buffer)
+                        
+                        // Crop to actual width (remove padding)
+                        val croppedBitmap = Bitmap.createBitmap(bitmap, 0, 0, image.width, image.height)
+                        if (bitmap != croppedBitmap) bitmap.recycle()
+
+                        image.close()
+
+                        // Run inference on background thread
+                        processingHandler?.post {
+                            try {
+                                val detections = yoloDetector!!.detect(croppedBitmap)
+                                croppedBitmap.recycle()
+                                
+                                // Update UI on main thread
+                                android.os.Handler(android.os.Looper.getMainLooper()).post {
+                                    guidelineView?.detections = detections
+                                    guidelineView?.invalidate()
+                                }
+                            } catch (e: Exception) {
+                                Log.e("OverlayService", "AI inference error", e)
+                                croppedBitmap.recycle()
+                            }
+                        }
+                    } catch (e: Exception) {
+                        Log.e("OverlayService", "Frame processing error", e)
+                        image.close()
+                    }
+                } else {
+                    image.close()
+                }
             }
-        }, null)
+        }, processingHandler)
     }
 
     private fun setupGuidelines() {
@@ -318,6 +386,7 @@ class OverlayService : Service() {
         virtualDisplay?.release()
         imageReader?.close()
         mediaProjection?.stop()
+        processingThread?.quitSafely()
         
         guidelineView?.let { windowManager.removeView(it) }
         floatingBubble?.let { windowManager.removeView(it) }

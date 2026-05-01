@@ -152,8 +152,8 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
             if (checkOverlayPermission()) {
-                startOverlayService()
-                launchGame()
+                // Overlay permission granted, now request screen capture
+                requestScreenCapture()
             } else {
                 Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show()
             }
