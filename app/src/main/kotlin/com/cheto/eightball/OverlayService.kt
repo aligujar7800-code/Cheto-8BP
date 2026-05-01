@@ -52,7 +52,11 @@ class OverlayService : Service() {
         params.gravity = Gravity.TOP or Gravity.START
         
         guidelineView = GuidelineView(this)
-        windowManager.addView(guidelineView, params)
+        try {
+            windowManager.addView(guidelineView, params)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun setupBubble() {
@@ -97,7 +101,9 @@ class OverlayService : Service() {
                     MotionEvent.ACTION_MOVE -> {
                         bubbleParams.x = initialX + (event.rawX.toInt() - lastX)
                         bubbleParams.y = initialY + (event.rawY.toInt() - lastY)
-                        windowManager.updateViewLayout(floatingBubble, bubbleParams)
+                        try {
+                            windowManager.updateViewLayout(floatingBubble, bubbleParams)
+                        } catch (e: Exception) {}
                         return true
                     }
                     MotionEvent.ACTION_UP -> {
@@ -111,7 +117,11 @@ class OverlayService : Service() {
             }
         })
 
-        windowManager.addView(floatingBubble, bubbleParams)
+        try {
+            windowManager.addView(floatingBubble, bubbleParams)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun toggleMenu() {
