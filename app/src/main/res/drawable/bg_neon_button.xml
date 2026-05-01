@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Neon Glow (Shadow) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#4DE040FB" /> <!-- 30% Opacity of Accent Color -->
+            <corners android:radius="12dp" />
+            <padding
+                android:bottom="4dp"
+                android:left="4dp"
+                android:right="4dp"
+                android:top="4dp" />
+        </shape>
+    </item>
+    <!-- Actual Button -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="45"
+                android:endColor="#6A1B9A"
+                android:startColor="#E040FB"
+                android:type="linear" />
+            <corners android:radius="10dp" />
+            <stroke
+                android:width="2dp"
+                android:color="#E040FB" />
+        </shape>
+    </item>
+</layer-list>

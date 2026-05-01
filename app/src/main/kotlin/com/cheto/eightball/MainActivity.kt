@@ -45,6 +45,11 @@ class MainActivity : AppCompatActivity() {
         mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
         val btnStart = findViewById<Button>(R.id.btnStart)
+        
+        // Load and start pulsing animation on the launch button
+        val pulseAnimation = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.pulse)
+        btnStart.startAnimation(pulseAnimation)
+
         btnStart.setOnClickListener {
             if (checkOverlayPermission()) {
                 if (checkNotificationPermission()) {
