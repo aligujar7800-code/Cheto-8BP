@@ -1,0 +1,15 @@
+R_DEF: Internal format may change without notice
+local
+id btnStart
+id cbAutoAim
+id cbBankShots
+id cbCircle
+id cbFullScan
+id cbHorizontal
+id cbPowerGuide
+id cbSpinCurve
+id cbVertical
+id tvBreakChance
+layout activity_main
+layout overlay_menu
+xml file_paths

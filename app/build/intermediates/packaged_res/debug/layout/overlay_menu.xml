@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#DD000000"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:elevation="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NINJA ENGINE PRO"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginBottom="4dp"/>
+        
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: INJECTED ✅"
+        android:textColor="#00E676"
+        android:textSize="12sp"
+        android:layout_marginBottom="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="#33FFFFFF"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Break Chance: "
+            android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/tvBreakChance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="45%"
+            android:textColor="#00E676"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cbHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horizontal Line"
+        android:textColor="#FFFFFF"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/cbVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vertical Line"
+        android:textColor="#FFFFFF"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/cbCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Target Circle"
+        android:textColor="#FFFFFF"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/cbPowerGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Power Guide"
+        android:textColor="#FFFFFF"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/cbFullScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Table Scan"
+        android:textColor="#FFFFFF"
+        android:checked="true"/>
+        
+    <CheckBox
+        android:id="@+id/cbBankShots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3-Cushion Bank Shots"
+        android:textColor="#FF00FF"
+        android:checked="true"/>
+        
+    <CheckBox
+        android:id="@+id/cbSpinCurve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="English Spin Curve"
+        android:textColor="#FFA500"
+        android:checked="true"/>
+        
+    <CheckBox
+        android:id="@+id/cbAutoAim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Magnetic Auto-Aim"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:checked="false"/>
+
+</LinearLayout>

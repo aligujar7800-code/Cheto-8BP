@@ -1,0 +1,4 @@
+com.cheto.eightball.test.app-androidTest-0 D:\cheto\app\build\generated\res\resValues\androidTest\debug
+com.cheto.eightball.test.app-mergeDebugAndroidTestResources-1 D:\cheto\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.cheto.eightball.test.app-mergeDebugAndroidTestResources-2 D:\cheto\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.cheto.eightball.test.app-merged_res-3 D:\cheto\app\build\intermediates\merged_res\debugAndroidTest
