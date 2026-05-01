@@ -41,6 +41,7 @@ anim m3_side_sheet_slide_out
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
+anim pulse
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -2908,10 +2909,12 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable app_logo
 drawable avd_hide_password
 drawable avd_show_password
 drawable bg_button
 drawable bg_input
+drawable bg_neon_button
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3265,6 +3268,7 @@ id inward
 id italic
 id item_touch_helper_previous_elevation
 id ivLogo
+id ivMainLogo
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -3512,6 +3516,9 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvBreakChance
+id tvInstallWarning
+id tvMainSubtitle
+id tvMainTitle
 id tvSubtitle
 id tvWelcome
 id unchecked

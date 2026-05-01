@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionName="1.0.8" >
+    android:versionName="1.0.9" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
 
     <permission
         android:name="com.cheto.eightball.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -26,9 +28,9 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:icon="@mipmap/ic_launcher"
-        android:label="Cheto 8 Ball"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/app_logo"
+        android:label="8ball aimers"
+        android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
@@ -50,7 +52,7 @@
             android:name="com.cheto.eightball.OverlayService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="specialUse" >
+            android:foregroundServiceType="mediaProjection|specialUse" >
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Gaming overlay tool for visual assistance and guidelines." />

@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+anim pulse
 color bgColor
 color buttonColor
 color colorAccent
@@ -9,8 +10,10 @@ color inputBgColor
 color inputBorderColor
 color textColor
 color textColorSecondary
+drawable app_logo
 drawable bg_button
 drawable bg_input
+drawable bg_neon_button
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ninja_logo
@@ -30,9 +33,13 @@ id cbVertical
 id etPassword
 id etUsername
 id ivLogo
+id ivMainLogo
 id tilPassword
 id tilUsername
 id tvBreakChance
+id tvInstallWarning
+id tvMainSubtitle
+id tvMainTitle
 id tvSubtitle
 id tvWelcome
 layout activity_login

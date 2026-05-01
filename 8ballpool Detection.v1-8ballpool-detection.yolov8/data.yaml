@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 7
+names: ['Ball', 'Force', 'Guideline', 'Hole', 'Play_Area', 'Spin', 'White']
+
+roboflow:
+  workspace: tflite-o6y7v
+  project: 8ballpool-detection-fi3sh
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/tflite-o6y7v/8ballpool-detection-fi3sh/dataset/1
