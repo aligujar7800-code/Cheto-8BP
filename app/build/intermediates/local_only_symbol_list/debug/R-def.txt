@@ -1,7 +1,23 @@
 R_DEF: Internal format may change without notice
 local
+color bgColor
+color buttonColor
+color colorAccent
+color colorPrimary
+color colorPrimaryDark
+color inputBgColor
+color inputBorderColor
+color textColor
+color textColorSecondary
+drawable bg_button
+drawable bg_input
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ninja_logo
+id btnClear
+id btnLanguage
+id btnLogin
+id btnResellers
 id btnStart
 id cbAutoAim
 id cbBankShots
@@ -11,7 +27,15 @@ id cbHorizontal
 id cbPowerGuide
 id cbSpinCurve
 id cbVertical
+id etPassword
+id etUsername
+id ivLogo
+id tilPassword
+id tilUsername
 id tvBreakChance
+id tvSubtitle
+id tvWelcome
+layout activity_login
 layout activity_main
 layout overlay_menu
 mipmap ic_launcher

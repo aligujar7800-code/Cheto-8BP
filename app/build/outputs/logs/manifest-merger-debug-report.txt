@@ -1,19 +1,19 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:40:9-48:20
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:46:9-54:20
 	android:grantUriPermissions
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:44:13-47
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:50:13-47
 	android:authorities
 		INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:42:13-64
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:48:13-64
 	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:43:13-37
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:49:13-37
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:13-62
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:47:13-62
 manifest
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-51:12
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-57:12
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-3\a0e46941b7609ff2d366a578901bab65\transformed\material-1.9.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Subhan Faisal\.gradle\caches\transforms-3\a807594b0087b1737e8f94a36ab77fab\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Subhan Faisal\.gradle\caches\transforms-3\0d240bdd962c45aa6ed213cab303eef2\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -87,9 +87,13 @@ uses-permission#android.permission.POST_NOTIFICATIONS
 ADDED from D:\cheto\app\src\main\AndroidManifest.xml:10:5-77
 	android:name
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:10:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE_SPECIAL_USE
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:11:5-89
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:11:22-86
 application
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:12:5-49:19
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:12:5-49:19
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:13:5-55:19
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:13:5-55:19
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-3\a0e46941b7609ff2d366a578901bab65\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-3\a0e46941b7609ff2d366a578901bab65\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Subhan Faisal\.gradle\caches\transforms-3\a807594b0087b1737e8f94a36ab77fab\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -111,57 +115,65 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Subhan Faisal\.gra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-3\3fe253cdf14c7e1f3372603bf1b61062\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:15:9-37
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:16:9-37
 	android:roundIcon
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:16:9-54
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:9-54
 	android:icon
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:14:9-43
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:15:9-43
 	android:allowBackup
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:18:9-65
-activity#com.cheto.eightball.MainActivity
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:20:9-28:20
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:9-65
+activity#com.cheto.eightball.LoginActivity
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:21:9-29:20
 	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:22:13-36
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:23:13-36
 	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:23:13-69
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:24:13-69
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:21:13-41
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:22:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:24:13-27:29
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:13-28:29
 action#android.intent.action.MAIN
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:17-69
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:25-66
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:17-77
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:27-74
-service#com.cheto.eightball.OverlayService
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:30:9-38:19
-	android:enabled
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:32:13-35
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:27:27-74
+activity#com.cheto.eightball.MainActivity
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:31:9-34:72
 	android:exported
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:33:13-37
+	android:theme
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:34:13-69
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:32:13-41
+service#com.cheto.eightball.OverlayService
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:36:9-44:19
+	android:enabled
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:38:13-35
+	android:exported
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:39:13-37
 	android:foregroundServiceType
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:34:13-55
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:40:13-55
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:31:13-43
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:37:13-43
 property
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:35:13-37:93
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:13-43:93
 	android:value
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:37:17-90
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:43:17-90
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:36:17-76
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:42:17-76
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:45:13-47:54
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:51:13-53:54
 	android:resource
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:47:17-51
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:53:17-51
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:46:17-67
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:52:17-67
 uses-sdk
 INJECTED from D:\cheto\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
