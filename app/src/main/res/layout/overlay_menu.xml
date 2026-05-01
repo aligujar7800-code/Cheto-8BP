@@ -110,4 +110,13 @@
         android:textStyle="bold"
         android:checked="false"/>
 
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close Tool"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF0000"/>
+
 </LinearLayout>

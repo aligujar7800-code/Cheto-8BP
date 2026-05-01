@@ -83,7 +83,7 @@ class OverlayService : Service() {
 
         setupGuidelines()
         setupBubble()
-        startVisibilityChecker()
+        // startVisibilityChecker() // Disabled so the overlay is always visible
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -187,7 +187,7 @@ class OverlayService : Service() {
         params.gravity = Gravity.TOP or Gravity.START
         
         guidelineView = GuidelineView(this)
-        guidelineView?.visibility = View.GONE
+        guidelineView?.visibility = View.VISIBLE // Make visible by default
         try {
             windowManager.addView(guidelineView, params)
         } catch (e: Exception) {
@@ -254,7 +254,7 @@ class OverlayService : Service() {
         })
 
         try {
-            floatingBubble?.visibility = View.GONE
+            floatingBubble?.visibility = View.VISIBLE // Make visible by default
             windowManager.addView(floatingBubble, bubbleParams)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -353,6 +353,10 @@ class OverlayService : Service() {
 
             // Update Break Chance in Menu
             menuView?.findViewById<android.widget.TextView>(R.id.tvBreakChance)?.text = "${guidelineView?.breakChance}%"
+            
+            menuView?.findViewById<android.widget.Button>(R.id.btnClose)?.setOnClickListener {
+                stopSelf()
+            }
 
             windowManager.addView(menuView, menuParams)
         } else {
