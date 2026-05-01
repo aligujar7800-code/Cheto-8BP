@@ -68,17 +68,24 @@ def create_github_release(version_name, notes):
 
 def upload_apk(release_id):
     found_apk = None
+    all_apks = []
     # Look for any APK in the build outputs
     search_dir = os.path.join("app", "build", "outputs", "apk")
     if os.path.exists(search_dir):
         for root, dirs, files in os.walk(search_dir):
             for file in files:
                 if file.endswith(".apk"):
-                    # Prioritize release and unsigned/signed apks
+                    apk_path = os.path.join(root, file)
+                    all_apks.append(apk_path)
+                    # Prioritize release apks
                     if "release" in root.lower():
-                        found_apk = os.path.join(root, file)
+                        found_apk = apk_path
                         break
             if found_apk: break
+    
+    # If no release APK found, take the first one available
+    if not found_apk and all_apks:
+        found_apk = all_apks[0]
     
     if not found_apk or not os.path.exists(found_apk):
         print("\n[!] APK NOT FOUND!")
