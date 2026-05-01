@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionName="1.0.6" >
+    android:versionName="1.0.7" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -45,7 +45,11 @@
             android:name="com.cheto.eightball.OverlayService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="specialUse" />
+            android:foregroundServiceType="specialUse" >
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Gaming overlay tool for visual assistance and guidelines." />
+        </service>
 
         <provider
             android:name="androidx.core.content.FileProvider"
