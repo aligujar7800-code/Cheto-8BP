@@ -7,8 +7,14 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
+import android.hardware.display.DisplayManager
+import android.hardware.display.VirtualDisplay
+import android.media.ImageReader
+import android.media.projection.MediaProjection
+import android.media.projection.MediaProjectionManager
 import android.os.Build
 import android.os.IBinder
+import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -25,6 +31,12 @@ class OverlayService : Service() {
     private var floatingBubble: View? = null
     private var menuView: View? = null
 
+    // Screen Capture Variables
+    private var mediaProjectionManager: MediaProjectionManager? = null
+    private var mediaProjection: MediaProjection? = null
+    private var virtualDisplay: VirtualDisplay? = null
+    private var imageReader: ImageReader? = null
+
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
@@ -33,9 +45,52 @@ class OverlayService : Service() {
         startForeground(1, createNotification())
 
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
         
         setupGuidelines()
         setupBubble()
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (intent != null) {
+            val resultCode = intent.getIntExtra("RESULT_CODE", 0)
+            val data: Intent? = intent.getParcelableExtra("DATA")
+            if (resultCode != 0 && data != null) {
+                setupScreenCapture(resultCode, data)
+            }
+        }
+        return START_STICKY
+    }
+
+    private fun setupScreenCapture(resultCode: Int, data: Intent) {
+        mediaProjection = mediaProjectionManager?.getMediaProjection(resultCode, data)
+        
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getRealMetrics(metrics)
+        val density = metrics.densityDpi
+        val width = metrics.widthPixels
+        val height = metrics.heightPixels
+
+        // We capture in lower resolution for performance (e.g., /2)
+        val captureWidth = width / 2
+        val captureHeight = height / 2
+
+        imageReader = ImageReader.newInstance(captureWidth, captureHeight, PixelFormat.RGBA_8888, 2)
+        
+        virtualDisplay = mediaProjection?.createVirtualDisplay(
+            "ScreenCapture",
+            captureWidth, captureHeight, density,
+            DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
+            imageReader?.surface, null, null
+        )
+
+        imageReader?.setOnImageAvailableListener({ reader ->
+            val image = reader.acquireLatestImage()
+            if (image != null) {
+                // TODO: OpenCV Processing will go here
+                image.close()
+            }
+        }, null)
     }
 
     private fun setupGuidelines() {
@@ -206,6 +261,10 @@ class OverlayService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        virtualDisplay?.release()
+        imageReader?.close()
+        mediaProjection?.stop()
+        
         guidelineView?.let { windowManager.removeView(it) }
         floatingBubble?.let { windowManager.removeView(it) }
         menuView?.let { windowManager.removeView(it) }

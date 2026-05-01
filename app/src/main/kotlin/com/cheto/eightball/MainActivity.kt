@@ -1,14 +1,18 @@
 package com.cheto.eightball
 
 import android.Manifest
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.projection.MediaProjectionManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,16 +24,30 @@ class MainActivity : AppCompatActivity() {
     private val OVERLAY_PERMISSION_REQ_CODE = 1234
     private val NOTIFICATION_PERMISSION_REQ_CODE = 5678
 
+    private lateinit var mediaProjectionManager: MediaProjectionManager
+
+    private val screenCaptureLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK && result.data != null) {
+            startOverlayService(result.resultCode, result.data!!)
+            launchGame()
+        } else {
+            Toast.makeText(this, "Screen capture permission denied", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
         val btnStart = findViewById<Button>(R.id.btnStart)
         btnStart.setOnClickListener {
             if (checkOverlayPermission()) {
                 if (checkNotificationPermission()) {
-                    startOverlayService()
-                    launchGame()
+                    requestScreenCapture()
                 } else {
                     requestNotificationPermission()
                 }
@@ -83,8 +101,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun startOverlayService() {
-        val intent = Intent(this, OverlayService::class.java)
+    private fun requestScreenCapture() {
+        val intent = mediaProjectionManager.createScreenCaptureIntent()
+        screenCaptureLauncher.launch(intent)
+    }
+
+    private fun startOverlayService(resultCode: Int, data: Intent) {
+        val intent = Intent(this, OverlayService::class.java).apply {
+            putExtra("RESULT_CODE", resultCode)
+            putExtra("DATA", data)
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(intent)
         } else {
