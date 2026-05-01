@@ -67,20 +67,31 @@ def create_github_release(version_name, notes):
         return None
 
 def upload_apk(release_id):
-    apk_path = "app/build/outputs/apk/release/app-release-unsigned.apk" # Change if needed
-    if not os.path.exists(apk_path):
-        # Try finding any apk in the build folder
-        for root, dirs, files in os.walk("app/build/outputs/apk"):
+    found_apk = None
+    # Look for any APK in the build outputs
+    search_dir = os.path.join("app", "build", "outputs", "apk")
+    if os.path.exists(search_dir):
+        for root, dirs, files in os.walk(search_dir):
             for file in files:
-                if file.endswith(".apk") and "release" in root:
-                    apk_path = os.path.join(root, file)
-                    break
+                if file.endswith(".apk"):
+                    # Prioritize release and unsigned/signed apks
+                    if "release" in root.lower():
+                        found_apk = os.path.join(root, file)
+                        break
+            if found_apk: break
     
-    if not os.path.exists(apk_path):
-        print("APK not found! Please build the APK in Android Studio first.")
+    if not found_apk or not os.path.exists(found_apk):
+        print("\n[!] APK NOT FOUND!")
+        print("Please follow these steps:")
+        print("1. Open Android Studio.")
+        print("2. Go to: Build > Build Bundle(s) / APK(s) > Build APK(s).")
+        print("3. Wait for the 'APK(s) generated successfully' notification.")
+        print("4. Run this script again.")
         return
 
-    print(f"Uploading {apk_path}...")
+    apk_path = found_apk
+    print(f"\n[*] Found APK: {apk_path}")
+    print(f"[*] Uploading to GitHub...")
     url = f"https://uploads.github.com/repos/{REPO}/releases/{release_id}/assets?name=app-release.apk"
     headers = {
         "Authorization": f"token {TOKEN}",
