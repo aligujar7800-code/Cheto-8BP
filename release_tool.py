@@ -74,7 +74,7 @@ def upload_apk(release_id):
     if os.path.exists(search_dir):
         for root, dirs, files in os.walk(search_dir):
             for file in files:
-                if file.endswith(".apk"):
+                if file.endswith(".apk") and "androidTest" not in root:
                     apk_path = os.path.join(root, file)
                     all_apks.append(apk_path)
                     # Prioritize release apks
