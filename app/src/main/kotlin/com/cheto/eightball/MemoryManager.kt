@@ -100,6 +100,20 @@ class MemoryManager {
     private external fun nativeScanSignature(pid: Int, start: Long, end: Long, signature: ByteArray): Long
     private external fun nativeReadBalls(pid: Int, ballListAddress: Long): FloatArray
     private external fun nativeCheckSecurity(): Boolean
+    private external fun nativeWriteInt(pid: Int, address: Long, value: Int): Boolean
+
+    /**
+     * Force Break: Attempt to modify the turn state in memory.
+     */
+    fun forceBreak(enabled: Boolean) {
+        if (!isHooked || gamePid == -1) return
+        
+        // This is a placeholder for the actual turn state address
+        val turnStateAddress = MemoryOffsets.LIB_GAME_BASE + 0xABC123 
+        if (enabled) {
+            nativeWriteInt(gamePid, turnStateAddress, 1) // 1 = My Turn / Breaker
+        }
+    }
 
     /**
      * Reads ball data directly from RAM.

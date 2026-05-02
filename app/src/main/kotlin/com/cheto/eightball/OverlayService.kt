@@ -243,6 +243,11 @@ class OverlayService : Service() {
             menuView?.findViewById<android.widget.Switch>(R.id.switchAntiBan)?.setOnCheckedChangeListener { _, isChecked ->
                 // Security is always checked in native if enabled
             }
+
+            // Always Break toggle
+            menuView?.findViewById<android.widget.Switch>(R.id.switchAlwaysBreak)?.setOnCheckedChangeListener { _, isChecked ->
+                memoryManager.forceBreak(isChecked)
+            }
             
             menuView?.findViewById<android.widget.SeekBar>(R.id.seekBarOpacity)?.setOnSeekBarChangeListener(object : android.widget.SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: android.widget.SeekBar?, progress: Int, fromUser: Boolean) {

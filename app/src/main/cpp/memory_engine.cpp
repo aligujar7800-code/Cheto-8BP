@@ -46,6 +46,22 @@ bool read_memory(int pid, uintptr_t address, void* buffer, size_t size) {
 }
 
 /**
+ * Fast Memory Writing using process_vm_writev
+ */
+bool write_memory(int pid, uintptr_t address, void* buffer, size_t size) {
+    struct iovec local[1];
+    struct iovec remote[1];
+
+    local[0].iov_base = buffer;
+    local[0].iov_len = size;
+    remote[0].iov_base = (void*)address;
+    remote[0].iov_len = size;
+
+    ssize_t nwrite = process_vm_writev(pid, local, 1, remote, 1, 0);
+    return nwrite == (ssize_t)size;
+}
+
+/**
  * Signature Scanner (AOB Scan)
  */
 JNIEXPORT jlong JNICALL
@@ -119,6 +135,12 @@ Java_com_cheto_eightball_MemoryManager_nativeCheckSecurity(JNIEnv* env, jobject 
         return JNI_FALSE;
     }
     return JNI_TRUE;
+}
+
+JNIEXPORT jboolean JNICALL
+Java_com_cheto_eightball_MemoryManager_nativeWriteInt(JNIEnv* env, jobject thiz, 
+                                                      jint pid, jlong address, jint value) {
+    return (jboolean)write_memory(pid, (uintptr_t)address, &value, sizeof(int));
 }
 
 }
