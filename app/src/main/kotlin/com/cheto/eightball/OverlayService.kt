@@ -169,13 +169,23 @@ class OverlayService : Service() {
                 density = metrics.densityDpi
             }
 
-            screenWidth = width
-            screenHeight = height
-            Log.d("OverlayService", ">>> Screen: ${width}x${height}, density=$density")
+            var w = width
+            var h = height
+            
+            // Force landscape dimensions since 8 Ball Pool is always landscape.
+            // If we capture in portrait, Android letterboxes the landscape game into a portrait buffer, ruining the coordinates.
+            if (w < h) {
+                w = height
+                h = width
+            }
+
+            screenWidth = w
+            screenHeight = h
+            Log.d("OverlayService", ">>> Screen: ${w}x${h}, density=$density")
 
             // Capture at 1/2 resolution (1/3 is too low for white line detection)
-            val captureWidth = width / 2
-            val captureHeight = height / 2
+            val captureWidth = w / 2
+            val captureHeight = h / 2
             Log.d("OverlayService", ">>> Capture size: ${captureWidth}x${captureHeight}")
 
             imageReader = ImageReader.newInstance(captureWidth, captureHeight, PixelFormat.RGBA_8888, 2)
