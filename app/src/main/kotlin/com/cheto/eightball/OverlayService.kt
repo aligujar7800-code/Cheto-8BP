@@ -51,7 +51,7 @@ class OverlayService : Service() {
     // AI Model
     private var yoloDetector: YoloDetector? = null
     private var lastProcessedTime = 0L
-    private val FRAME_INTERVAL_MS = 300L // Process every 300ms to avoid overload
+    private val FRAME_INTERVAL_MS = 150L // Process every 150ms for responsive tracking
     private var processingThread: HandlerThread? = null
     private var processingHandler: Handler? = null
 
@@ -165,9 +165,9 @@ class OverlayService : Service() {
             screenWidth = width
             screenHeight = height
 
-            // Capture at half resolution for performance
-            val captureWidth = width / 2
-            val captureHeight = height / 2
+            // Capture at 1/3 resolution for maximum speed
+            val captureWidth = width / 3
+            val captureHeight = height / 3
 
             imageReader = ImageReader.newInstance(captureWidth, captureHeight, PixelFormat.RGBA_8888, 2)
             

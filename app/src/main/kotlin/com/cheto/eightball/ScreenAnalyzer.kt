@@ -1,13 +1,13 @@
 package com.cheto.eightball
 
 import android.graphics.Bitmap
-import kotlin.math.atan2
 import kotlin.math.sqrt
+import kotlin.math.cos
+import kotlin.math.sin
 
 /**
- * Pixel-based screen analyzer for 8 Ball Pool.
- * Detects the cue ball position and aim line direction
- * by scanning for white pixels on the game table.
+ * High-performance pixel-based screen analyzer for 8 Ball Pool.
+ * Optimized with table caching, smart sampling, and minimal allocations.
  */
 class ScreenAnalyzer {
 
@@ -24,158 +24,238 @@ class ScreenAnalyzer {
         val ballRadius: Float
     )
 
+    // Cached table bounds - table doesn't move between frames
+    private var cachedTableLeft = -1
+    private var cachedTableTop = -1
+    private var cachedTableRight = -1
+    private var cachedTableBottom = -1
+    private var tableCacheFrames = 0
+    private val TABLE_CACHE_LIFETIME = 30 // Recalculate every 30 frames
+
+    // Pre-allocated arrays to avoid GC
+    private val hsv = FloatArray(3)
+    private var pixelBuffer: IntArray? = null
+
     // Thresholds
-    private val WHITE_THRESHOLD = 220  // R,G,B all above this = white
-    private val TABLE_BLUE_MIN_H = 170f // Hue range for table blue
-    private val TABLE_BLUE_MAX_H = 210f
-    private val TABLE_BLUE_MIN_S = 0.2f
-    private val BALL_COLOR_SAT_MIN = 0.3f // Balls are colorful (high saturation)
+    private val WHITE_THRESH = 215
+    private val TABLE_HUE_MIN = 170f
+    private val TABLE_HUE_MAX = 215f
+    private val TABLE_SAT_MIN = 0.15f
+    private val BALL_SAT_MIN = 0.35f
+
+    // Pre-computed radial scan directions (every 3 degrees)
+    private val scanAngles: Int = 120
+    private val cosTable = FloatArray(scanAngles)
+    private val sinTable = FloatArray(scanAngles)
+
+    init {
+        for (i in 0 until scanAngles) {
+            val rad = Math.toRadians((i * 3).toDouble())
+            cosTable[i] = cos(rad).toFloat()
+            sinTable[i] = sin(rad).toFloat()
+        }
+    }
 
     fun analyze(bitmap: Bitmap): AimResult? {
         val w = bitmap.width
         val h = bitmap.height
-        val pixels = IntArray(w * h)
+
+        // Reuse pixel buffer if same size
+        if (pixelBuffer == null || pixelBuffer!!.size != w * h) {
+            pixelBuffer = IntArray(w * h)
+        }
+        val pixels = pixelBuffer!!
         bitmap.getPixels(pixels, 0, w, 0, 0, w, h)
 
-        // Step 1: Find the table area (blue region)
-        val tableRect = findTableBounds(pixels, w, h)
-        val tLeft = tableRect[0].toFloat()
-        val tTop = tableRect[1].toFloat()
-        val tRight = tableRect[2].toFloat()
-        val tBottom = tableRect[3].toFloat()
-
-        if (tRight - tLeft < w * 0.3f || tBottom - tTop < h * 0.2f) {
-            // Table not found or too small
-            return null
+        // Step 1: Get table bounds (cached)
+        tableCacheFrames++
+        if (cachedTableLeft < 0 || tableCacheFrames >= TABLE_CACHE_LIFETIME) {
+            findTableBounds(pixels, w, h)
+            tableCacheFrames = 0
         }
 
-        // Step 2: Find white pixels on the table (cue ball + aim line)
-        val whitePixels = mutableListOf<Pair<Int, Int>>()
-        for (y in tTop.toInt()..tBottom.toInt()) {
-            for (x in tLeft.toInt()..tRight.toInt()) {
-                if (x < 0 || x >= w || y < 0 || y >= h) continue
-                val px = pixels[y * w + x]
+        val tL = cachedTableLeft
+        val tT = cachedTableTop
+        val tR = cachedTableRight
+        val tB = cachedTableBottom
+
+        if (tR - tL < w * 0.25f || tB - tT < h * 0.15f) return null
+
+        // Step 2: Find cue ball (white cluster) - sample every 6th pixel for speed
+        var bestCx = 0f
+        var bestCy = 0f
+        var bestClusterSize = 0
+        var bestRadius = 12f
+
+        // Scan for white pixel clusters
+        val step = 6
+        val whiteGridW = (tR - tL) / step + 1
+        val whiteGridH = (tB - tT) / step + 1
+        val whiteGrid = BooleanArray(whiteGridW * whiteGridH)
+        
+        for (gy in 0 until whiteGridH) {
+            val y = tT + gy * step
+            if (y >= h) break
+            val rowOff = y * w
+            for (gx in 0 until whiteGridW) {
+                val x = tL + gx * step
+                if (x >= w) break
+                val px = pixels[rowOff + x]
                 val r = (px shr 16) and 0xFF
                 val g = (px shr 8) and 0xFF
                 val b = px and 0xFF
-                if (r > WHITE_THRESHOLD && g > WHITE_THRESHOLD && b > WHITE_THRESHOLD) {
-                    whitePixels.add(Pair(x, y))
+                if (r > WHITE_THRESH && g > WHITE_THRESH && b > WHITE_THRESH) {
+                    whiteGrid[gy * whiteGridW + gx] = true
                 }
             }
         }
 
-        if (whitePixels.size < 10) return null
+        // Simple flood-fill to find clusters in grid
+        val visited = BooleanArray(whiteGridW * whiteGridH)
+        for (startIdx in whiteGrid.indices) {
+            if (!whiteGrid[startIdx] || visited[startIdx]) continue
+            
+            var sumX = 0L
+            var sumY = 0L
+            var count = 0
+            var minX = Int.MAX_VALUE
+            var maxX = 0
+            var minY = Int.MAX_VALUE
+            var maxY = 0
 
-        // Step 3: Cluster white pixels to find cue ball vs aim line
-        // The cue ball is a dense cluster; the aim line is a thin line of white pixels
-        val clusters = clusterPoints(whitePixels, 15)
+            // BFS flood fill
+            val queue = ArrayDeque<Int>(64)
+            queue.add(startIdx)
+            visited[startIdx] = true
 
-        // Find the largest cluster = cue ball
-        val sortedClusters = clusters.sortedByDescending { it.size }
-        if (sortedClusters.isEmpty()) return null
+            while (queue.isNotEmpty()) {
+                val idx = queue.removeFirst()
+                val gx = idx % whiteGridW
+                val gy = idx / whiteGridW
+                val px = tL + gx * step
+                val py = tT + gy * step
 
-        val cueBallCluster = sortedClusters[0]
-        val cueBallX = cueBallCluster.map { it.first }.average().toFloat()
-        val cueBallY = cueBallCluster.map { it.second }.average().toFloat()
-        val cueBallRadius = estimateRadius(cueBallCluster)
+                sumX += px
+                sumY += py
+                count++
+                if (px < minX) minX = px
+                if (px > maxX) maxX = px
+                if (py < minY) minY = py
+                if (py > maxY) maxY = py
 
-        // Step 4: Find aim line pixels (white pixels NOT in the cue ball cluster)
-        // These are thinner scattered white pixels forming a line
-        val aimPixels = mutableListOf<Pair<Int, Int>>()
-        for (cluster in sortedClusters.drop(0)) {
-            // Include small clusters and elongated shapes (aim line segments)
-            if (cluster.size < cueBallCluster.size * 0.5f) {
-                aimPixels.addAll(cluster)
-            }
-        }
-
-        // Also include isolated white pixels near the cue ball direction
-        val allLinePixels = mutableListOf<Pair<Int, Int>>()
-        allLinePixels.addAll(aimPixels)
-
-        // Step 5: Calculate aim direction using RANSAC-like approach
-        // Find the best line through cue ball center and the aim pixels
-        var bestDirX = 0f
-        var bestDirY = -1f // Default: aim up
-        var bestScore = 0
-
-        if (allLinePixels.size >= 3) {
-            // Try multiple candidate angles based on aim pixel positions
-            for (pixel in allLinePixels) {
-                val dx = pixel.first - cueBallX
-                val dy = pixel.second - cueBallY
-                val dist = sqrt(dx * dx + dy * dy)
-                if (dist < cueBallRadius * 1.5f) continue // Too close to cue ball center
-                if (dist > 0) {
-                    val ndx = dx / dist
-                    val ndy = dy / dist
-
-                    // Score: count how many aim pixels are close to this direction line
-                    var score = 0
-                    for (p in allLinePixels) {
-                        val px = p.first - cueBallX
-                        val py = p.second - cueBallY
-                        val proj = px * ndx + py * ndy
-                        if (proj < 0) continue // Behind cue ball
-                        val perpDist = kotlin.math.abs(px * ndy - py * ndx)
-                        if (perpDist < 8f) score++
-                    }
-                    if (score > bestScore) {
-                        bestScore = score
-                        bestDirX = ndx
-                        bestDirY = ndy
+                // Check 4 neighbors
+                val neighbors = intArrayOf(
+                    if (gx > 0) idx - 1 else -1,
+                    if (gx < whiteGridW - 1) idx + 1 else -1,
+                    if (gy > 0) idx - whiteGridW else -1,
+                    if (gy < whiteGridH - 1) idx + whiteGridW else -1
+                )
+                for (n in neighbors) {
+                    if (n >= 0 && n < whiteGrid.size && whiteGrid[n] && !visited[n]) {
+                        visited[n] = true
+                        queue.add(n)
                     }
                 }
             }
-        }
 
-        if (bestScore < 3) {
-            // Not enough evidence for aim direction
-            // Try using the white line by scanning outward from cue ball
-            val scanResult = scanForWhiteLine(pixels, w, h, cueBallX.toInt(), cueBallY.toInt(), cueBallRadius.toInt(), tLeft.toInt(), tTop.toInt(), tRight.toInt(), tBottom.toInt())
-            if (scanResult != null) {
-                bestDirX = scanResult.first
-                bestDirY = scanResult.second
-            } else {
-                return null // Can't determine aim
+            // Check if this cluster looks like a ball (roughly circular, decent size)
+            val clusterW = maxX - minX
+            val clusterH = maxY - minY
+            val aspect = if (clusterH > 0) clusterW.toFloat() / clusterH else 0f
+
+            if (count > bestClusterSize && count >= 3 && aspect in 0.4f..2.5f) {
+                bestClusterSize = count
+                bestCx = sumX.toFloat() / count
+                bestCy = sumY.toFloat() / count
+                bestRadius = ((clusterW + clusterH) / 4f).coerceIn(8f, 40f)
             }
         }
 
-        // Step 6: Find colored balls on the table
-        val ballPositions = findColoredBalls(pixels, w, h, tLeft.toInt(), tTop.toInt(), tRight.toInt(), tBottom.toInt(), cueBallX, cueBallY, cueBallRadius)
+        if (bestClusterSize < 3) return null
+
+        val cueBallX = bestCx
+        val cueBallY = bestCy
+        val ballRadius = bestRadius
+
+        // Step 3: Find aim direction with radial scan from cue ball
+        val scanDist = (tR - tL) / 3 // Scan up to 1/3 of table width
+        var bestAngleIdx = -1
+        var bestLineScore = 0
+
+        for (ai in 0 until scanAngles) {
+            val dx = cosTable[ai]
+            val dy = sinTable[ai]
+            var lineScore = 0
+            var gapCount = 0
+
+            var d = (ballRadius + 4).toInt()
+            while (d < scanDist) {
+                val sx = (cueBallX + dx * d).toInt()
+                val sy = (cueBallY + dy * d).toInt()
+
+                if (sx < tL || sx >= tR || sy < tT || sy >= tB) break
+                if (sx < 0 || sx >= w || sy < 0 || sy >= h) break
+
+                val px = pixels[sy * w + sx]
+                val r = (px shr 16) and 0xFF
+                val g = (px shr 8) and 0xFF
+                val b = px and 0xFF
+
+                if (r > WHITE_THRESH && g > WHITE_THRESH && b > WHITE_THRESH) {
+                    lineScore++
+                    gapCount = 0
+                } else {
+                    gapCount++
+                    if (gapCount > 15) break // Too big a gap, line ended
+                }
+                d += 3 // Step by 3 pixels for speed
+            }
+
+            if (lineScore > bestLineScore) {
+                bestLineScore = lineScore
+                bestAngleIdx = ai
+            }
+        }
+
+        if (bestLineScore < 4 || bestAngleIdx < 0) return null
+
+        val aimDirX = cosTable[bestAngleIdx]
+        val aimDirY = sinTable[bestAngleIdx]
+
+        // Step 4: Find colored balls - smart sampling only inside table
+        val balls = findBallsFast(pixels, w, h, tL, tT, tR, tB, cueBallX, cueBallY, ballRadius)
 
         return AimResult(
             cueBallX = cueBallX,
             cueBallY = cueBallY,
-            aimDirX = bestDirX,
-            aimDirY = bestDirY,
-            tableLeft = tLeft,
-            tableTop = tTop,
-            tableRight = tRight,
-            tableBottom = tBottom,
-            ballPositions = ballPositions,
-            ballRadius = cueBallRadius
+            aimDirX = aimDirX,
+            aimDirY = aimDirY,
+            tableLeft = tL.toFloat(),
+            tableTop = tT.toFloat(),
+            tableRight = tR.toFloat(),
+            tableBottom = tB.toFloat(),
+            ballPositions = balls,
+            ballRadius = ballRadius
         )
     }
 
-    private fun findTableBounds(pixels: IntArray, w: Int, h: Int): IntArray {
+    private fun findTableBounds(pixels: IntArray, w: Int, h: Int) {
         var left = w
         var top = h
         var right = 0
         var bottom = 0
-        val hsv = FloatArray(3)
 
-        // Sample every 4th pixel for speed
-        for (y in 0 until h step 4) {
-            for (x in 0 until w step 4) {
-                val px = pixels[y * w + x]
+        // Sample every 8th pixel for speed
+        for (y in 0 until h step 8) {
+            val rowOff = y * w
+            for (x in 0 until w step 8) {
+                val px = pixels[rowOff + x]
                 val r = (px shr 16) and 0xFF
                 val g = (px shr 8) and 0xFF
                 val b = px and 0xFF
                 android.graphics.Color.RGBToHSV(r, g, b, hsv)
 
-                // Table felt is blue-ish
-                if (hsv[0] in TABLE_BLUE_MIN_H..TABLE_BLUE_MAX_H && hsv[1] > TABLE_BLUE_MIN_S && hsv[2] > 0.3f) {
+                if (hsv[0] in TABLE_HUE_MIN..TABLE_HUE_MAX && hsv[1] > TABLE_SAT_MIN && hsv[2] > 0.3f) {
                     if (x < left) left = x
                     if (y < top) top = y
                     if (x > right) right = x
@@ -184,127 +264,70 @@ class ScreenAnalyzer {
             }
         }
 
-        // Add small margin
-        return intArrayOf(left + 10, top + 10, right - 10, bottom - 10)
+        cachedTableLeft = left + 8
+        cachedTableTop = top + 8
+        cachedTableRight = right - 8
+        cachedTableBottom = bottom - 8
     }
 
-    private fun clusterPoints(points: List<Pair<Int, Int>>, maxDist: Int): List<List<Pair<Int, Int>>> {
-        val visited = BooleanArray(points.size)
-        val clusters = mutableListOf<List<Pair<Int, Int>>>()
-        val maxDist2 = maxDist * maxDist
-
-        for (i in points.indices) {
-            if (visited[i]) continue
-            val cluster = mutableListOf<Pair<Int, Int>>()
-            val queue = ArrayDeque<Int>()
-            queue.add(i)
-            visited[i] = true
-
-            while (queue.isNotEmpty()) {
-                val idx = queue.removeFirst()
-                cluster.add(points[idx])
-
-                for (j in points.indices) {
-                    if (visited[j]) continue
-                    val dx = points[idx].first - points[j].first
-                    val dy = points[idx].second - points[j].second
-                    if (dx * dx + dy * dy <= maxDist2) {
-                        visited[j] = true
-                        queue.add(j)
-                    }
-                }
-            }
-            clusters.add(cluster)
-        }
-        return clusters
-    }
-
-    private fun estimateRadius(cluster: List<Pair<Int, Int>>): Float {
-        val cx = cluster.map { it.first }.average()
-        val cy = cluster.map { it.second }.average()
-        val maxDist = cluster.maxOf { sqrt(((it.first - cx) * (it.first - cx) + (it.second - cy) * (it.second - cy)).toDouble()) }
-        return maxDist.toFloat().coerceAtLeast(10f)
-    }
-
-    private fun scanForWhiteLine(pixels: IntArray, w: Int, h: Int, cx: Int, cy: Int, radius: Int, tl: Int, tt: Int, tr: Int, tb: Int): Pair<Float, Float>? {
-        // Scan radially outward from cue ball center in all directions
-        var bestAngle = 0f
-        var bestCount = 0
-        val scanDist = 150 // pixels to scan outward
-
-        for (angleDeg in 0 until 360 step 2) {
-            val rad = Math.toRadians(angleDeg.toDouble())
-            val dx = kotlin.math.cos(rad).toFloat()
-            val dy = kotlin.math.sin(rad).toFloat()
-            var count = 0
-
-            for (d in (radius + 5)..scanDist) {
-                val sx = (cx + dx * d).toInt()
-                val sy = (cy + dy * d).toInt()
-                if (sx < tl || sx > tr || sy < tt || sy > tb) break
-                if (sx < 0 || sx >= w || sy < 0 || sy >= h) break
-
-                val px = pixels[sy * w + sx]
-                val r = (px shr 16) and 0xFF
-                val g = (px shr 8) and 0xFF
-                val b = px and 0xFF
-                if (r > WHITE_THRESHOLD && g > WHITE_THRESHOLD && b > WHITE_THRESHOLD) {
-                    count++
-                }
-            }
-
-            if (count > bestCount) {
-                bestCount = count
-                bestAngle = angleDeg.toFloat()
-            }
-        }
-
-        if (bestCount < 5) return null
-
-        val rad = Math.toRadians(bestAngle.toDouble())
-        return Pair(kotlin.math.cos(rad).toFloat(), kotlin.math.sin(rad).toFloat())
-    }
-
-    private fun findColoredBalls(pixels: IntArray, w: Int, h: Int, tl: Int, tt: Int, tr: Int, tb: Int, cueBallX: Float, cueBallY: Float, cueBallRadius: Float): List<Pair<Float, Float>> {
+    private fun findBallsFast(pixels: IntArray, w: Int, h: Int, tl: Int, tt: Int, tr: Int, tb: Int, cueBallX: Float, cueBallY: Float, cueBallR: Float): List<Pair<Float, Float>> {
         val balls = mutableListOf<Pair<Float, Float>>()
-        val hsv = FloatArray(3)
-        val candidates = mutableListOf<Pair<Int, Int>>()
+        val gridSize = 30 // Divide table into grid cells
+        val gridW = (tr - tl) / gridSize + 1
+        val gridH = (tb - tt) / gridSize + 1
+        val cellCounts = IntArray(gridW * gridH)
+        val cellSumX = LongArray(gridW * gridH)
+        val cellSumY = LongArray(gridW * gridH)
 
-        // Scan for highly saturated pixels (colored balls)
-        for (y in tt until tb step 3) {
-            for (x in tl until tr step 3) {
-                if (x < 0 || x >= w || y < 0 || y >= h) continue
-                val px = pixels[y * w + x]
+        // Scan with large step, accumulate into grid cells
+        for (y in tt until tb step 5) {
+            if (y >= h) break
+            val rowOff = y * w
+            for (x in tl until tr step 5) {
+                if (x >= w) break
+                val px = pixels[rowOff + x]
                 val r = (px shr 16) and 0xFF
                 val g = (px shr 8) and 0xFF
                 val b = px and 0xFF
                 android.graphics.Color.RGBToHSV(r, g, b, hsv)
 
-                // Colored balls have high saturation and moderate brightness
-                if (hsv[1] > BALL_COLOR_SAT_MIN && hsv[2] > 0.4f && hsv[2] < 0.95f) {
-                    // Exclude table blue
-                    if (hsv[0] !in TABLE_BLUE_MIN_H..TABLE_BLUE_MAX_H) {
-                        candidates.add(Pair(x, y))
+                // Colored balls: high saturation, not table blue, decent brightness
+                if (hsv[1] > BALL_SAT_MIN && hsv[2] > 0.4f && hsv[2] < 0.95f) {
+                    if (hsv[0] !in TABLE_HUE_MIN..TABLE_HUE_MAX) {
+                        val gx = (x - tl) / gridSize
+                        val gy = (y - tt) / gridSize
+                        if (gx in 0 until gridW && gy in 0 until gridH) {
+                            val idx = gy * gridW + gx
+                            cellCounts[idx]++
+                            cellSumX[idx] += x
+                            cellSumY[idx] += y
+                        }
                     }
                 }
             }
         }
 
-        // Cluster colored pixels to find individual balls
-        val clusters = clusterPoints(candidates, 20)
-        for (cluster in clusters) {
-            if (cluster.size < 8) continue // Too small, likely noise
-            val bx = cluster.map { it.first }.average().toFloat()
-            val by = cluster.map { it.second }.average().toFloat()
-            
-            // Skip if too close to cue ball
-            val dx = bx - cueBallX
-            val dy = by - cueBallY
-            if (sqrt(dx * dx + dy * dy) < cueBallRadius * 2f) continue
+        // Extract ball positions from cells with enough hits
+        for (i in cellCounts.indices) {
+            if (cellCounts[i] >= 3) {
+                val bx = cellSumX[i].toFloat() / cellCounts[i]
+                val by = cellSumY[i].toFloat() / cellCounts[i]
 
-            balls.add(Pair(bx, by))
+                // Skip if too close to cue ball
+                val dx = bx - cueBallX
+                val dy = by - cueBallY
+                if (sqrt(dx * dx + dy * dy) < cueBallR * 2.5f) continue
+
+                balls.add(Pair(bx, by))
+            }
         }
 
         return balls
+    }
+
+    /** Call when game scene changes (e.g. new match) to force table re-detection */
+    fun resetCache() {
+        cachedTableLeft = -1
+        tableCacheFrames = TABLE_CACHE_LIFETIME
     }
 }
