@@ -131,6 +131,10 @@ class OverlayService : Service() {
         return START_STICKY
     }
 
+    private var screenWidth = 0
+    private var screenHeight = 0
+    private val screenAnalyzer = ScreenAnalyzer()
+
     private fun setupScreenCapture(resultCode: Int, data: Intent) {
         try {
             mediaProjection = mediaProjectionManager?.getMediaProjection(resultCode, data)
@@ -158,7 +162,10 @@ class OverlayService : Service() {
                 density = metrics.densityDpi
             }
 
-            // We capture in lower resolution for performance (e.g., /2)
+            screenWidth = width
+            screenHeight = height
+
+            // Capture at half resolution for performance
             val captureWidth = width / 2
             val captureHeight = height / 2
 
@@ -176,7 +183,7 @@ class OverlayService : Service() {
                     val image = reader.acquireLatestImage()
                     if (image != null) {
                         val now = System.currentTimeMillis()
-                        if (now - lastProcessedTime >= FRAME_INTERVAL_MS && yoloDetector != null) {
+                        if (now - lastProcessedTime >= FRAME_INTERVAL_MS) {
                             lastProcessedTime = now
                             try {
                                 val planes = image.planes
@@ -198,19 +205,43 @@ class OverlayService : Service() {
 
                                 processingHandler?.post {
                                     try {
-                                        val detector = yoloDetector
-                                        if (detector != null) {
-                                            val detections = detector.detect(croppedBitmap)
-                                            croppedBitmap.recycle()
+                                        // PRIMARY: Pixel-based ScreenAnalyzer
+                                        val aimResult = screenAnalyzer.analyze(croppedBitmap)
+                                        
+                                        if (aimResult != null) {
+                                            // Scale factor: capture is half of screen
+                                            val scX = screenWidth.toFloat() / croppedBitmap.width.toFloat()
+                                            val scY = screenHeight.toFloat() / croppedBitmap.height.toFloat()
+                                            
                                             android.os.Handler(android.os.Looper.getMainLooper()).post {
-                                                guidelineView?.detections = detections
+                                                guidelineView?.captureScaleX = scX
+                                                guidelineView?.captureScaleY = scY
+                                                guidelineView?.aimResult = aimResult
                                                 guidelineView?.invalidate()
                                             }
                                         } else {
-                                            croppedBitmap.recycle()
+                                            // FALLBACK: Try YOLO if ScreenAnalyzer can't detect
+                                            val detector = yoloDetector
+                                            if (detector != null) {
+                                                val detections = detector.detect(croppedBitmap)
+                                                android.os.Handler(android.os.Looper.getMainLooper()).post {
+                                                    guidelineView?.aimResult = null
+                                                    guidelineView?.detections = detections
+                                                    guidelineView?.invalidate()
+                                                }
+                                            } else {
+                                                // Clear lines when nothing detected
+                                                android.os.Handler(android.os.Looper.getMainLooper()).post {
+                                                    guidelineView?.aimResult = null
+                                                    guidelineView?.detections = emptyList()
+                                                    guidelineView?.invalidate()
+                                                }
+                                            }
                                         }
+                                        
+                                        croppedBitmap.recycle()
                                     } catch (e: Exception) {
-                                        Log.e("OverlayService", "AI inference error", e)
+                                        Log.e("OverlayService", "Frame analysis error", e)
                                         try { croppedBitmap.recycle() } catch (_: Exception) {}
                                     }
                                 }
@@ -376,49 +407,42 @@ class OverlayService : Service() {
             val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             menuView = inflater.inflate(R.layout.overlay_menu, null)
             
-            menuView?.findViewById<CheckBox>(R.id.cbHorizontal)?.setOnCheckedChangeListener { _, isChecked ->
-                guidelineView?.showHorizontal = isChecked
-                guidelineView?.invalidate()
-            }
-            menuView?.findViewById<CheckBox>(R.id.cbVertical)?.setOnCheckedChangeListener { _, isChecked ->
-                guidelineView?.showVertical = isChecked
-                guidelineView?.invalidate()
-            }
-            menuView?.findViewById<CheckBox>(R.id.cbCircle)?.setOnCheckedChangeListener { _, isChecked ->
-                guidelineView?.showCircle = isChecked
-                guidelineView?.invalidate()
-            }
-            menuView?.findViewById<CheckBox>(R.id.cbPowerGuide)?.setOnCheckedChangeListener { _, isChecked ->
-                guidelineView?.showPowerGuide = isChecked
-                guidelineView?.invalidate()
-            }
-            menuView?.findViewById<CheckBox>(R.id.cbFullScan)?.setOnCheckedChangeListener { _, isChecked ->
-                guidelineView?.showFullScan = isChecked
-                guidelineView?.invalidate()
-            }
-            menuView?.findViewById<CheckBox>(R.id.cbBankShots)?.setOnCheckedChangeListener { _, isChecked ->
+            // Bank Shots toggle
+            menuView?.findViewById<android.widget.Switch>(R.id.switchBankShots)?.setOnCheckedChangeListener { _, isChecked ->
                 guidelineView?.showBankShots = isChecked
                 guidelineView?.invalidate()
             }
-            menuView?.findViewById<CheckBox>(R.id.cbSpinCurve)?.setOnCheckedChangeListener { _, isChecked ->
-                guidelineView?.showSpinCurve = isChecked
-                guidelineView?.invalidate()
-            }
-            menuView?.findViewById<CheckBox>(R.id.cbAutoAim)?.setOnCheckedChangeListener { _, isChecked ->
-                guidelineView?.autoAimEnabled = isChecked
-                guidelineView?.invalidate()
-            }
-
-            // Update Break Chance in Menu
-            menuView?.findViewById<android.widget.TextView>(R.id.tvBreakChance)?.text = "${guidelineView?.breakChance}%"
             
+            // Cue Reflection toggle
+            menuView?.findViewById<android.widget.Switch>(R.id.switchCueReflection)?.setOnCheckedChangeListener { _, isChecked ->
+                guidelineView?.showCueReflection = isChecked
+                guidelineView?.invalidate()
+            }
+            
+            // Opacity slider
+            menuView?.findViewById<android.widget.SeekBar>(R.id.seekBarOpacity)?.setOnSeekBarChangeListener(object : android.widget.SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: android.widget.SeekBar?, progress: Int, fromUser: Boolean) {
+                    guidelineView?.lineAlpha = progress.coerceIn(30, 255)
+                    guidelineView?.invalidate()
+                }
+                override fun onStartTrackingTouch(seekBar: android.widget.SeekBar?) {}
+                override fun onStopTrackingTouch(seekBar: android.widget.SeekBar?) {}
+            })
+            
+            // Close button
             menuView?.findViewById<android.widget.Button>(R.id.btnClose)?.setOnClickListener {
                 stopSelf()
             }
 
-            windowManager.addView(menuView, menuParams)
+            try {
+                windowManager.addView(menuView, menuParams)
+            } catch (e: Exception) {
+                Log.e("OverlayService", "Failed to add menu view", e)
+            }
         } else {
-            windowManager.removeView(menuView)
+            try {
+                windowManager.removeView(menuView)
+            } catch (_: Exception) {}
             menuView = null
         }
     }

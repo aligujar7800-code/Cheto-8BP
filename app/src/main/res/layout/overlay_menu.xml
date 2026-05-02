@@ -1,122 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="#DD000000"
+    android:background="@drawable/menu_bg"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:elevation="8dp">
+    android:padding="0dp"
+    android:elevation="12dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NINJA ENGINE PRO"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginBottom="4dp"/>
-        
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Status: INJECTED ✅"
-        android:textColor="#00E676"
-        android:textSize="12sp"
-        android:layout_marginBottom="12dp"/>
-
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="12dp"
-        android:background="#33FFFFFF"
-        android:padding="8dp">
+        android:background="#CC111111"
+        android:orientation="vertical"
+        android:padding="14dp"
+        android:gravity="center_horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Break Chance: "
-            android:textColor="#FFFFFF"/>
+            android:text="8BP AIMERS"
+            android:textColor="#00E5FF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:letterSpacing="0.15"/>
+
         <TextView
-            android:id="@+id/tvBreakChance"
+            android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="45%"
+            android:text="● ACTIVE"
             android:textColor="#00E676"
-            android:textStyle="bold"/>
+            android:textSize="11sp"
+            android:layout_marginTop="2dp"/>
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/cbHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Horizontal Line"
-        android:textColor="#FFFFFF"
-        android:checked="true"/>
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#3300E5FF"/>
 
-    <CheckBox
-        android:id="@+id/cbVertical"
-        android:layout_width="wrap_content"
+    <!-- Toggles Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vertical Line"
-        android:textColor="#FFFFFF"
-        android:checked="true"/>
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="#DD1A1A2E">
 
-    <CheckBox
-        android:id="@+id/cbCircle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Target Circle"
-        android:textColor="#FFFFFF"
-        android:checked="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AIM SETTINGS"
+            android:textColor="#80FFFFFF"
+            android:textSize="10sp"
+            android:letterSpacing="0.2"
+            android:layout_marginBottom="8dp"/>
 
-    <CheckBox
-        android:id="@+id/cbPowerGuide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Power Guide"
-        android:textColor="#FFFFFF"
-        android:checked="true"/>
+        <!-- Bank Shots Toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
 
-    <CheckBox
-        android:id="@+id/cbFullScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full Table Scan"
-        android:textColor="#FFFFFF"
-        android:checked="true"/>
-        
-    <CheckBox
-        android:id="@+id/cbBankShots"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3-Cushion Bank Shots"
-        android:textColor="#FF00FF"
-        android:checked="true"/>
-        
-    <CheckBox
-        android:id="@+id/cbSpinCurve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="English Spin Curve"
-        android:textColor="#FFA500"
-        android:checked="true"/>
-        
-    <CheckBox
-        android:id="@+id/cbAutoAim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Magnetic Auto-Aim"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:checked="false"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Bank Shots"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
 
+            <Switch
+                android:id="@+id/switchBankShots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:thumbTint="#00E5FF"
+                android:trackTint="#555555"/>
+        </LinearLayout>
+
+        <!-- Cue Reflection Toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Cue Ball Path"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
+
+            <Switch
+                android:id="@+id/switchCueReflection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:thumbTint="#00E5FF"
+                android:trackTint="#555555"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#22FFFFFF"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LINE OPACITY"
+            android:textColor="#80FFFFFF"
+            android:textSize="10sp"
+            android:letterSpacing="0.2"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Opacity Slider -->
+        <SeekBar
+            android:id="@+id/seekBarOpacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="255"
+            android:progress="200"
+            android:progressTint="#00E5FF"
+            android:thumbTint="#00E5FF"/>
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#22FFFFFF"/>
+
+    <!-- Close Button -->
     <Button
         android:id="@+id/btnClose"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Close Tool"
-        android:layout_marginTop="16dp"
+        android:layout_height="44dp"
+        android:text="CLOSE TOOL"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#FF0000"/>
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:backgroundTint="#CC FF1744"
+        android:layout_margin="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"/>
 
 </LinearLayout>
