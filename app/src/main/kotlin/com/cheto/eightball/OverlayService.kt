@@ -180,6 +180,21 @@ class OverlayService : Service() {
 
             imageReader = ImageReader.newInstance(captureWidth, captureHeight, PixelFormat.RGBA_8888, 2)
             
+            // Android 14+ requires registering a callback BEFORE createVirtualDisplay
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                mediaProjection?.registerCallback(object : MediaProjection.Callback() {
+                    override fun onStop() {
+                        Log.d("OverlayService", ">>> MediaProjection stopped by system")
+                        updateDebug("CAPTURE STOPPED BY SYSTEM")
+                        try {
+                            virtualDisplay?.release()
+                            imageReader?.close()
+                        } catch (_: Exception) {}
+                    }
+                }, Handler(mainLooper))
+                Log.d("OverlayService", ">>> MediaProjection callback registered (Android 14+)")
+            }
+            
             virtualDisplay = mediaProjection?.createVirtualDisplay(
                 "ScreenCapture",
                 captureWidth, captureHeight, density,
