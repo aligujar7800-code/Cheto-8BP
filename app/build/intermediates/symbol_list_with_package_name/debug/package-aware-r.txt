@@ -2969,6 +2969,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable menu_bg
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3133,14 +3134,6 @@ id cache_measures
 id callMeasure
 id cancel_button
 id carryVelocity
-id cbAutoAim
-id cbBankShots
-id cbCircle
-id cbFullScan
-id cbHorizontal
-id cbPowerGuide
-id cbSpinCurve
-id cbVertical
 id center
 id centerCrop
 id centerInside
@@ -3427,6 +3420,7 @@ id search_view_status_bar_spacer
 id search_view_toolbar
 id search_view_toolbar_container
 id search_voice_btn
+id seekBarOpacity
 id select_dialog_listview
 id selected
 id selection_type
@@ -3468,6 +3462,8 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id switchBankShots
+id switchCueReflection
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3516,10 +3512,10 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tvBreakChance
 id tvInstallWarning
 id tvMainSubtitle
 id tvMainTitle
+id tvStatus
 id tvSubtitle
 id tvWelcome
 id unchecked
