@@ -25,24 +25,14 @@ class MainActivity : AppCompatActivity() {
     private val OVERLAY_PERMISSION_REQ_CODE = 1234
     private val NOTIFICATION_PERMISSION_REQ_CODE = 5678
 
-    private lateinit var mediaProjectionManager: MediaProjectionManager
-
-    private val screenCaptureLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK && result.data != null) {
-            startOverlayService(result.resultCode, result.data!!)
-            launchGame()
-        } else {
-            Toast.makeText(this, "Screen capture permission denied", Toast.LENGTH_SHORT).show()
-        }
+    private fun startApp() {
+        startOverlayService()
+        launchGame()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
         val btnStart = findViewById<Button>(R.id.btnStart)
         
@@ -54,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             if (checkOverlayPermission()) {
                 if (checkNotificationPermission()) {
                     if (checkUsageStatsPermission()) {
-                        requestScreenCapture()
+                        startApp()
                     } else {
                         requestUsageStatsPermission()
                     }
@@ -126,16 +116,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
     }
 
-    private fun requestScreenCapture() {
-        val intent = mediaProjectionManager.createScreenCaptureIntent()
-        screenCaptureLauncher.launch(intent)
-    }
-
-    private fun startOverlayService(resultCode: Int, data: Intent) {
-        val intent = Intent(this, OverlayService::class.java).apply {
-            putExtra("RESULT_CODE", resultCode)
-            putExtra("DATA", data)
-        }
+    private fun startOverlayService() {
+        val intent = Intent(this, OverlayService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(intent)
         } else {
@@ -157,8 +139,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
             if (checkOverlayPermission()) {
-                // Overlay permission granted, now request screen capture
-                requestScreenCapture()
+                startApp()
             } else {
                 Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show()
             }
