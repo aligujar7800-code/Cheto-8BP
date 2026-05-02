@@ -152,7 +152,7 @@
         android:textColor="#FFFFFF"
         android:textSize="13sp"
         android:textStyle="bold"
-        android:backgroundTint="#CC FF1744"
+        android:backgroundTint="#CCFF1744"
         android:layout_margin="0dp"
         android:insetTop="0dp"
         android:insetBottom="0dp"/>
