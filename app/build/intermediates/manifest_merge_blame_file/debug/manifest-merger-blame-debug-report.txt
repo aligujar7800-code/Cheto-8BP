@@ -1,196 +1,197 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.cheto.eightball"
-4    android:versionName="1.1.1" >
-5
-6    <uses-sdk
-7        android:minSdkVersion="24"
-8        android:targetSdkVersion="35" />
-9
-10    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-10-->D:\cheto\app\src\main\AndroidManifest.xml:6:5-78
-10-->D:\cheto\app\src\main\AndroidManifest.xml:6:22-75
-11    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-11-->D:\cheto\app\src\main\AndroidManifest.xml:7:5-77
-11-->D:\cheto\app\src\main\AndroidManifest.xml:7:22-74
-12    <uses-permission android:name="android.permission.INTERNET" />
-12-->D:\cheto\app\src\main\AndroidManifest.xml:8:5-67
-12-->D:\cheto\app\src\main\AndroidManifest.xml:8:22-64
-13    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
-13-->D:\cheto\app\src\main\AndroidManifest.xml:9:5-77
-13-->D:\cheto\app\src\main\AndroidManifest.xml:9:22-74
-14    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-14-->D:\cheto\app\src\main\AndroidManifest.xml:10:5-83
-14-->D:\cheto\app\src\main\AndroidManifest.xml:10:22-80
-15    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-15-->D:\cheto\app\src\main\AndroidManifest.xml:11:5-77
-15-->D:\cheto\app\src\main\AndroidManifest.xml:11:22-74
-16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-16-->D:\cheto\app\src\main\AndroidManifest.xml:12:5-89
-16-->D:\cheto\app\src\main\AndroidManifest.xml:12:22-86
-17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
-17-->D:\cheto\app\src\main\AndroidManifest.xml:13:5-94
-17-->D:\cheto\app\src\main\AndroidManifest.xml:13:22-91
-18    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
-18-->D:\cheto\app\src\main\AndroidManifest.xml:14:5-16:47
-18-->D:\cheto\app\src\main\AndroidManifest.xml:15:9-62
-19
-20    <permission
-20-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\4d241d9967934eb7396e7225bac381c8\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
-21        android:name="com.cheto.eightball.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-21-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\4d241d9967934eb7396e7225bac381c8\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
-22        android:protectionLevel="signature" />
-22-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\4d241d9967934eb7396e7225bac381c8\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
-23
-24    <uses-permission android:name="com.cheto.eightball.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-24-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\4d241d9967934eb7396e7225bac381c8\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
-24-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\4d241d9967934eb7396e7225bac381c8\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
-25
-26    <application
-26-->D:\cheto\app\src\main\AndroidManifest.xml:18:5-60:19
-27        android:allowBackup="true"
-27-->D:\cheto\app\src\main\AndroidManifest.xml:19:9-35
-28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-28-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\4d241d9967934eb7396e7225bac381c8\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
-29        android:debuggable="true"
-30        android:extractNativeLibs="false"
-31        android:icon="@drawable/app_logo"
-31-->D:\cheto\app\src\main\AndroidManifest.xml:20:9-42
-32        android:label="8ball aimers"
-32-->D:\cheto\app\src\main\AndroidManifest.xml:21:9-37
-33        android:roundIcon="@drawable/app_logo"
-33-->D:\cheto\app\src\main\AndroidManifest.xml:22:9-47
-34        android:supportsRtl="true"
-34-->D:\cheto\app\src\main\AndroidManifest.xml:23:9-35
-35        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-35-->D:\cheto\app\src\main\AndroidManifest.xml:24:9-65
-36        <activity
-36-->D:\cheto\app\src\main\AndroidManifest.xml:26:9-34:20
-37            android:name="com.cheto.eightball.LoginActivity"
-37-->D:\cheto\app\src\main\AndroidManifest.xml:27:13-42
-38            android:exported="true"
-38-->D:\cheto\app\src\main\AndroidManifest.xml:28:13-36
-39            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-39-->D:\cheto\app\src\main\AndroidManifest.xml:29:13-69
-40            <intent-filter>
-40-->D:\cheto\app\src\main\AndroidManifest.xml:30:13-33:29
-41                <action android:name="android.intent.action.MAIN" />
-41-->D:\cheto\app\src\main\AndroidManifest.xml:31:17-69
-41-->D:\cheto\app\src\main\AndroidManifest.xml:31:25-66
-42
-43                <category android:name="android.intent.category.LAUNCHER" />
-43-->D:\cheto\app\src\main\AndroidManifest.xml:32:17-77
-43-->D:\cheto\app\src\main\AndroidManifest.xml:32:27-74
-44            </intent-filter>
-45        </activity>
-46        <activity
-46-->D:\cheto\app\src\main\AndroidManifest.xml:36:9-39:72
-47            android:name="com.cheto.eightball.MainActivity"
-47-->D:\cheto\app\src\main\AndroidManifest.xml:37:13-41
-48            android:exported="false"
-48-->D:\cheto\app\src\main\AndroidManifest.xml:38:13-37
-49            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-49-->D:\cheto\app\src\main\AndroidManifest.xml:39:13-69
-50
-51        <service
-51-->D:\cheto\app\src\main\AndroidManifest.xml:41:9-49:19
-52            android:name="com.cheto.eightball.OverlayService"
-52-->D:\cheto\app\src\main\AndroidManifest.xml:42:13-43
-53            android:enabled="true"
-53-->D:\cheto\app\src\main\AndroidManifest.xml:43:13-35
-54            android:exported="false"
-54-->D:\cheto\app\src\main\AndroidManifest.xml:44:13-37
-55            android:foregroundServiceType="mediaProjection|specialUse" >
-55-->D:\cheto\app\src\main\AndroidManifest.xml:45:13-71
-56            <property
-56-->D:\cheto\app\src\main\AndroidManifest.xml:46:13-48:93
-57                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-57-->D:\cheto\app\src\main\AndroidManifest.xml:47:17-76
-58                android:value="Gaming overlay tool for visual assistance and guidelines." />
-58-->D:\cheto\app\src\main\AndroidManifest.xml:48:17-90
-59        </service>
-60
-61        <provider
-62            android:name="androidx.core.content.FileProvider"
-62-->D:\cheto\app\src\main\AndroidManifest.xml:52:13-62
-63            android:authorities="com.cheto.eightball.fileprovider"
-63-->D:\cheto\app\src\main\AndroidManifest.xml:53:13-64
-64            android:exported="false"
-64-->D:\cheto\app\src\main\AndroidManifest.xml:54:13-37
-65            android:grantUriPermissions="true" >
-65-->D:\cheto\app\src\main\AndroidManifest.xml:55:13-47
-66            <meta-data
-66-->D:\cheto\app\src\main\AndroidManifest.xml:56:13-58:54
-67                android:name="android.support.FILE_PROVIDER_PATHS"
-67-->D:\cheto\app\src\main\AndroidManifest.xml:57:17-67
-68                android:resource="@xml/file_paths" />
-68-->D:\cheto\app\src\main\AndroidManifest.xml:58:17-51
-69        </provider>
-70        <provider
-70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\e704537e5e3a20f25997c08ad08d469e\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-71            android:name="androidx.startup.InitializationProvider"
-71-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\e704537e5e3a20f25997c08ad08d469e\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-72            android:authorities="com.cheto.eightball.androidx-startup"
-72-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\e704537e5e3a20f25997c08ad08d469e\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-73            android:exported="false" >
-73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\e704537e5e3a20f25997c08ad08d469e\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-74            <meta-data
-74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\e704537e5e3a20f25997c08ad08d469e\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-75                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\e704537e5e3a20f25997c08ad08d469e\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-76                android:value="androidx.startup" />
-76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\e704537e5e3a20f25997c08ad08d469e\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-77            <meta-data
-77-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\41f14f66e2acb41542808949d246751f\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
-78                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-78-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\41f14f66e2acb41542808949d246751f\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
-79                android:value="androidx.startup" />
-79-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\41f14f66e2acb41542808949d246751f\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
-80            <meta-data
-80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-81                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-82                android:value="androidx.startup" />
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-83        </provider>
-84
-85        <receiver
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-86            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-87            android:directBootAware="false"
-87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-88            android:enabled="true"
-88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-89            android:exported="true"
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-90            android:permission="android.permission.DUMP" >
-90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-91            <intent-filter>
-91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-92                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-93            </intent-filter>
-94            <intent-filter>
-94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-95                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-96            </intent-filter>
-97            <intent-filter>
-97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-98                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-99            </intent-filter>
-100            <intent-filter>
-100-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-101                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\30a88f229f50858450682a42412fc90a\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-102            </intent-filter>
-103        </receiver>
-104    </application>
-105
-106</manifest>
+4    android:versionCode="12"
+5    android:versionName="1.1.2" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->D:\cheto\app\src\main\AndroidManifest.xml:6:5-78
+11-->D:\cheto\app\src\main\AndroidManifest.xml:6:22-75
+12    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+12-->D:\cheto\app\src\main\AndroidManifest.xml:7:5-77
+12-->D:\cheto\app\src\main\AndroidManifest.xml:7:22-74
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->D:\cheto\app\src\main\AndroidManifest.xml:8:5-67
+13-->D:\cheto\app\src\main\AndroidManifest.xml:8:22-64
+14    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+14-->D:\cheto\app\src\main\AndroidManifest.xml:9:5-77
+14-->D:\cheto\app\src\main\AndroidManifest.xml:9:22-74
+15    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+15-->D:\cheto\app\src\main\AndroidManifest.xml:10:5-83
+15-->D:\cheto\app\src\main\AndroidManifest.xml:10:22-80
+16    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+16-->D:\cheto\app\src\main\AndroidManifest.xml:11:5-77
+16-->D:\cheto\app\src\main\AndroidManifest.xml:11:22-74
+17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+17-->D:\cheto\app\src\main\AndroidManifest.xml:12:5-89
+17-->D:\cheto\app\src\main\AndroidManifest.xml:12:22-86
+18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+18-->D:\cheto\app\src\main\AndroidManifest.xml:13:5-94
+18-->D:\cheto\app\src\main\AndroidManifest.xml:13:22-91
+19    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+19-->D:\cheto\app\src\main\AndroidManifest.xml:14:5-16:47
+19-->D:\cheto\app\src\main\AndroidManifest.xml:15:9-62
+20
+21    <permission
+21-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+22        android:name="com.cheto.eightball.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+22-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+23        android:protectionLevel="signature" />
+23-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+24
+25    <uses-permission android:name="com.cheto.eightball.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+25-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+25-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+26
+27    <application
+27-->D:\cheto\app\src\main\AndroidManifest.xml:18:5-60:19
+28        android:allowBackup="true"
+28-->D:\cheto\app\src\main\AndroidManifest.xml:19:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.12.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+30        android:debuggable="true"
+31        android:extractNativeLibs="false"
+32        android:icon="@drawable/app_logo"
+32-->D:\cheto\app\src\main\AndroidManifest.xml:20:9-42
+33        android:label="8ball aimers"
+33-->D:\cheto\app\src\main\AndroidManifest.xml:21:9-37
+34        android:roundIcon="@drawable/app_logo"
+34-->D:\cheto\app\src\main\AndroidManifest.xml:22:9-47
+35        android:supportsRtl="true"
+35-->D:\cheto\app\src\main\AndroidManifest.xml:23:9-35
+36        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+36-->D:\cheto\app\src\main\AndroidManifest.xml:24:9-65
+37        <activity
+37-->D:\cheto\app\src\main\AndroidManifest.xml:26:9-34:20
+38            android:name="com.cheto.eightball.LoginActivity"
+38-->D:\cheto\app\src\main\AndroidManifest.xml:27:13-42
+39            android:exported="true"
+39-->D:\cheto\app\src\main\AndroidManifest.xml:28:13-36
+40            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+40-->D:\cheto\app\src\main\AndroidManifest.xml:29:13-69
+41            <intent-filter>
+41-->D:\cheto\app\src\main\AndroidManifest.xml:30:13-33:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->D:\cheto\app\src\main\AndroidManifest.xml:31:17-69
+42-->D:\cheto\app\src\main\AndroidManifest.xml:31:25-66
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->D:\cheto\app\src\main\AndroidManifest.xml:32:17-77
+44-->D:\cheto\app\src\main\AndroidManifest.xml:32:27-74
+45            </intent-filter>
+46        </activity>
+47        <activity
+47-->D:\cheto\app\src\main\AndroidManifest.xml:36:9-39:72
+48            android:name="com.cheto.eightball.MainActivity"
+48-->D:\cheto\app\src\main\AndroidManifest.xml:37:13-41
+49            android:exported="false"
+49-->D:\cheto\app\src\main\AndroidManifest.xml:38:13-37
+50            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+50-->D:\cheto\app\src\main\AndroidManifest.xml:39:13-69
+51
+52        <service
+52-->D:\cheto\app\src\main\AndroidManifest.xml:41:9-49:19
+53            android:name="com.cheto.eightball.OverlayService"
+53-->D:\cheto\app\src\main\AndroidManifest.xml:42:13-43
+54            android:enabled="true"
+54-->D:\cheto\app\src\main\AndroidManifest.xml:43:13-35
+55            android:exported="false"
+55-->D:\cheto\app\src\main\AndroidManifest.xml:44:13-37
+56            android:foregroundServiceType="mediaProjection|specialUse" >
+56-->D:\cheto\app\src\main\AndroidManifest.xml:45:13-71
+57            <property
+57-->D:\cheto\app\src\main\AndroidManifest.xml:46:13-48:93
+58                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+58-->D:\cheto\app\src\main\AndroidManifest.xml:47:17-76
+59                android:value="Gaming overlay tool for visual assistance and guidelines." />
+59-->D:\cheto\app\src\main\AndroidManifest.xml:48:17-90
+60        </service>
+61
+62        <provider
+63            android:name="androidx.core.content.FileProvider"
+63-->D:\cheto\app\src\main\AndroidManifest.xml:52:13-62
+64            android:authorities="com.cheto.eightball.fileprovider"
+64-->D:\cheto\app\src\main\AndroidManifest.xml:53:13-64
+65            android:exported="false"
+65-->D:\cheto\app\src\main\AndroidManifest.xml:54:13-37
+66            android:grantUriPermissions="true" >
+66-->D:\cheto\app\src\main\AndroidManifest.xml:55:13-47
+67            <meta-data
+67-->D:\cheto\app\src\main\AndroidManifest.xml:56:13-58:54
+68                android:name="android.support.FILE_PROVIDER_PATHS"
+68-->D:\cheto\app\src\main\AndroidManifest.xml:57:17-67
+69                android:resource="@xml/file_paths" />
+69-->D:\cheto\app\src\main\AndroidManifest.xml:58:17-51
+70        </provider>
+71        <provider
+71-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\d4eccc3804f16f7194b7ec6b748fc4de\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+72            android:name="androidx.startup.InitializationProvider"
+72-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\d4eccc3804f16f7194b7ec6b748fc4de\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+73            android:authorities="com.cheto.eightball.androidx-startup"
+73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\d4eccc3804f16f7194b7ec6b748fc4de\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+74            android:exported="false" >
+74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\d4eccc3804f16f7194b7ec6b748fc4de\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+75            <meta-data
+75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\d4eccc3804f16f7194b7ec6b748fc4de\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+76                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\d4eccc3804f16f7194b7ec6b748fc4de\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+77                android:value="androidx.startup" />
+77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\d4eccc3804f16f7194b7ec6b748fc4de\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+78            <meta-data
+78-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\f45ee7b3e5c5c05f3a55e39f2fc50dce\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+79                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+79-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\f45ee7b3e5c5c05f3a55e39f2fc50dce\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+80                android:value="androidx.startup" />
+80-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\f45ee7b3e5c5c05f3a55e39f2fc50dce\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+81            <meta-data
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+83                android:value="androidx.startup" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+84        </provider>
+85
+86        <receiver
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+87            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+88            android:directBootAware="false"
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+89            android:enabled="true"
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+90            android:exported="true"
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+91            android:permission="android.permission.DUMP" >
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+92            <intent-filter>
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+93                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+94            </intent-filter>
+95            <intent-filter>
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+96                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+97            </intent-filter>
+98            <intent-filter>
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+99                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+100            </intent-filter>
+101            <intent-filter>
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+102                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Subhan Faisal\.gradle\caches\transforms-4\8a03dae9c7b5b2fcc0db23ca6aca6299\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+103            </intent-filter>
+104        </receiver>
+105    </application>
+106
+107</manifest>
