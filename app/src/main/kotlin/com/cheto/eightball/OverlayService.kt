@@ -137,11 +137,16 @@ class OverlayService : Service() {
 
     private fun setupScreenCapture(resultCode: Int, data: Intent) {
         try {
+            Log.d("OverlayService", ">>> setupScreenCapture called with resultCode=$resultCode")
+            updateDebug("STARTING CAPTURE...")
+            
             mediaProjection = mediaProjectionManager?.getMediaProjection(resultCode, data)
             if (mediaProjection == null) {
-                Log.e("OverlayService", "MediaProjection is null")
+                Log.e("OverlayService", "MediaProjection is null!")
+                updateDebug("ERROR: MediaProjection NULL")
                 return
             }
+            Log.d("OverlayService", ">>> MediaProjection obtained OK")
             
             val width: Int
             val height: Int
@@ -164,10 +169,12 @@ class OverlayService : Service() {
 
             screenWidth = width
             screenHeight = height
+            Log.d("OverlayService", ">>> Screen: ${width}x${height}, density=$density")
 
-            // Capture at 1/3 resolution for maximum speed
-            val captureWidth = width / 3
-            val captureHeight = height / 3
+            // Capture at 1/2 resolution (1/3 is too low for white line detection)
+            val captureWidth = width / 2
+            val captureHeight = height / 2
+            Log.d("OverlayService", ">>> Capture size: ${captureWidth}x${captureHeight}")
 
             imageReader = ImageReader.newInstance(captureWidth, captureHeight, PixelFormat.RGBA_8888, 2)
             
@@ -177,6 +184,16 @@ class OverlayService : Service() {
                 DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
                 imageReader?.surface, null, null
             )
+            
+            if (virtualDisplay == null) {
+                Log.e("OverlayService", "VirtualDisplay is null!")
+                updateDebug("ERROR: VirtualDisplay NULL")
+                return
+            }
+            Log.d("OverlayService", ">>> VirtualDisplay created OK")
+            updateDebug("CAPTURE READY - Waiting for frames...")
+
+            var frameNum = 0
 
             imageReader?.setOnImageAvailableListener({ reader ->
                 try {
@@ -185,6 +202,7 @@ class OverlayService : Service() {
                         val now = System.currentTimeMillis()
                         if (now - lastProcessedTime >= FRAME_INTERVAL_MS) {
                             lastProcessedTime = now
+                            frameNum++
                             try {
                                 val planes = image.planes
                                 val buffer = planes[0].buffer
@@ -203,37 +221,49 @@ class OverlayService : Service() {
                                 if (bitmap != croppedBitmap) bitmap.recycle()
                                 image.close()
 
+                                val currentFrameNum = frameNum
+
                                 processingHandler?.post {
                                     try {
                                         // PRIMARY: Pixel-based ScreenAnalyzer
                                         val aimResult = screenAnalyzer.analyze(croppedBitmap)
                                         
+                                        val scX = screenWidth.toFloat() / croppedBitmap.width.toFloat()
+                                        val scY = screenHeight.toFloat() / croppedBitmap.height.toFloat()
+                                        
                                         if (aimResult != null) {
-                                            // Scale factor: capture is half of screen
-                                            val scX = screenWidth.toFloat() / croppedBitmap.width.toFloat()
-                                            val scY = screenHeight.toFloat() / croppedBitmap.height.toFloat()
+                                            Log.d("OverlayService", ">>> Frame #$currentFrameNum: AIM FOUND! CueBall=(${aimResult.cueBallX}, ${aimResult.cueBallY}) Dir=(${aimResult.aimDirX}, ${aimResult.aimDirY})")
                                             
                                             android.os.Handler(android.os.Looper.getMainLooper()).post {
                                                 guidelineView?.captureScaleX = scX
                                                 guidelineView?.captureScaleY = scY
                                                 guidelineView?.aimResult = aimResult
+                                                guidelineView?.frameCount = currentFrameNum
+                                                guidelineView?.debugStatus = "AIM DETECTED ✓"
                                                 guidelineView?.invalidate()
                                             }
                                         } else {
-                                            // FALLBACK: Try YOLO if ScreenAnalyzer can't detect
+                                            if (currentFrameNum % 10 == 0) {
+                                                Log.d("OverlayService", ">>> Frame #$currentFrameNum: No aim detected, bitmap=${croppedBitmap.width}x${croppedBitmap.height}")
+                                            }
+                                            
+                                            // FALLBACK: Try YOLO
                                             val detector = yoloDetector
                                             if (detector != null) {
                                                 val detections = detector.detect(croppedBitmap)
                                                 android.os.Handler(android.os.Looper.getMainLooper()).post {
                                                     guidelineView?.aimResult = null
                                                     guidelineView?.detections = detections
+                                                    guidelineView?.frameCount = currentFrameNum
+                                                    guidelineView?.debugStatus = "YOLO: ${detections.size} objs"
                                                     guidelineView?.invalidate()
                                                 }
                                             } else {
-                                                // Clear lines when nothing detected
                                                 android.os.Handler(android.os.Looper.getMainLooper()).post {
                                                     guidelineView?.aimResult = null
                                                     guidelineView?.detections = emptyList()
+                                                    guidelineView?.frameCount = currentFrameNum
+                                                    guidelineView?.debugStatus = "SCANNING... (no aim line visible)"
                                                     guidelineView?.invalidate()
                                                 }
                                             }
@@ -242,11 +272,13 @@ class OverlayService : Service() {
                                         croppedBitmap.recycle()
                                     } catch (e: Exception) {
                                         Log.e("OverlayService", "Frame analysis error", e)
+                                        updateDebug("ERROR: ${e.message}")
                                         try { croppedBitmap.recycle() } catch (_: Exception) {}
                                     }
                                 }
                             } catch (e: Exception) {
                                 Log.e("OverlayService", "Frame processing error", e)
+                                updateDebug("FRAME ERROR: ${e.message}")
                                 try { image.close() } catch (_: Exception) {}
                             }
                         } else {
@@ -259,7 +291,18 @@ class OverlayService : Service() {
             }, processingHandler)
         } catch (e: Exception) {
             Log.e("OverlayService", "setupScreenCapture failed completely", e)
+            updateDebug("CAPTURE FAILED: ${e.message}")
         }
+    }
+
+    private fun updateDebug(msg: String) {
+        Log.d("OverlayService", "DEBUG: $msg")
+        try {
+            android.os.Handler(android.os.Looper.getMainLooper()).post {
+                guidelineView?.debugStatus = msg
+                guidelineView?.invalidate()
+            }
+        } catch (_: Exception) {}
     }
 
     private fun setupGuidelines() {

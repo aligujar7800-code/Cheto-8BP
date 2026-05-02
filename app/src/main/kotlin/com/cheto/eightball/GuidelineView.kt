@@ -23,6 +23,11 @@ class GuidelineView(context: Context) : View(context) {
     var captureScaleX: Float = 1f
     var captureScaleY: Float = 1f
 
+    // Debug info
+    var debugStatus: String = "WAITING..."
+    var frameCount: Int = 0
+    var showDebug: Boolean = true // Show debug overlay until working
+
     // ---- Paints ----
 
     private val aimLinePaint = Paint().apply {
@@ -62,11 +67,16 @@ class GuidelineView(context: Context) : View(context) {
         isAntiAlias = true
     }
 
-    private val pocketPaint = Paint().apply {
-        color = Color.argb(180, 0, 255, 0)
-        strokeWidth = 3f
-        style = Paint.Style.FILL
+    private val debugPaint = Paint().apply {
+        color = Color.YELLOW
+        textSize = 28f
         isAntiAlias = true
+        setShadowLayer(3f, 1f, 1f, Color.BLACK)
+    }
+
+    private val debugBgPaint = Paint().apply {
+        color = Color.argb(160, 0, 0, 0)
+        style = Paint.Style.FILL
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -79,20 +89,47 @@ class GuidelineView(context: Context) : View(context) {
         bankBouncePaint.alpha = (lineAlpha * 0.6f).toInt()
         ghostBallPaint.alpha = (lineAlpha * 0.8f).toInt()
 
+        // Draw a small green dot in top-left to prove overlay is visible
+        canvas.drawCircle(30f, 100f, 10f, Paint().apply { color = Color.GREEN; style = Paint.Style.FILL })
+
         val aim = aimResult
         if (aim != null) {
             drawFromAimResult(canvas, aim)
-            return
+        } else if (detections.isNotEmpty()) {
+            drawFromYolo(canvas)
         }
 
-        // Fallback: try YOLO detections
-        if (detections.isNotEmpty()) {
-            drawFromYolo(canvas)
+        // Debug overlay
+        if (showDebug) {
+            drawDebugInfo(canvas)
+        }
+    }
+
+    private fun drawDebugInfo(canvas: Canvas) {
+        val x = 20f
+        var y = 140f
+        val lineH = 32f
+
+        // Background
+        canvas.drawRect(x - 5, y - 25, x + 450, y + lineH * 6, debugBgPaint)
+
+        val aim = aimResult
+        canvas.drawText("8BP Aimers Debug", x, y, debugPaint); y += lineH
+        canvas.drawText("Frames: $frameCount", x, y, debugPaint); y += lineH
+        canvas.drawText("Status: $debugStatus", x, y, debugPaint); y += lineH
+
+        if (aim != null) {
+            canvas.drawText("CueBall: (${aim.cueBallX.toInt()}, ${aim.cueBallY.toInt()})", x, y, debugPaint); y += lineH
+            canvas.drawText("AimDir: (${String.format("%.2f", aim.aimDirX)}, ${String.format("%.2f", aim.aimDirY)})", x, y, debugPaint); y += lineH
+            canvas.drawText("Table: ${aim.tableLeft.toInt()},${aim.tableTop.toInt()} - ${aim.tableRight.toInt()},${aim.tableBottom.toInt()}", x, y, debugPaint); y += lineH
+            canvas.drawText("Balls: ${aim.ballPositions.size} | Radius: ${aim.ballRadius.toInt()}", x, y, debugPaint)
+        } else {
+            canvas.drawText("AimResult: NULL", x, y, debugPaint); y += lineH
+            canvas.drawText("YOLO Detections: ${detections.size}", x, y, debugPaint)
         }
     }
 
     private fun drawFromAimResult(canvas: Canvas, aim: ScreenAnalyzer.AimResult) {
-        // Map capture coordinates to screen coordinates
         val sx = captureScaleX
         val sy = captureScaleY
 
@@ -107,7 +144,6 @@ class GuidelineView(context: Context) : View(context) {
         val boundsRight = aim.tableRight * sx
         val boundsBottom = aim.tableBottom * sy
 
-        // Map ball positions
         val balls = aim.ballPositions.map { Pair(it.first * sx, it.second * sy) }
 
         // Raycast: check if aim hits any ball
@@ -137,16 +173,12 @@ class GuidelineView(context: Context) : View(context) {
         }
 
         if (hitBallIdx >= 0) {
-            // Hit a ball
             val impactX = cx + dirX * closestHitT
             val impactY = cy + dirY * closestHitT
 
-            // Aim line: cue ball -> impact point
             canvas.drawLine(cx, cy, impactX, impactY, aimLinePaint)
-            // Ghost ball at impact
             canvas.drawCircle(impactX, impactY, radius, ghostBallPaint)
 
-            // Target ball trajectory
             val bx = balls[hitBallIdx].first
             val by = balls[hitBallIdx].second
             val nx = bx - impactX
@@ -156,12 +188,10 @@ class GuidelineView(context: Context) : View(context) {
                 val targetDirX = nx / nLen
                 val targetDirY = ny / nLen
 
-                // Draw target ball path with bank bounces
                 drawRay(canvas, bx, by, targetDirX, targetDirY,
                     boundsLeft, boundsTop, boundsRight, boundsBottom,
                     radius, targetLinePaint, if (showBankShots) 3 else 0)
 
-                // Cue ball reflection after impact
                 if (showCueReflection) {
                     val tangentX = -targetDirY
                     val tangentY = targetDirX
@@ -175,7 +205,6 @@ class GuidelineView(context: Context) : View(context) {
                 }
             }
         } else {
-            // No ball hit - aim line goes to wall with bank bounces
             drawRay(canvas, cx, cy, dirX, dirY,
                 boundsLeft, boundsTop, boundsRight, boundsBottom,
                 radius, aimLinePaint, if (showBankShots) 3 else 0)
@@ -227,7 +256,6 @@ class GuidelineView(context: Context) : View(context) {
             boundsBottom = (playArea.y + playArea.h / 2) * scaleY
         }
 
-        // Raycast against balls
         var closestHitT = Float.MAX_VALUE
         var hitBall: YoloDetector.Detection? = null
 
@@ -287,7 +315,6 @@ class GuidelineView(context: Context) : View(context) {
         var cy = startY
         var dx = dirX
         var dy = dirY
-        val usePaint = if (maxBounces > 0) paint else paint
 
         for (i in 0..maxBounces) {
             var tX = Float.MAX_VALUE
