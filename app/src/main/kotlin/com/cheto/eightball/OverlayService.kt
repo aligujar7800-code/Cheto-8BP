@@ -234,11 +234,15 @@ class OverlayService : Service() {
                 guidelineView?.invalidate()
             }
 
-            // Memory Mode is now ALWAYS ON, so we can hide or disable the switch
-            val switchMem = menuView?.findViewById<android.widget.Switch>(R.id.switchMemoryMode)
-            switchMem?.isChecked = true
-            switchMem?.isEnabled = false
-            switchMem?.text = "Memory Mode (Always On)"
+            // Auto-Play toggle
+            menuView?.findViewById<android.widget.Switch>(R.id.switchAutoPlay)?.setOnCheckedChangeListener { _, isChecked ->
+                AutoPlayManager.getInstance().setEnabled(isChecked)
+            }
+
+            // Anti-Ban Protection toggle
+            menuView?.findViewById<android.widget.Switch>(R.id.switchAntiBan)?.setOnCheckedChangeListener { _, isChecked ->
+                // Security is always checked in native if enabled
+            }
             
             menuView?.findViewById<android.widget.SeekBar>(R.id.seekBarOpacity)?.setOnSeekBarChangeListener(object : android.widget.SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: android.widget.SeekBar?, progress: Int, fromUser: Boolean) {

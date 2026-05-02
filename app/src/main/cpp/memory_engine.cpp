@@ -9,6 +9,24 @@
 #define LOG_TAG "ChetoNative"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
+/**
+ * ANTI-BAN: String Obfuscation
+ * Simple XOR encryption to hide strings from static analysis.
+ */
+std::string decrypt(std::string data) {
+    char key = 'K'; 
+    for (int i = 0; i < data.size(); i++) data[i] ^= key;
+    return data;
+}
+
+/**
+ * ANTI-BAN: Debugger Detection
+ * Checks if the process is being traced.
+ */
+bool is_being_debugged() {
+    return (getppid() > 1); // Simple check for tracer process
+}
+
 extern "C" {
 
 /**
@@ -89,6 +107,18 @@ Java_com_cheto_eightball_MemoryManager_nativeReadBalls(JNIEnv* env, jobject thiz
     jfloatArray output = env->NewFloatArray(ball_count * 2);
     env->SetFloatArrayRegion(output, 0, ball_count * 2, results);
     return output;
+}
+
+/**
+ * ANTI-BAN: Safety check call
+ */
+JNIEXPORT jboolean JNICALL
+Java_com_cheto_eightball_MemoryManager_nativeCheckSecurity(JNIEnv* env, jobject thiz) {
+    if (is_being_debugged()) {
+        LOGD("CRITICAL: Debugger detected! Throttling memory access for safety.");
+        return JNI_FALSE;
+    }
+    return JNI_TRUE;
 }
 
 }

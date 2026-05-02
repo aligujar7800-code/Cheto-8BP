@@ -99,6 +99,7 @@ class MemoryManager {
      */
     private external fun nativeScanSignature(pid: Int, start: Long, end: Long, signature: ByteArray): Long
     private external fun nativeReadBalls(pid: Int, ballListAddress: Long): FloatArray
+    private external fun nativeCheckSecurity(): Boolean
 
     /**
      * Reads ball data directly from RAM.
@@ -106,6 +107,9 @@ class MemoryManager {
      */
     fun readGameData(): ScreenAnalyzer.AimResult? {
         if (!isHooked || gamePid == -1) return null
+        
+        // Anti-Ban Security Check
+        if (!nativeCheckSecurity()) return null
 
         try {
             // This is where the magic happens.
