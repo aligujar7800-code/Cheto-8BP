@@ -3123,6 +3123,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnClear
+id btnClose
 id btnLanguage
 id btnLogin
 id btnResellers

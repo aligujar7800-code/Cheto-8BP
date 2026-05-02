@@ -18,6 +18,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ninja_logo
 id btnClear
+id btnClose
 id btnLanguage
 id btnLogin
 id btnResellers
