@@ -11,7 +11,7 @@ android {
         applicationId "com.cheto.eightball"
         minSdk 24
         targetSdk 35
-        versionCode 
+        versionCode 12
         versionName "1.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

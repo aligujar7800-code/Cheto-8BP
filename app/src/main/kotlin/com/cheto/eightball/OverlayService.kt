@@ -66,144 +66,169 @@ class OverlayService : Service() {
         createNotificationChannel()
 
         // CRITICAL: startForeground MUST be called IMMEDIATELY in onCreate
-        // Use SPECIAL_USE type first (does not require media projection token)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
-        } else {
-            startForeground(1, createNotification())
+        // On Android 14+ use SPECIAL_USE first (no media projection token needed yet)
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
+            } else {
+                startForeground(1, createNotification())
+            }
+        } catch (e: Exception) {
+            Log.e("OverlayService", "startForeground failed, falling back", e)
+            try { startForeground(1, createNotification()) } catch (_: Exception) {}
         }
 
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
         // Background thread for AI processing
-        processingThread = HandlerThread("YoloProcessing").also { it.start() }
-        processingHandler = Handler(processingThread!!.looper)
+        try {
+            processingThread = HandlerThread("YoloProcessing").also { it.start() }
+            processingHandler = Handler(processingThread!!.looper)
 
-        // Load AI model on background thread to avoid blocking
-        processingHandler?.post {
-            try {
-                yoloDetector = YoloDetector(this)
-                Log.d("OverlayService", "✅ YOLO Model loaded successfully")
-            } catch (e: Exception) {
-                Log.e("OverlayService", "❌ Failed to load YOLO Model", e)
+            // Load AI model on background thread to avoid blocking
+            processingHandler?.post {
+                try {
+                    yoloDetector = YoloDetector(this)
+                    Log.d("OverlayService", "✅ YOLO Model loaded successfully")
+                } catch (e: Exception) {
+                    Log.e("OverlayService", "❌ Failed to load YOLO Model", e)
+                    yoloDetector = null
+                }
             }
+        } catch (e: Exception) {
+            Log.e("OverlayService", "Failed to start processing thread", e)
         }
 
-        setupGuidelines()
-        setupBubble()
+        try { setupGuidelines() } catch (e: Exception) { Log.e("OverlayService", "setupGuidelines failed", e) }
+        try { setupBubble() } catch (e: Exception) { Log.e("OverlayService", "setupBubble failed", e) }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (intent != null) {
-            val resultCode = intent.getIntExtra("RESULT_CODE", 0)
-            val data: Intent? = intent.getParcelableExtra("DATA")
-            if (resultCode != 0 && data != null) {
-                setupScreenCapture(resultCode, data)
-                
-                // Upgrade to MEDIA_PROJECTION type now that we have the token
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    try {
-                        startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
-                    } catch (e: Exception) {
-                        Log.e("OverlayService", "Could not upgrade to media projection FGS type", e)
+        try {
+            if (intent != null) {
+                val resultCode = intent.getIntExtra("RESULT_CODE", 0)
+                val data: Intent? = intent.getParcelableExtra("DATA")
+                if (resultCode != 0 && data != null) {
+                    setupScreenCapture(resultCode, data)
+                    
+                    // Upgrade to MEDIA_PROJECTION type now that we have the token
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        try {
+                            startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
+                        } catch (e: Exception) {
+                            Log.e("OverlayService", "Could not upgrade to media projection FGS type", e)
+                        }
                     }
                 }
             }
+        } catch (e: Exception) {
+            Log.e("OverlayService", "onStartCommand error", e)
         }
         
         return START_STICKY
     }
 
     private fun setupScreenCapture(resultCode: Int, data: Intent) {
-        mediaProjection = mediaProjectionManager?.getMediaProjection(resultCode, data)
-        
-        val width: Int
-        val height: Int
-        val density: Int
-        
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val windowMetrics = windowManager.currentWindowMetrics
-            val bounds = windowMetrics.bounds
-            width = bounds.width()
-            height = bounds.height()
-            density = resources.displayMetrics.densityDpi
-        } else {
-            val metrics = DisplayMetrics()
-            @Suppress("DEPRECATION")
-            windowManager.defaultDisplay.getRealMetrics(metrics)
-            width = metrics.widthPixels
-            height = metrics.heightPixels
-            density = metrics.densityDpi
-        }
+        try {
+            mediaProjection = mediaProjectionManager?.getMediaProjection(resultCode, data)
+            if (mediaProjection == null) {
+                Log.e("OverlayService", "MediaProjection is null")
+                return
+            }
+            
+            val width: Int
+            val height: Int
+            val density: Int
+            
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                val windowMetrics = windowManager.currentWindowMetrics
+                val bounds = windowMetrics.bounds
+                width = bounds.width()
+                height = bounds.height()
+                density = resources.displayMetrics.densityDpi
+            } else {
+                val metrics = DisplayMetrics()
+                @Suppress("DEPRECATION")
+                windowManager.defaultDisplay.getRealMetrics(metrics)
+                width = metrics.widthPixels
+                height = metrics.heightPixels
+                density = metrics.densityDpi
+            }
 
-        // We capture in lower resolution for performance (e.g., /2)
-        val captureWidth = width / 2
-        val captureHeight = height / 2
+            // We capture in lower resolution for performance (e.g., /2)
+            val captureWidth = width / 2
+            val captureHeight = height / 2
 
-        imageReader = ImageReader.newInstance(captureWidth, captureHeight, PixelFormat.RGBA_8888, 2)
-        
-        virtualDisplay = mediaProjection?.createVirtualDisplay(
-            "ScreenCapture",
-            captureWidth, captureHeight, density,
-            DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
-            imageReader?.surface, null, null
-        )
+            imageReader = ImageReader.newInstance(captureWidth, captureHeight, PixelFormat.RGBA_8888, 2)
+            
+            virtualDisplay = mediaProjection?.createVirtualDisplay(
+                "ScreenCapture",
+                captureWidth, captureHeight, density,
+                DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
+                imageReader?.surface, null, null
+            )
 
-        imageReader?.setOnImageAvailableListener({ reader ->
-            val image = reader.acquireLatestImage()
-            if (image != null) {
-                val now = System.currentTimeMillis()
-                if (now - lastProcessedTime >= FRAME_INTERVAL_MS && yoloDetector != null) {
-                    lastProcessedTime = now
-                    try {
-                        // Convert Image to Bitmap
-                        val planes = image.planes
-                        val buffer = planes[0].buffer
-                        val pixelStride = planes[0].pixelStride
-                        val rowStride = planes[0].rowStride
-                        val rowPadding = rowStride - pixelStride * image.width
-                        
-                        val bitmap = Bitmap.createBitmap(
-                            image.width + rowPadding / pixelStride,
-                            image.height,
-                            Bitmap.Config.ARGB_8888
-                        )
-                        bitmap.copyPixelsFromBuffer(buffer)
-                        
-                        // Crop to actual width (remove padding)
-                        val croppedBitmap = Bitmap.createBitmap(bitmap, 0, 0, image.width, image.height)
-                        if (bitmap != croppedBitmap) bitmap.recycle()
-
-                        image.close()
-
-                        // Run inference on background thread
-                        processingHandler?.post {
+            imageReader?.setOnImageAvailableListener({ reader ->
+                try {
+                    val image = reader.acquireLatestImage()
+                    if (image != null) {
+                        val now = System.currentTimeMillis()
+                        if (now - lastProcessedTime >= FRAME_INTERVAL_MS && yoloDetector != null) {
+                            lastProcessedTime = now
                             try {
-                                val detections = yoloDetector!!.detect(croppedBitmap)
-                                croppedBitmap.recycle()
+                                val planes = image.planes
+                                val buffer = planes[0].buffer
+                                val pixelStride = planes[0].pixelStride
+                                val rowStride = planes[0].rowStride
+                                val rowPadding = rowStride - pixelStride * image.width
                                 
-                                // Update UI on main thread
-                                android.os.Handler(android.os.Looper.getMainLooper()).post {
-                                    guidelineView?.detections = detections
-                                    guidelineView?.invalidate()
+                                val bitmap = Bitmap.createBitmap(
+                                    image.width + rowPadding / pixelStride,
+                                    image.height,
+                                    Bitmap.Config.ARGB_8888
+                                )
+                                bitmap.copyPixelsFromBuffer(buffer)
+                                
+                                val croppedBitmap = Bitmap.createBitmap(bitmap, 0, 0, image.width, image.height)
+                                if (bitmap != croppedBitmap) bitmap.recycle()
+                                image.close()
+
+                                processingHandler?.post {
+                                    try {
+                                        val detector = yoloDetector
+                                        if (detector != null) {
+                                            val detections = detector.detect(croppedBitmap)
+                                            croppedBitmap.recycle()
+                                            android.os.Handler(android.os.Looper.getMainLooper()).post {
+                                                guidelineView?.detections = detections
+                                                guidelineView?.invalidate()
+                                            }
+                                        } else {
+                                            croppedBitmap.recycle()
+                                        }
+                                    } catch (e: Exception) {
+                                        Log.e("OverlayService", "AI inference error", e)
+                                        try { croppedBitmap.recycle() } catch (_: Exception) {}
+                                    }
                                 }
                             } catch (e: Exception) {
-                                Log.e("OverlayService", "AI inference error", e)
-                                croppedBitmap.recycle()
+                                Log.e("OverlayService", "Frame processing error", e)
+                                try { image.close() } catch (_: Exception) {}
                             }
+                        } else {
+                            image.close()
                         }
-                    } catch (e: Exception) {
-                        Log.e("OverlayService", "Frame processing error", e)
-                        image.close()
                     }
-                } else {
-                    image.close()
+                } catch (e: Exception) {
+                    Log.e("OverlayService", "Image listener error", e)
                 }
-            }
-        }, processingHandler)
+            }, processingHandler)
+        } catch (e: Exception) {
+            Log.e("OverlayService", "setupScreenCapture failed completely", e)
+        }
     }
 
     private fun setupGuidelines() {
@@ -420,13 +445,13 @@ class OverlayService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        virtualDisplay?.release()
-        imageReader?.close()
-        mediaProjection?.stop()
-        processingThread?.quitSafely()
+        try { virtualDisplay?.release() } catch (_: Exception) {}
+        try { imageReader?.close() } catch (_: Exception) {}
+        try { mediaProjection?.stop() } catch (_: Exception) {}
+        try { processingThread?.quitSafely() } catch (_: Exception) {}
         
-        guidelineView?.let { windowManager.removeView(it) }
-        floatingBubble?.let { windowManager.removeView(it) }
-        menuView?.let { windowManager.removeView(it) }
+        try { guidelineView?.let { windowManager.removeView(it) } } catch (_: Exception) {}
+        try { floatingBubble?.let { windowManager.removeView(it) } } catch (_: Exception) {}
+        try { menuView?.let { windowManager.removeView(it) } } catch (_: Exception) {}
     }
 }
