@@ -29,8 +29,12 @@ id etUsername
 id ivLogo
 id ivMainLogo
 id seekBarOpacity
+id switchAlwaysBreak
+id switchAntiBan
+id switchAutoPlay
 id switchBankShots
 id switchCueReflection
+id switchMemoryMode
 id tilPassword
 id tilUsername
 id tvInstallWarning

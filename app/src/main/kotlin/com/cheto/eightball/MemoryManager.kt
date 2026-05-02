@@ -75,7 +75,8 @@ class MemoryManager {
             val mapsFile = File("/proc/$pid/maps")
             if (!mapsFile.exists()) return null
             
-            mapsFile.forEachLine { line ->
+            val lines = mapsFile.readLines()
+            for (line in lines) {
                 if (line.contains(moduleName) && line.contains("r-xp")) {
                     val parts = line.split(" ")[0].split("-")
                     val start = parts[0].toLong(16)

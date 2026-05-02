@@ -97,7 +97,7 @@ class OverlayService : Service() {
     private fun startMemoryLoop() {
         processingHandler?.post(object : Runnable {
             override fun run() {
-                if (!isActive) return
+                if (processingThread?.isAlive != true) return
 
                 val now = System.currentTimeMillis()
                 if (now - lastProcessedTime >= FRAME_INTERVAL_MS) {

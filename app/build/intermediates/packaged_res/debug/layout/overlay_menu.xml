@@ -108,6 +108,110 @@
                 android:trackTint="#555555"/>
         </LinearLayout>
 
+        <!-- Memory Hooking Toggle (Always On) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Memory Mode (Cheto)"
+                android:textColor="#FFD600"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:id="@+id/switchMemoryMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:enabled="false"
+                android:thumbTint="#FFD600"
+                android:trackTint="#555555"/>
+        </LinearLayout>
+
+        <!-- Auto Play Toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Auto-Play (Beta)"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
+
+            <Switch
+                android:id="@+id/switchAutoPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:thumbTint="#FF5252"
+                android:trackTint="#555555"/>
+        </LinearLayout>
+
+        <!-- Anti-Ban Protection Toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Anti-Ban Protection"
+                android:textColor="#00E676"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:id="@+id/switchAntiBan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:thumbTint="#00E676"
+                android:trackTint="#555555"/>
+        </LinearLayout>
+
+        <!-- Always Break Toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Always Break (High Risk)"
+                android:textColor="#FF8F00"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:id="@+id/switchAlwaysBreak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:thumbTint="#FF8F00"
+                android:trackTint="#555555"/>
+        </LinearLayout>
+
         <!-- Divider -->
         <View
             android:layout_width="match_parent"
