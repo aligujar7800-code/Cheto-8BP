@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bgColor">#11111B</color>
+    <color name="buttonColor">#6A1B9A</color>
+    <color name="colorAccent">#E040FB</color>
+    <color name="colorPrimary">#6A1B9A</color>
+    <color name="colorPrimaryDark">#4A148C</color>
+    <color name="inputBgColor">#1A1A24</color>
+    <color name="inputBorderColor">#2A2A38</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="textColorSecondary">#8A8A9E</color>
+</resources>
