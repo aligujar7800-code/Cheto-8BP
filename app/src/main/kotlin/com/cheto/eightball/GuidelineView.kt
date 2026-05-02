@@ -5,230 +5,252 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.view.View
+import kotlin.math.sqrt
 
 class GuidelineView(context: Context) : View(context) {
 
-    var showHorizontal = true
-    var showVertical = true
-    var showCircle = true
-    var showCrosshair = true
-    var showPowerGuide = true
+    var showHorizontal = false
+    var showVertical = false
+    var showCircle = false
+    var showCrosshair = false
+    var showPowerGuide = false
     var showFullScan = true
     var showBankShots = true
-    var showSpinCurve = true
+    var showSpinCurve = false
     var autoAimEnabled = false
     var breakChance = 45
+    
+    // User can adjust transparency (0-255)
+    var lineAlpha: Int = 200
 
-    private val ballPaint = Paint().apply {
+    // Paints
+    private val mainPathPaint = Paint().apply {
         color = Color.WHITE
+        strokeWidth = 4f
+        style = Paint.Style.STROKE
+        isAntiAlias = true
+    }
+
+    private val targetPathPaint = Paint().apply {
+        color = Color.GREEN
+        strokeWidth = 4f
+        style = Paint.Style.STROKE
+        isAntiAlias = true
+    }
+
+    private val cueReflectPaint = Paint().apply {
+        color = Color.CYAN
         strokeWidth = 3f
         style = Paint.Style.STROKE
         isAntiAlias = true
         pathEffect = android.graphics.DashPathEffect(floatArrayOf(15f, 10f), 0f)
     }
 
-    private val bankPaint = Paint().apply {
-        color = Color.MAGENTA
-        strokeWidth = 3f
-        style = Paint.Style.STROKE
-        isAntiAlias = true
-        pathEffect = android.graphics.DashPathEffect(floatArrayOf(5f, 5f), 0f)
-    }
-
-    private val curvePaint = Paint().apply {
-        color = Color.rgb(255, 165, 0) // Orange
-        strokeWidth = 4f
+    private val ghostBallPaint = Paint().apply {
+        color = Color.WHITE
+        strokeWidth = 2f
         style = Paint.Style.STROKE
         isAntiAlias = true
     }
 
-    private val targetPaint = Paint().apply {
-        color = Color.CYAN
-        strokeWidth = 3f
-        style = Paint.Style.STROKE
-        isAntiAlias = true
-    }
-
-    private val paint = Paint().apply {
+    private val detectionPaint = Paint().apply {
         color = Color.RED
         strokeWidth = 2f
         style = Paint.Style.STROKE
         isAntiAlias = true
     }
 
-    private val centerPaint = Paint().apply {
-        color = Color.GREEN
-        strokeWidth = 4f
-        style = Paint.Style.STROKE
-        isAntiAlias = true
-    }
-
-    private val textPaint = Paint().apply {
-        color = Color.YELLOW
-        textSize = 40f
-        isAntiAlias = true
-        textAlign = Paint.Align.CENTER
-    }
+    var detections: List<YoloDetector.Detection> = emptyList()
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val width = width.toFloat()
-        val height = height.toFloat()
+        if (detections.isEmpty()) return
 
-        // Center point
-        val centerX = width / 2
-        val centerY = height / 2
+        // Update alphas
+        mainPathPaint.alpha = lineAlpha
+        targetPathPaint.alpha = lineAlpha
+        cueReflectPaint.alpha = lineAlpha
+        ghostBallPaint.alpha = lineAlpha
 
-        // Draw crosshair at center
-        if (showCrosshair) {
-            canvas.drawLine(centerX - 50, centerY, centerX + 50, centerY, centerPaint)
-            canvas.drawLine(centerX, centerY - 50, centerX, centerY + 50, centerPaint)
-        }
-
-        // Draw basic guide lines
-        if (showHorizontal) {
-            canvas.drawLine(0f, centerY, width, centerY, paint)
-        }
-        if (showVertical) {
-            canvas.drawLine(centerX, 0f, centerX, height, paint)
-        }
-        
-        // Circular guide
-        if (showCircle) {
-            canvas.drawCircle(centerX, centerY, 100f, paint)
-        }
-
-        // Power Guide
-        if (showPowerGuide) {
-            val startY = centerY - 200
-            val endY = centerY + 200
-            canvas.drawLine(width - 100, startY, width - 100, endY, paint)
-            for (i in 0..10) {
-                val y = startY + (i * 40)
-                canvas.drawLine(width - 110, y, width - 90, y, paint)
-            }
-            canvas.drawText("POWER", width - 100, startY - 20, textPaint)
-        }
-
-        // Break Chance Text
-        canvas.drawText("BREAK CHANCE: $breakChance%", centerX, 100f, textPaint)
-
-        // Full Table Scan / Multi-Ball Prediction
-        if (showFullScan) {
-            drawMultiBallPrediction(canvas, width, height)
-        }
-
-        // Draw AI Detections
-        if (detections.isNotEmpty()) {
-            drawDetections(canvas)
-        }
-    }
-
-    private fun drawMultiBallPrediction(canvas: Canvas, width: Float, height: Float) {
-        val centerX = width / 2
-        val centerY = height / 2
-
-        // Simulate Cue Ball Trajectory
-        // In a real tool, these points would come from Image Recognition
-        val cueX = centerX
-        val cueY = centerY + 300
-        
-        // Line from Cue Ball to Target
-        canvas.drawLine(cueX, cueY, centerX, centerY, ballPaint)
-        canvas.drawCircle(centerX, centerY, 30f, ballPaint) // Prediction of where cue ball hits
-
-        // Reflected line (where white ball goes)
-        canvas.drawLine(centerX, centerY, centerX - 200, centerY - 200, ballPaint)
-        
-        // Spin Curve (English) Prediction
-        if (showSpinCurve) {
-            val path = android.graphics.Path()
-            path.moveTo(centerX - 200, centerY - 200)
-            path.quadTo(centerX - 300, centerY - 150, centerX - 400, centerY - 50)
-            canvas.drawPath(path, curvePaint)
-            canvas.drawText("SPIN CURVE", centerX - 400, centerY - 30, textPaint)
-        } else {
-            canvas.drawText("CUE STOP", centerX - 200, centerY - 220, textPaint)
-        }
-
-        // Target Ball trajectory to Pocket
-        canvas.drawLine(centerX, centerY, centerX + 400, centerY - 400, targetPaint)
-        
-        // Bank Shot Prediction (Bouncing off walls)
-        if (showBankShots) {
-            // Simulate bounce off top rail
-            canvas.drawLine(centerX + 400, centerY - 400, centerX + 600, centerY - 200, bankPaint)
-            canvas.drawCircle(centerX + 600, centerY - 200, 30f, bankPaint)
-            canvas.drawText("BANK POCKET", centerX + 600, centerY - 220, textPaint)
-        } else {
-            canvas.drawCircle(centerX + 400, centerY - 400, 30f, targetPaint)
-            canvas.drawText("POCKET", centerX + 400, centerY - 420, textPaint)
-        }
-
-        // Other balls prediction (Simulated)
-        for (i in 1..3) {
-            val bx = centerX + (i * 150) - 300
-            val by = centerY - (i * 100)
-            canvas.drawCircle(bx, by, 25f, targetPaint)
-            canvas.drawLine(bx, by, bx + 100, by - 200, targetPaint)
-            
-            if (showBankShots) {
-                 canvas.drawLine(bx + 100, by - 200, bx + 50, by - 300, bankPaint)
-            }
-        }
-        
-        if (autoAimEnabled) {
-             canvas.drawText("MAGNETIC AIM: ON", centerX, centerY + 200, textPaint)
-             canvas.drawCircle(centerX, centerY, 50f, centerPaint)
-        }
-    }
-
-    var detections: List<YoloDetector.Detection> = emptyList()
-
-    private val detectionPaint = Paint().apply {
-        color = Color.GREEN
-        strokeWidth = 4f
-        style = Paint.Style.STROKE
-    }
-
-    private val detectionTextPaint = Paint().apply {
-        color = Color.WHITE
-        textSize = 30f
-        style = Paint.Style.FILL
-    }
-
-    private fun drawDetections(canvas: Canvas) {
-        // AI Model expects 640x640, so we need to map back the coordinates
-        // Assuming the image was scaled from screen size to 640x640
         val scaleX = width / 640f
         val scaleY = height / 640f
 
-        val classNames = arrayOf("Ball", "Force", "Guideline", "Hole", "Play_Area", "Spin", "White")
+        var cueBall: YoloDetector.Detection? = null
+        var guideline: YoloDetector.Detection? = null
+        var playArea: YoloDetector.Detection? = null
+        val targetBalls = mutableListOf<YoloDetector.Detection>()
+        val holes = mutableListOf<YoloDetector.Detection>()
 
+        // 0: Ball, 1: Force, 2: Guideline, 3: Hole, 4: Play_Area, 5: Spin, 6: White
         for (det in detections) {
-            val x = det.x * scaleX
-            val y = det.y * scaleY
-            val w = det.w * scaleX
-            val h = det.h * scaleY
+            when (det.label) {
+                6 -> cueBall = det
+                2 -> guideline = det
+                4 -> playArea = det
+                0 -> targetBalls.add(det)
+                3 -> holes.add(det)
+            }
+        }
 
-            val left = x - w / 2
-            val top = y - h / 2
-            val right = x + w / 2
-            val bottom = y + h / 2
+        // We need at least the cue ball to do physics
+        if (cueBall != null) {
+            val cx = cueBall.x * scaleX
+            val cy = cueBall.y * scaleY
+            val radius = (cueBall.w * scaleX) / 2f
 
-            // Change color based on class
-            detectionPaint.color = when (det.label) {
-                0 -> Color.YELLOW // Ball
-                3 -> Color.DKGRAY // Hole
-                6 -> Color.WHITE // White
-                else -> Color.GREEN
+            // Calculate Aim Angle
+            var dirX = 0f
+            var dirY = 0f
+            
+            if (guideline != null) {
+                val gx = guideline.x * scaleX
+                val gy = guideline.y * scaleY
+                val dx = gx - cx
+                val dy = gy - cy
+                val len = sqrt(dx * dx + dy * dy)
+                if (len > 0) {
+                    dirX = dx / len
+                    dirY = dy / len
+                }
+            } else {
+                // No guideline detected, cannot predict aim
+                return
             }
 
-            canvas.drawRect(left, top, right, bottom, detectionPaint)
+            // Table bounds
+            var boundsLeft = 0f
+            var boundsTop = 0f
+            var boundsRight = width.toFloat()
+            var boundsBottom = height.toFloat()
+
+            if (playArea != null) {
+                val px = playArea.x * scaleX
+                val py = playArea.y * scaleY
+                val pw = playArea.w * scaleX
+                val ph = playArea.h * scaleY
+                boundsLeft = px - pw / 2
+                boundsTop = py - ph / 2
+                boundsRight = px + pw / 2
+                boundsBottom = py + ph / 2
+            }
+
+            // Raycast for Collision
+            var closestHitT = Float.MAX_VALUE
+            var hitBall: YoloDetector.Detection? = null
+
+            for (ball in targetBalls) {
+                val bx = ball.x * scaleX
+                val by = ball.y * scaleY
+                
+                val lx = bx - cx
+                val ly = by - cy
+                val tca = lx * dirX + ly * dirY
+                
+                if (tca < 0) continue // Ball is behind
+                
+                val d2 = (lx * lx + ly * ly) - (tca * tca)
+                val hitRadius = radius * 2f // Two ball radii for center-to-center impact
+                val radius2 = hitRadius * hitRadius
+                
+                if (d2 > radius2) continue // Ray misses ball
+                
+                val thc = sqrt(radius2 - d2)
+                val t0 = tca - thc
+                
+                if (t0 < closestHitT && t0 > 0) {
+                    closestHitT = t0
+                    hitBall = ball
+                }
+            }
+
+            // Draw Aim Line
+            if (hitBall != null) {
+                // Hit a ball
+                val impactX = cx + dirX * closestHitT
+                val impactY = cy + dirY * closestHitT
+                
+                // Draw line from cue ball to impact point
+                canvas.drawLine(cx, cy, impactX, impactY, mainPathPaint)
+                // Draw Ghost Ball (where cue ball will be at impact)
+                canvas.drawCircle(impactX, impactY, radius, ghostBallPaint)
+                
+                // Calculate Target Ball Trajectory
+                val bx = hitBall.x * scaleX
+                val by = hitBall.y * scaleY
+                
+                val nx = bx - impactX
+                val ny = by - impactY
+                val nLen = sqrt(nx * nx + ny * ny)
+                val targetDirX = nx / nLen
+                val targetDirY = ny / nLen
+                
+                // Extend target ball line to walls (Bank calculation)
+                drawRay(canvas, bx, by, targetDirX, targetDirY, boundsLeft, boundsTop, boundsRight, boundsBottom, radius, targetPathPaint, showBankShots)
+                
+                // Cue ball reflection (90 degrees tangent)
+                val tangentX = -targetDirY
+                val tangentY = targetDirX
+                
+                // Determine which direction the cue ball bounces
+                val dot = dirX * tangentX + dirY * tangentY
+                val refDirX = if (dot > 0) tangentX else -tangentX
+                val refDirY = if (dot > 0) tangentY else -tangentY
+                
+                drawRay(canvas, impactX, impactY, refDirX, refDirY, boundsLeft, boundsTop, boundsRight, boundsBottom, radius, cueReflectPaint, false)
+                
+            } else {
+                // Hit a wall directly
+                drawRay(canvas, cx, cy, dirX, dirY, boundsLeft, boundsTop, boundsRight, boundsBottom, radius, mainPathPaint, showBankShots)
+            }
+        }
+    }
+
+    private fun drawRay(canvas: Canvas, startX: Float, startY: Float, dirX: Float, dirY: Float, left: Float, top: Float, right: Float, bottom: Float, radius: Float, paint: Paint, doBounces: Boolean) {
+        var cx = startX
+        var cy = startY
+        var dx = dirX
+        var dy = dirY
+        
+        var bounces = if (doBounces) 3 else 0
+        
+        for (i in 0..bounces) {
+            var tX = Float.MAX_VALUE
+            var tY = Float.MAX_VALUE
+            var wallX = 0f
+            var wallY = 0f
+            var hitVertical = false
             
-            val name = if (det.label in classNames.indices) classNames[det.label] else "Unknown"
-            canvas.drawText("$name ${String.format("%.2f", det.confidence)}", left, top - 10, detectionTextPaint)
+            if (dx > 0) {
+                tX = (right - radius - cx) / dx
+            } else if (dx < 0) {
+                tX = (left + radius - cx) / dx
+            }
+            
+            if (dy > 0) {
+                tY = (bottom - radius - cy) / dy
+            } else if (dy < 0) {
+                tY = (top + radius - cy) / dy
+            }
+            
+            val t = if (tX < tY) tX else tY
+            hitVertical = tX < tY
+            
+            val endX = cx + dx * t
+            val endY = cy + dy * t
+            
+            canvas.drawLine(cx, cy, endX, endY, paint)
+            
+            if (i < bounces) {
+                // Reflect
+                if (hitVertical) {
+                    dx = -dx
+                } else {
+                    dy = -dy
+                }
+                cx = endX
+                cy = endY
+            }
         }
     }
 }
