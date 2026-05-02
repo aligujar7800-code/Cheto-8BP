@@ -299,8 +299,8 @@ class ScreenAnalyzer {
                         if (gx in 0 until gridW && gy in 0 until gridH) {
                             val idx = gy * gridW + gx
                             cellCounts[idx]++
-                            cellSumX[idx] += x
-                            cellSumY[idx] += y
+                            cellSumX[idx] += x.toLong()
+                            cellSumY[idx] += y.toLong()
                         }
                     }
                 }
