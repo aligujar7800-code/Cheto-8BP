@@ -112,16 +112,18 @@ class OverlayService : Service() {
                 val resultCode = intent.getIntExtra("RESULT_CODE", 0)
                 val data: Intent? = intent.getParcelableExtra("DATA")
                 if (resultCode != 0 && data != null) {
-                    setupScreenCapture(resultCode, data)
-                    
-                    // Upgrade to MEDIA_PROJECTION type now that we have the token
+                    // MUST upgrade to MEDIA_PROJECTION type BEFORE calling getMediaProjection()
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                         try {
                             startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
+                            Log.d("OverlayService", ">>> Upgraded to MEDIA_PROJECTION foreground type")
                         } catch (e: Exception) {
                             Log.e("OverlayService", "Could not upgrade to media projection FGS type", e)
                         }
                     }
+                    
+                    // NOW setup screen capture (getMediaProjection will work)
+                    setupScreenCapture(resultCode, data)
                 }
             }
         } catch (e: Exception) {
