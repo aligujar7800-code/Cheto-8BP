@@ -65,24 +65,35 @@ class OverlayService : Service() {
         super.onCreate()
         createNotificationChannel()
 
+        // CRITICAL: startForeground MUST be called IMMEDIATELY in onCreate
+        // Use SPECIAL_USE type first (does not require media projection token)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
+        } else {
+            startForeground(1, createNotification())
+        }
+
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-
-        // Initialize AI Model
-        try {
-            yoloDetector = YoloDetector(this)
-            Log.d("OverlayService", "✅ YOLO Model loaded successfully")
-        } catch (e: Exception) {
-            Log.e("OverlayService", "❌ Failed to load YOLO Model", e)
-        }
 
         // Background thread for AI processing
         processingThread = HandlerThread("YoloProcessing").also { it.start() }
         processingHandler = Handler(processingThread!!.looper)
 
+        // Load AI model on background thread to avoid blocking
+        processingHandler?.post {
+            try {
+                yoloDetector = YoloDetector(this)
+                Log.d("OverlayService", "✅ YOLO Model loaded successfully")
+            } catch (e: Exception) {
+                Log.e("OverlayService", "❌ Failed to load YOLO Model", e)
+            }
+        }
+
         setupGuidelines()
         setupBubble()
-        // startVisibilityChecker() // Disabled so the overlay is always visible
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -91,13 +102,16 @@ class OverlayService : Service() {
             val data: Intent? = intent.getParcelableExtra("DATA")
             if (resultCode != 0 && data != null) {
                 setupScreenCapture(resultCode, data)
+                
+                // Upgrade to MEDIA_PROJECTION type now that we have the token
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    try {
+                        startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
+                    } catch (e: Exception) {
+                        Log.e("OverlayService", "Could not upgrade to media projection FGS type", e)
+                    }
+                }
             }
-        }
-        
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(1, createNotification(), android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
-        } else {
-            startForeground(1, createNotification())
         }
         
         return START_STICKY
@@ -106,11 +120,24 @@ class OverlayService : Service() {
     private fun setupScreenCapture(resultCode: Int, data: Intent) {
         mediaProjection = mediaProjectionManager?.getMediaProjection(resultCode, data)
         
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getRealMetrics(metrics)
-        val density = metrics.densityDpi
-        val width = metrics.widthPixels
-        val height = metrics.heightPixels
+        val width: Int
+        val height: Int
+        val density: Int
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val windowMetrics = windowManager.currentWindowMetrics
+            val bounds = windowMetrics.bounds
+            width = bounds.width()
+            height = bounds.height()
+            density = resources.displayMetrics.densityDpi
+        } else {
+            val metrics = DisplayMetrics()
+            @Suppress("DEPRECATION")
+            windowManager.defaultDisplay.getRealMetrics(metrics)
+            width = metrics.widthPixels
+            height = metrics.heightPixels
+            density = metrics.densityDpi
+        }
 
         // We capture in lower resolution for performance (e.g., /2)
         val captureWidth = width / 2
