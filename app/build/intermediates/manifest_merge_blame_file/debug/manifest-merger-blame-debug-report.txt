@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.cheto.eightball"
-4    android:versionCode="20"
-5    android:versionName="1.2.0" >
+4    android:versionCode="21"
+5    android:versionName="1.2.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
@@ -607,7 +607,7 @@
 224-->[androidx.core:core:1.12.0] D:\Android\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
 225
 226    <application
-226-->D:\cheto\app\src\main\AndroidManifest.xml:17:5-60:19
+226-->D:\cheto\app\src\main\AndroidManifest.xml:17:5-61:19
 227        android:name="com.cheto.eightball.ChetoApp"
 227-->D:\cheto\app\src\main\AndroidManifest.xml:18:9-33
 228        android:allowBackup="true"
