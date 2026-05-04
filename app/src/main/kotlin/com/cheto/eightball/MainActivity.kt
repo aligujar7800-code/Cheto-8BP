@@ -126,14 +126,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun launchGame() {
-        val gamePackage = "com.miniclip.eightballpool"
-        val launchIntent = packageManager.getLaunchIntentForPackage(gamePackage)
-        if (launchIntent != null) {
-            startActivity(launchIntent)
-        } else {
-            Toast.makeText(this, "8 Ball Pool not found!", Toast.LENGTH_SHORT).show()
-        }
+        // Attempt to install the game into our Virtual Space first
+        VirtualManager.installGameToVirtualSpace(this)
+        
+        // Launch the game from within our Virtual Space
+        VirtualManager.launchGameFromVirtualSpace(this)
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
