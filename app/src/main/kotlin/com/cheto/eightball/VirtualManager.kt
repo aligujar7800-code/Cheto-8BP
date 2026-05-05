@@ -47,33 +47,46 @@ object VirtualManager {
     }
 
     fun launchGameFromVirtualSpace(context: Context) {
-        try {
-            android.os.Handler(android.os.Looper.getMainLooper()).post {
-                Toast.makeText(context, "Step 1: Bypassing Checks... Launching!", Toast.LENGTH_SHORT).show()
-            }
-
-            // Final Launch Command
-            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                try {
-                    val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
-                    if (launchIntent != null) {
-                        launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        BlackBoxCore.getBActivityManager().startActivity(launchIntent, USER_ID)
-                        Toast.makeText(context, "Launch: Signal Sent!", Toast.LENGTH_SHORT).show()
-                    } else {
-                        // If intent is null, maybe it's not installed. Try fallback launch.
-                        val success = BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
-                        if (!success) {
-                            Toast.makeText(context, "Launch: Not installed? Installing now...", Toast.LENGTH_SHORT).show()
-                            installGameToVirtualSpace(context)
-                        }
-                    }
-                } catch (e: Exception) {
-                    Toast.makeText(context, "Launch Error: ${e.message}", Toast.LENGTH_LONG).show()
-                }
-            }, 500)
-        } catch (e: Exception) {
-            Log.e("VirtualManager", "Launch error", e)
+        // Step 1: UI Feedback on Main Thread
+        android.os.Handler(android.os.Looper.getMainLooper()).post {
+            Toast.makeText(context, "Step 1: Connecting to Engine...", Toast.LENGTH_SHORT).show()
         }
+
+        // Step 2: Run heavy binder calls on a BACKGROUND thread
+        Thread {
+            try {
+                Log.d("VirtualManager", "Background: Fetching launch intent...")
+                val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
+                
+                if (launchIntent != null) {
+                    launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    
+                    android.os.Handler(android.os.Looper.getMainLooper()).post {
+                        Toast.makeText(context, "Step 2: Intent Retrieved!", Toast.LENGTH_SHORT).show()
+                    }
+                    
+                    // Step 3: Switch to Main Thread ONLY for starting activity and Toast
+                    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                        try {
+                            context.startActivity(launchIntent)
+                            Toast.makeText(context, "Launch: Signal Sent!", Toast.LENGTH_SHORT).show()
+                        } catch (e: Exception) {
+                            Toast.makeText(context, "Activity Error: ${e.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }, 500)
+                } else {
+                    // Fallback on background thread
+                    val success = BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
+                    android.os.Handler(android.os.Looper.getMainLooper()).post {
+                        Toast.makeText(context, "Fallback Launch: $success", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("VirtualManager", "Launch fatal error", e)
+                android.os.Handler(android.os.Looper.getMainLooper()).post {
+                    Toast.makeText(context, "Engine Error: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+        }.start()
     }
 }
