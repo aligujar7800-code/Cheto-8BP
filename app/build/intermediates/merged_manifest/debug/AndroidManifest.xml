@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionCode="23"
-    android:versionName="1.2.3" >
+    android:versionCode="24"
+    android:versionName="1.2.4" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -269,14 +269,13 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <!-- BlackBox System Provider -->
+        <!-- BlackBox Virtual Engine Components -->
         <provider
             android:name="top.niunaijun.blackbox.core.system.SystemCallProvider"
             android:authorities="com.cheto.eightball.blackbox.SystemCallProvider"
             android:exported="false"
             android:process=":blackbox_service" />
 
-        <!-- BlackBox Daemon Service -->
         <service
             android:name="top.niunaijun.blackbox.core.system.DaemonService"
             android:exported="false"
