@@ -171,17 +171,31 @@ class MemoryManager {
         }
     }
 
+    private var cachedPid: Int = -1
+    private var lastPidCheck: Long = 0
+
     private fun findProcessId(packageName: String): Int {
+        val now = System.currentTimeMillis()
+        // Only re-scan /proc every 3 seconds to avoid system-level kills on Android 14+
+        if (cachedPid != -1 && now - lastPidCheck < 3000) {
+            return cachedPid
+        }
+        
+        lastPidCheck = now
         val procDir = File("/proc")
         val files = procDir.listFiles() ?: return -1
         for (file in files) {
             if (file.isDirectory && file.name.all { it.isDigit() }) {
                 try {
                     val cmdline = File(file, "cmdline").readText().trimEnd('\u0000')
-                    if (cmdline == packageName) return file.name.toInt()
+                    if (cmdline == packageName) {
+                        cachedPid = file.name.toInt()
+                        return cachedPid
+                    }
                 } catch (e: Exception) {}
             }
         }
+        cachedPid = -1
         return -1
     }
     

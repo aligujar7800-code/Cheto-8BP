@@ -91,33 +91,49 @@ class OverlayService : Service() {
         return START_STICKY
     }
 
+    private var serviceStartTime = 0L
+
     /**
      * The Main Loop: Periodically reads memory data and updates the UI.
      */
     private fun startMemoryLoop() {
+        serviceStartTime = System.currentTimeMillis()
+        
         processingHandler?.post(object : Runnable {
             override fun run() {
                 if (processingThread?.isAlive != true) return
 
                 val now = System.currentTimeMillis()
+                
+                // CRITICAL SAFETY: Wait 5 seconds after service start before reading memory.
+                // This prevents crashes during the volatile game launch phase.
+                if (now - serviceStartTime < 5000) {
+                    processingHandler?.postDelayed(this, 100)
+                    return
+                }
+
                 if (now - lastProcessedTime >= FRAME_INTERVAL_MS) {
                     lastProcessedTime = now
 
-                    val memResult: MemoryManager.AimResult? = memoryManager.readGameData()
-                    
-                    android.os.Handler(android.os.Looper.getMainLooper()).post {
-                        if (memResult != null) {
-                            guidelineView?.aimResult = memResult
-                            guidelineView?.debugStatus = "CHETO: ACTIVE ✓"
-                        } else {
-                            guidelineView?.debugStatus = "CHETO: SCANNING..."
+                    try {
+                        val memResult: MemoryManager.AimResult? = memoryManager.readGameData()
+                        
+                        android.os.Handler(android.os.Looper.getMainLooper()).post {
+                            if (memResult != null) {
+                                guidelineView?.aimResult = memResult
+                                guidelineView?.debugStatus = "CHETO: ACTIVE ✓"
+                            } else {
+                                guidelineView?.debugStatus = "CHETO: SCANNING..."
+                            }
+                            guidelineView?.invalidate()
                         }
-                        guidelineView?.invalidate()
+                    } catch (e: Exception) {
+                        Log.e("OverlayService", "Error in memory loop", e)
                     }
                 }
                 
                 // Continue loop
-                processingHandler?.postDelayed(this, 16) // ~60fps check, throttled by FRAME_INTERVAL_MS
+                processingHandler?.postDelayed(this, 16)
             }
         })
     }
