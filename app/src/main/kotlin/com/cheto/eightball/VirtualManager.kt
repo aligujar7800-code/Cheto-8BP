@@ -21,25 +21,28 @@ object VirtualManager {
      */
     fun installGameToVirtualSpace(context: Context) {
         try {
-            Log.d("VirtualManager", "Checking if game is installed in virtual space...")
+            android.os.Handler(android.os.Looper.getMainLooper()).post {
+                Toast.makeText(context, "Step 1: Checking Virtual Container...", Toast.LENGTH_SHORT).show()
+            }
+
             if (!BlackBoxCore.get().isInstalled(GAME_PACKAGE, USER_ID)) {
-                Log.i("VirtualManager", "Game not found. Installing $GAME_PACKAGE...")
+                android.os.Handler(android.os.Looper.getMainLooper()).post {
+                    Toast.makeText(context, "Step 2: Installing Game in Container...", Toast.LENGTH_SHORT).show()
+                }
                 val result: InstallResult = BlackBoxCore.get().installPackageAsUser(GAME_PACKAGE, USER_ID)
                 
                 android.os.Handler(android.os.Looper.getMainLooper()).post {
                     if (result.success) {
-                        Log.i("VirtualManager", "Installation SUCCESSful")
-                        Toast.makeText(context, "Virtual Space: Game Installed successfully!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Installation SUCCESS!", Toast.LENGTH_SHORT).show()
                     } else {
-                        Log.e("VirtualManager", "Installation FAILED: ${result.msg}")
-                        Toast.makeText(context, "Virtual Space: Installation Failed: ${result.msg}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Installation FAILED: ${result.msg}", Toast.LENGTH_LONG).show()
                     }
                 }
             } else {
-                Log.d("VirtualManager", "Game is already installed in container.")
+                Log.d("VirtualManager", "Game already installed.")
             }
         } catch (e: Exception) {
-            Log.e("VirtualManager", "Critical error during installation", e)
+            Log.e("VirtualManager", "Install error", e)
         }
     }
 
@@ -48,53 +51,42 @@ object VirtualManager {
      */
     fun launchGameFromVirtualSpace(context: Context) {
         try {
-            Log.d("VirtualManager", "Attempting to launch game...")
+            android.os.Handler(android.os.Looper.getMainLooper()).post {
+                Toast.makeText(context, "Step 3: Preparing Launch...", Toast.LENGTH_SHORT).show()
+            }
+
             if (BlackBoxCore.get().isInstalled(GAME_PACKAGE, USER_ID)) {
-                Log.i("VirtualManager", "Game found. Preparing clean launch...")
-                
-                android.os.Handler(android.os.Looper.getMainLooper()).post {
-                    Toast.makeText(context, "Virtual Space: Launching Game...", Toast.LENGTH_SHORT).show()
-                }
-                
-                // Professional Step: Force stop the game first to clear any stale processes
+                // Force stop stale processes
                 try {
                     BlackBoxCore.get().stopPackage(GAME_PACKAGE, USER_ID)
                 } catch (_: Exception) {}
 
-                // Professional Step: Direct BActivityManager launch with detailed reporting
+                // Final Launch Command
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     try {
-                        Log.i("VirtualManager", "Fetching direct intent for $GAME_PACKAGE...")
-                        val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
+                        Toast.makeText(context, "Step 4: Sending Launch Signal...", Toast.LENGTH_SHORT).show()
                         
+                        val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
                         if (launchIntent != null) {
                             launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            try {
-                                BlackBoxCore.getBActivityManager().startActivity(launchIntent, USER_ID)
-                                Log.d("VirtualManager", "✅ Direct BActivityManager.startActivity called")
-                                Toast.makeText(context, "Launch: Success! Waiting for window...", Toast.LENGTH_SHORT).show()
-                            } catch (e: Exception) {
-                                Log.e("VirtualManager", "startActivity failed", e)
-                                Toast.makeText(context, "Launch Error (Activity): ${e.message}", Toast.LENGTH_LONG).show()
-                            }
+                            BlackBoxCore.getBActivityManager().startActivity(launchIntent, USER_ID)
+                            Toast.makeText(context, "Launch Sent! Waiting for Game...", Toast.LENGTH_SHORT).show()
                         } else {
-                            Log.e("VirtualManager", "❌ Still could not find launch intent")
-                            Toast.makeText(context, "Launch Error: Game Intent is NULL", Toast.LENGTH_LONG).show()
+                            // Fallback
+                            val success = BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
+                            Toast.makeText(context, "Fallback Launch: $success", Toast.LENGTH_SHORT).show()
                         }
                     } catch (e: Exception) {
-                        Log.e("VirtualManager", "Direct launch failed", e)
-                        Toast.makeText(context, "Launch Error (Fatal): ${e.message}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Launch Fatal Error: ${e.message}", Toast.LENGTH_LONG).show()
                     }
                 }, 1000)
             } else {
-                Log.w("VirtualManager", "Game not installed. Triggering install flow...")
                 android.os.Handler(android.os.Looper.getMainLooper()).post {
-                    Toast.makeText(context, "Game NOT in container. Installing now...", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Error: Game not found in container!", Toast.LENGTH_LONG).show()
                 }
-                installGameToVirtualSpace(context)
             }
         } catch (e: Exception) {
-            Log.e("VirtualManager", "Critical error during launch", e)
+            Log.e("VirtualManager", "Launch error", e)
         }
     }
 }
