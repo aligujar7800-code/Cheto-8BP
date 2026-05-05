@@ -1,6 +1,7 @@
 package com.cheto.eightball
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import top.niunaijun.blackbox.BlackBoxCore
@@ -60,11 +61,20 @@ object VirtualManager {
                     BlackBoxCore.get().stopPackage(GAME_PACKAGE, USER_ID)
                 } catch (_: Exception) {}
 
-                // Add a tiny delay to stabilize launch on some devices
+                // Professional Step: Use Intent-based launch for maximum compatibility
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     try {
-                        BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
-                        Log.d("VirtualManager", "launchApk command sent to engine")
+                        Log.i("VirtualManager", "Generating launch intent for $GAME_PACKAGE...")
+                        val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
+                        if (launchIntent != null) {
+                            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            context.startActivity(launchIntent)
+                            Log.d("VirtualManager", "✅ Game launch intent started successfully")
+                        } else {
+                            Log.e("VirtualManager", "❌ Could not find launch activity for game")
+                            // Fallback to internal launchApk
+                            BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
+                        }
                     } catch (e: Exception) {
                         Log.e("VirtualManager", "Launch execution failed", e)
                     }
