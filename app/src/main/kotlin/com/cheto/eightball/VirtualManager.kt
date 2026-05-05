@@ -46,45 +46,32 @@ object VirtualManager {
         }
     }
 
-    /**
-     * Launches the game from the virtual space.
-     */
     fun launchGameFromVirtualSpace(context: Context) {
         try {
             android.os.Handler(android.os.Looper.getMainLooper()).post {
-                Toast.makeText(context, "Step 3: Preparing Launch...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Step 1: Bypassing Checks... Launching!", Toast.LENGTH_SHORT).show()
             }
 
-            if (BlackBoxCore.get().isInstalled(GAME_PACKAGE, USER_ID)) {
-                // Force stop stale processes
+            // Final Launch Command
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                 try {
-                    BlackBoxCore.get().stopPackage(GAME_PACKAGE, USER_ID)
-                } catch (_: Exception) {}
-
-                // Final Launch Command
-                android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                    try {
-                        Toast.makeText(context, "Step 4: Sending Launch Signal...", Toast.LENGTH_SHORT).show()
-                        
-                        val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
-                        if (launchIntent != null) {
-                            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            BlackBoxCore.getBActivityManager().startActivity(launchIntent, USER_ID)
-                            Toast.makeText(context, "Launch Sent! Waiting for Game...", Toast.LENGTH_SHORT).show()
-                        } else {
-                            // Fallback
-                            val success = BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
-                            Toast.makeText(context, "Fallback Launch: $success", Toast.LENGTH_SHORT).show()
+                    val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
+                    if (launchIntent != null) {
+                        launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        BlackBoxCore.getBActivityManager().startActivity(launchIntent, USER_ID)
+                        Toast.makeText(context, "Launch: Signal Sent!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // If intent is null, maybe it's not installed. Try fallback launch.
+                        val success = BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
+                        if (!success) {
+                            Toast.makeText(context, "Launch: Not installed? Installing now...", Toast.LENGTH_SHORT).show()
+                            installGameToVirtualSpace(context)
                         }
-                    } catch (e: Exception) {
-                        Toast.makeText(context, "Launch Fatal Error: ${e.message}", Toast.LENGTH_LONG).show()
                     }
-                }, 1000)
-            } else {
-                android.os.Handler(android.os.Looper.getMainLooper()).post {
-                    Toast.makeText(context, "Error: Game not found in container!", Toast.LENGTH_LONG).show()
+                } catch (e: Exception) {
+                    Toast.makeText(context, "Launch Error: ${e.message}", Toast.LENGTH_LONG).show()
                 }
-            }
+            }, 500)
         } catch (e: Exception) {
             Log.e("VirtualManager", "Launch error", e)
         }

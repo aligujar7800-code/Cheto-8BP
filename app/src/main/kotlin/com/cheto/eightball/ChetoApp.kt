@@ -24,10 +24,11 @@ class ChetoApp : Application() {
         super.attachBaseContext(base)
         
         try {
+            val hostPkg = "com.cheto.eightball"
             // Step 2: Initialize BlackBox virtual engine for all processes
             BlackBoxCore.get().doAttachBaseContext(base, object : ClientConfiguration() {
                 override fun getHostPackageName(): String {
-                    return base.packageName
+                    return hostPkg
                 }
 
                 override fun isHideRoot(): Boolean {
@@ -42,7 +43,7 @@ class ChetoApp : Application() {
                     return true // Keep engine alive in background
                 }
             })
-            Log.d("ChetoApp", "✅ Virtual Engine Attached to ${base.packageName}")
+            Log.d("ChetoApp", "✅ Virtual Engine Attached to $hostPkg")
         } catch (e: Throwable) {
             Log.e("ChetoApp", "❌ Failed to attach Virtual Engine", e)
         }
