@@ -21,6 +21,11 @@ object VirtualManager {
      */
     fun installGameToVirtualSpace(context: Context) {
         try {
+            // Wake up the engine first (initializes the binder connection)
+            try {
+                BlackBoxCore.get().users
+            } catch (_: Exception) {}
+
             android.os.Handler(android.os.Looper.getMainLooper()).post {
                 Toast.makeText(context, "Step 1: Checking Virtual Container...", Toast.LENGTH_SHORT).show()
             }
