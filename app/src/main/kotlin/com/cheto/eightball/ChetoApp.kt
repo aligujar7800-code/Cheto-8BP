@@ -17,6 +17,7 @@ class ChetoApp : Application() {
         
         try {
             // Step 1: Bypass hidden API restrictions (replaces free_reflection)
+            // MUST run in all processes!
             HiddenApiBypass.unseal()
             
             // Step 2: Initialize BlackBox virtual engine

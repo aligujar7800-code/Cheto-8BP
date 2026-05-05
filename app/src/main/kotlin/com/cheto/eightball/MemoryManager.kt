@@ -85,32 +85,50 @@ class MemoryManager {
      * Reads ball data directly from RAM and converts it for the UI.
      */
     fun readGameData(): AimResult? {
-        if (!isHooked || gamePid == -1 || ballListAddress == 0L) return null
-        
-        // Anti-Ban Security Check
-        if (!nativeCheckSecurity()) return null
-
         try {
-            // Read Stick Angle (Float)
-            val cueAngle = 0f // In a real tool, we would read: nativeReadFloat(gamePid, MemoryOffsets.LIB_GAME_BASE + MemoryOffsets.OFFSET_CUE_ANGLE)
+            if (!isHooked) {
+                // Try to hook if not already hooked
+                val pid = findProcessId(GAME_PACKAGE)
+                if (pid != -1) {
+                    Log.i("MemoryManager", "Found Game PID: $pid. Attempting to hook...")
+                    initHook()
+                }
+                return null
+            }
+
+            if (gamePid == -1 || ballListAddress == 0L) return null
             
-            // Call native function to read all balls at once (High Performance)
-            val rawData = nativeReadBalls(gamePid, ballListAddress)
+            // Anti-Ban Security Check
+            if (!nativeCheckSecurity()) {
+                Log.w("MemoryManager", "Security check failed!")
+                return null
+            }
+
+            // Read Stick Angle (Float)
+            val cueAngle = 0f 
+            
+            // Call native function to read all balls
+            val rawData = try {
+                nativeReadBalls(gamePid, ballListAddress)
+            } catch (e: UnsatisfiedLinkError) {
+                Log.e("MemoryManager", "Native library not loaded!", e)
+                return null
+            }
             
             val balls = mutableListOf<BallPos>()
-            // Each ball has 2 floats (X, Y) in our simple native implementation
-            for (i in 0 until rawData.size / 2) {
-                val x = rawData[i * 2]
-                val y = rawData[i * 2 + 1]
-                // Skip invalid positions
-                if (x != 0f || y != 0f) {
-                    balls.add(BallPos(x, y, i)) // Type is index for now
+            if (rawData.isNotEmpty()) {
+                for (i in 0 until rawData.size / 2) {
+                    val x = rawData[i * 2]
+                    val y = rawData[i * 2 + 1]
+                    if (x != 0f || y != 0f) {
+                        balls.add(BallPos(x, y, i))
+                    }
                 }
             }
             
             return if (balls.isNotEmpty()) AimResult(balls, cueAngle) else null
         } catch (e: Exception) {
-            Log.e("MemoryManager", "Memory read failed", e)
+            Log.e("MemoryManager", "Critical Error in readGameData: ${e.message}")
             return null
         }
     }

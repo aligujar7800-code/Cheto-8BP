@@ -17,60 +17,50 @@ object HiddenApiBypass {
 
     fun unseal(): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-            // No restrictions before Android P
             return true
         }
 
-        return try {
+        try {
+            Log.d(TAG, "Attempting Hidden API bypass...")
+            
+            // Method 1: The standard VMRuntime approach
             val vmRuntimeClass = Class.forName("dalvik.system.VMRuntime")
-            val getRuntime: Method = vmRuntimeClass.getDeclaredMethod("getRuntime")
+            val getRuntime = vmRuntimeClass.getDeclaredMethod("getRuntime")
             getRuntime.isAccessible = true
             val vmRuntime = getRuntime.invoke(null)
 
-            val setHiddenApiExemptions: Method = vmRuntimeClass.getDeclaredMethod(
+            val setHiddenApiExemptions = vmRuntimeClass.getDeclaredMethod(
                 "setHiddenApiExemptions", Array<String>::class.java
             )
             setHiddenApiExemptions.isAccessible = true
-            // "L" exempts ALL hidden APIs (every class starts with L in dex)
-            setHiddenApiExemptions.invoke(vmRuntime, arrayOf("L") as Any)
+            setHiddenApiExemptions.invoke(vmRuntime, arrayOf("L"))
             
-            Log.d(TAG, "✅ Hidden API restrictions bypassed successfully")
-            true
+            Log.i(TAG, "✅ Hidden API bypassed (Standard)")
+            return true
         } catch (e: Exception) {
-            Log.e(TAG, "❌ Failed to bypass hidden API restrictions", e)
-            // Fallback: try the meta-reflection approach
-            tryMetaReflection()
+            Log.w(TAG, "Standard bypass failed, trying Meta-Reflection...")
+            return tryMetaReflection()
         }
     }
 
-    /**
-     * Fallback: Use "meta-reflection" trick.
-     * Get a Method object for getDeclaredMethod via reflection,
-     * which gives us a "trusted" invoker that bypasses checks.
-     */
     private fun tryMetaReflection(): Boolean {
-        return try {
-            val getDeclaredMethod = Class::class.java.getDeclaredMethod(
-                "getDeclaredMethod", String::class.java, arrayOf<Class<*>>()::class.java
-            )
-            
-            val vmRuntimeClass = Class.forName("dalvik.system.VMRuntime")
-            val getRuntime = getDeclaredMethod.invoke(
-                vmRuntimeClass, "getRuntime", null
-            ) as Method
+        try {
+            // Method 2: Reflection on reflection (Trusted Class approach)
+            val forName = Class::class.java.getDeclaredMethod("forName", String::class.java)
+            val getDeclaredMethod = Class::class.java.getDeclaredMethod("getDeclaredMethod", String::class.java, arrayOf<Class<*>>()::class.java)
+
+            val vmRuntimeClass = forName.invoke(null, "dalvik.system.VMRuntime") as Class<*>
+            val getRuntime = getDeclaredMethod.invoke(vmRuntimeClass, "getRuntime", null) as Method
             val vmRuntime = getRuntime.invoke(null)
 
-            val setHiddenApiExemptions = getDeclaredMethod.invoke(
-                vmRuntimeClass, "setHiddenApiExemptions",
-                arrayOf(Array<String>::class.java)
-            ) as Method
-            setHiddenApiExemptions.invoke(vmRuntime, arrayOf("L") as Any)
+            val setHiddenApiExemptions = getDeclaredMethod.invoke(vmRuntimeClass, "setHiddenApiExemptions", arrayOf(Array<String>::class.java)) as Method
+            setHiddenApiExemptions.invoke(vmRuntime, arrayOf("L"))
             
-            Log.d(TAG, "✅ Hidden API bypassed via meta-reflection")
-            true
+            Log.i(TAG, "✅ Hidden API bypassed (Meta-Reflection)")
+            return true
         } catch (e: Exception) {
-            Log.e(TAG, "❌ Meta-reflection also failed", e)
-            false
+            Log.e(TAG, "❌ ALL Hidden API bypass methods failed!", e)
+            return false
         }
     }
 }
