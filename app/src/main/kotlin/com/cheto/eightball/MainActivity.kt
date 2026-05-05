@@ -26,8 +26,13 @@ class MainActivity : AppCompatActivity() {
     private val NOTIFICATION_PERMISSION_REQ_CODE = 5678
 
     private fun startApp() {
-        startOverlayService()
+        // Step 1: Launch the game first
         launchGame()
+        
+        // Step 2: Start overlay service after a short delay to prevent startup crash
+        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            startOverlayService()
+        }, 2000)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

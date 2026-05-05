@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionCode="25"
-    android:versionName="1.2.5" >
+    android:versionCode="26"
+    android:versionName="1.2.6" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -17,6 +17,17 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <queries>
+        <package android:name="com.miniclip.eightballpool" />
+    </queries>
 
     <!-- unknown -->
     <uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
@@ -110,9 +121,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- sdcard -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 电量 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- 电量 -->
     <uses-permission android:name="android.permission.BATTERY_STATS" /> <!-- 身体传感器 -->
     <uses-permission android:name="android.permission.BODY_SENSORS" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" /> <!-- 锁屏 -->
@@ -208,7 +217,6 @@
     <uses-permission android:name="android.permission.BROADCAST_SMS" />
     <uses-permission android:name="android.permission.SEND_RESPOND_VIA_MESSAGE" />
     <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.nfc"

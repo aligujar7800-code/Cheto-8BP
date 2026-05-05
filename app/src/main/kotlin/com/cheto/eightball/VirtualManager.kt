@@ -51,10 +51,14 @@ object VirtualManager {
                 Toast.makeText(context, "Virtual Space: Launching Game...", Toast.LENGTH_SHORT).show()
                 
                 // Add a tiny delay to stabilize launch on some devices
-                Thread.sleep(500)
-                
-                BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
-                Log.d("VirtualManager", "launchApk command sent to engine")
+                android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                    try {
+                        BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
+                        Log.d("VirtualManager", "launchApk command sent to engine")
+                    } catch (e: Exception) {
+                        Log.e("VirtualManager", "Launch execution failed", e)
+                    }
+                }, 500)
             } else {
                 Log.w("VirtualManager", "Game not installed. Triggering install flow...")
                 Toast.makeText(context, "Installing game first...", Toast.LENGTH_SHORT).show()
