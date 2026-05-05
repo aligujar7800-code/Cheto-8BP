@@ -80,6 +80,40 @@
             android:process=":blackbox_service"
             tools:replace="android:process" />
 
+        <!-- Stub Activities for Hosting the Game -->
+        <activity
+            android:name="top.niunaijun.blackbox.core.system.user.BUserHandle"
+            android:process=":blackbox_service" />
+
+        <activity
+            android:name="top.niunaijun.blackbox.core.system.user.BUserSettings"
+            android:process=":blackbox_service" />
+
+        <!-- BlackBox Proxy/Stub Activities (Required for Android 12+) -->
+        <activity
+            android:name="top.niunaijun.blackbox.app.Stub$P0"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="standard"
+            android:process=":p0"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="top.niunaijun.blackbox.app.Stub$P1"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="standard"
+            android:process=":p1"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <service
+            android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"
+            android:process=":blackbox_service" />
+
     </application>
 
 </manifest>

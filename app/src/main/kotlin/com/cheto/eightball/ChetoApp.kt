@@ -13,20 +13,32 @@ import top.niunaijun.blackbox.app.configuration.ClientConfiguration
 class ChetoApp : Application() {
 
     override fun attachBaseContext(base: Context) {
+        // Step 1: Bypass hidden API restrictions as EARLY as possible.
+        // On newer Android versions, even super.attachBaseContext() can trigger checks.
+        try {
+            HiddenApiBypass.unseal()
+        } catch (e: Throwable) {
+            Log.e("ChetoApp", "Critical: HiddenApiBypass failed", e)
+        }
+
         super.attachBaseContext(base)
         
         try {
-            // Step 1: Bypass hidden API restrictions (replaces free_reflection)
-            // MUST run in all processes!
-            HiddenApiBypass.unseal()
-            
-            // Step 2: Initialize BlackBox virtual engine
+            // Step 2: Initialize BlackBox virtual engine for all processes
             BlackBoxCore.get().doAttachBaseContext(base, object : ClientConfiguration() {
                 override fun getHostPackageName(): String {
                     return base.packageName
                 }
+
+                override fun isHideRoot(): Boolean {
+                    return true // Stealth mode
+                }
+
+                override fun isHideXposed(): Boolean {
+                    return true // Stealth mode
+                }
             })
-            Log.d("ChetoApp", "✅ Virtual Engine Base Context Attached")
+            Log.d("ChetoApp", "✅ Virtual Engine Attached to ${base.packageName}")
         } catch (e: Throwable) {
             Log.e("ChetoApp", "❌ Failed to attach Virtual Engine", e)
         }
@@ -36,6 +48,7 @@ class ChetoApp : Application() {
         super.onCreate()
         
         try {
+            // Only initialize the core if it hasn't been initialized yet
             BlackBoxCore.get().doCreate()
             Log.d("ChetoApp", "✅ Virtual Engine Created Successfully!")
         } catch (e: Throwable) {

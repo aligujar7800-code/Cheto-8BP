@@ -47,9 +47,17 @@ object VirtualManager {
         try {
             Log.d("VirtualManager", "Attempting to launch game...")
             if (BlackBoxCore.get().isInstalled(GAME_PACKAGE, USER_ID)) {
-                Log.i("VirtualManager", "Game found. Launching now...")
+                Log.i("VirtualManager", "Game found. Preparing clean launch...")
                 Toast.makeText(context, "Virtual Space: Launching Game...", Toast.LENGTH_SHORT).show()
                 
+                // Professional Step: Force stop the game first to clear any stale processes
+                try {
+                    BlackBoxCore.get().stopPackage(GAME_PACKAGE, USER_ID)
+                    Log.d("VirtualManager", "Stopped existing game process for clean start")
+                } catch (e: Exception) {
+                    Log.w("VirtualManager", "Stop package failed (normal if not running)")
+                }
+
                 // Add a tiny delay to stabilize launch on some devices
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     try {
@@ -57,8 +65,9 @@ object VirtualManager {
                         Log.d("VirtualManager", "launchApk command sent to engine")
                     } catch (e: Exception) {
                         Log.e("VirtualManager", "Launch execution failed", e)
+                        Toast.makeText(context, "Launch Error: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
-                }, 500)
+                }, 800)
             } else {
                 Log.w("VirtualManager", "Game not installed. Triggering install flow...")
                 Toast.makeText(context, "Installing game first...", Toast.LENGTH_SHORT).show()
