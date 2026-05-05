@@ -26,13 +26,18 @@ class MainActivity : AppCompatActivity() {
     private val NOTIFICATION_PERMISSION_REQ_CODE = 5678
 
     private fun startApp() {
-        // Step 1: Launch the game first
-        launchGame()
-        
-        // Step 2: Start overlay service after a short delay to prevent startup crash
-        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+        // Step 1: Start overlay service FIRST while app is still in foreground.
+        // Starting a foreground service from the background on Android 12+ causes a fatal crash.
+        try {
             startOverlayService()
-        }, 2000)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Failed to start overlay: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+        
+        // Step 2: Launch the game after the service has successfully started
+        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            launchGame()
+        }, 1000)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
