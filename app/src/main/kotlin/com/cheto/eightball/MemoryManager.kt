@@ -41,6 +41,19 @@ class MemoryManager {
     private var isHooked = false
 
     /**
+     * AimResult: Data structure for holding ball positions and predicted paths.
+     */
+    data class AimResult(
+        val balls: List<BallPos>,
+        val cueAngle: Float = 0f,
+        val isMyTurn: Boolean = true
+    )
+    
+    data class BallPos(val x: Float, val y: Float, val type: Int)
+
+    private var ballListAddress: Long = 0L
+
+    /**
      * Attempts to find the game process and "hook" into it.
      */
     fun initHook(): Boolean {
@@ -52,22 +65,54 @@ class MemoryManager {
         
         Log.d("MemoryManager", "Game found at PID: $gamePid")
         
-        // AUTO-SCANNER: Find libGame.so base address and scan for patterns
         val libRange = findModuleRange(gamePid, LIB_NAME)
         if (libRange != null) {
-            Log.d("MemoryManager", "Found $LIB_NAME at ${libRange.first.toString(16)}")
             MemoryOffsets.LIB_GAME_BASE = libRange.first
             
-            // Perform signature scan (async recommended but for now sync)
+            // Perform signature scan to find Ball Array automatically
             val foundAddress = scanForSignature(gamePid, libRange.first, libRange.second, BALL_SIGNATURE)
             if (foundAddress != 0L) {
                 Log.d("MemoryManager", "✅ Auto-Scanner: Found Ball Array at ${foundAddress.toString(16)}")
-                // MemoryOffsets.OFFSET_BALL_LIST = (foundAddress - libRange.first).toInt()
+                ballListAddress = foundAddress
             }
         }
         
         isHooked = true
         return true
+    }
+
+    /**
+     * Reads ball data directly from RAM and converts it for the UI.
+     */
+    fun readGameData(): AimResult? {
+        if (!isHooked || gamePid == -1 || ballListAddress == 0L) return null
+        
+        // Anti-Ban Security Check
+        if (!nativeCheckSecurity()) return null
+
+        try {
+            // Read Stick Angle (Float)
+            val cueAngle = 0f // In a real tool, we would read: nativeReadFloat(gamePid, MemoryOffsets.LIB_GAME_BASE + MemoryOffsets.OFFSET_CUE_ANGLE)
+            
+            // Call native function to read all balls at once (High Performance)
+            val rawData = nativeReadBalls(gamePid, ballListAddress)
+            
+            val balls = mutableListOf<BallPos>()
+            // Each ball has 2 floats (X, Y) in our simple native implementation
+            for (i in 0 until rawData.size / 2) {
+                val x = rawData[i * 2]
+                val y = rawData[i * 2 + 1]
+                // Skip invalid positions
+                if (x != 0f || y != 0f) {
+                    balls.add(BallPos(x, y, i)) // Type is index for now
+                }
+            }
+            
+            return if (balls.isNotEmpty()) AimResult(balls, cueAngle) else null
+        } catch (e: Exception) {
+            Log.e("MemoryManager", "Memory read failed", e)
+            return null
+        }
     }
 
     private fun findModuleRange(pid: Int, moduleName: String): Pair<Long, Long>? {
@@ -95,64 +140,28 @@ class MemoryManager {
         return nativeScanSignature(pid, start, end, signature)
     }
 
-    /**
-     * Native Methods
-     */
     private external fun nativeScanSignature(pid: Int, start: Long, end: Long, signature: ByteArray): Long
     private external fun nativeReadBalls(pid: Int, ballListAddress: Long): FloatArray
     private external fun nativeCheckSecurity(): Boolean
     private external fun nativeWriteInt(pid: Int, address: Long, value: Int): Boolean
 
-    /**
-     * Force Break: Attempt to modify the turn state in memory.
-     */
     fun forceBreak(enabled: Boolean) {
         if (!isHooked || gamePid == -1) return
-        
-        // This is a placeholder for the actual turn state address
         val turnStateAddress = MemoryOffsets.LIB_GAME_BASE + 0xABC123 
         if (enabled) {
-            nativeWriteInt(gamePid, turnStateAddress, 1) // 1 = My Turn / Breaker
-        }
-    }
-
-    /**
-     * Reads ball data directly from RAM.
-     * Returns a list of positions (x, y) for all balls.
-     */
-    fun readGameData(): ScreenAnalyzer.AimResult? {
-        if (!isHooked || gamePid == -1) return null
-        
-        // Anti-Ban Security Check
-        if (!nativeCheckSecurity()) return null
-
-        try {
-            // This is where the magic happens.
-            // A real tool would call a native function:
-            // val data = nativeReadMemory(gamePid, OFFSET_BALL_ARRAY)
-            
-            // For now, we return null to signal that offsets are needed
-            return null
-        } catch (e: Exception) {
-            Log.e("MemoryManager", "Memory read failed", e)
-            return null
+            nativeWriteInt(gamePid, turnStateAddress, 1)
         }
     }
 
     private fun findProcessId(packageName: String): Int {
         val procDir = File("/proc")
         val files = procDir.listFiles() ?: return -1
-        
         for (file in files) {
             if (file.isDirectory && file.name.all { it.isDigit() }) {
                 try {
                     val cmdline = File(file, "cmdline").readText().trimEnd('\u0000')
-                    if (cmdline == packageName) {
-                        return file.name.toInt()
-                    }
-                } catch (e: Exception) {
-                    // Ignore processes we can't read
-                }
+                    if (cmdline == packageName) return file.name.toInt()
+                } catch (e: Exception) {}
             }
         }
         return -1

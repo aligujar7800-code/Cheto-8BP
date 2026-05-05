@@ -15,8 +15,11 @@ class ChetoApp : Application() {
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
         
+        val processName = getCurrentProcessName()
+        Log.d("ChetoApp", "Current Process: $processName")
+
         // Only initialize BlackBox on the main process
-        if (base.packageName == getProcessName(base)) {
+        if (base.packageName == processName) {
             try {
                 BlackBoxCore.get().doAttachBaseContext(base, object : ClientConfiguration() {
                     override fun getHostPackageName(): String {
@@ -33,8 +36,9 @@ class ChetoApp : Application() {
     override fun onCreate() {
         super.onCreate()
         
+        val processName = getCurrentProcessName()
         // Only initialize BlackBox on the main process
-        if (packageName == getProcessName(this)) {
+        if (packageName == processName) {
             try {
                 BlackBoxCore.get().doCreate()
                 Log.d("ChetoApp", "Virtual Engine Created Successfully!")
@@ -44,14 +48,19 @@ class ChetoApp : Application() {
         }
     }
 
-    private fun getProcessName(context: Context): String? {
-        val pid = android.os.Process.myPid()
-        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager
-        for (processInfo in am.runningAppProcesses) {
-            if (processInfo.pid == pid) {
-                return processInfo.processName
+    private fun getCurrentProcessName(): String? {
+        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+            Application.getProcessName()
+        } else {
+            // Fallback for older versions
+            try {
+                val declaredField = Class.forName("android.app.ActivityThread")
+                    .getDeclaredField("currentProcessName")
+                declaredField.isAccessible = true
+                declaredField.get(null) as String
+            } catch (e: Exception) {
+                null
             }
         }
-        return null
     }
 }

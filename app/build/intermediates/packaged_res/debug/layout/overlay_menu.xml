@@ -1,264 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
+    android:layout_width="280dp"
     android:layout_height="wrap_content"
     android:background="@drawable/menu_bg"
     android:orientation="vertical"
     android:padding="0dp"
-    android:elevation="12dp">
+    android:elevation="20dp">
 
-    <!-- Header -->
+    <!-- Header with Gradient Look -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#CC111111"
         android:orientation="vertical"
-        android:padding="14dp"
-        android:gravity="center_horizontal">
+        android:padding="16dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/header_bg">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8BP AIMERS"
-            android:textColor="#00E5FF"
+            android:text="CHETO ENGINE"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="18sp"
-            android:letterSpacing="0.15"/>
+            android:textSize="20sp"
+            android:letterSpacing="0.2"/>
 
         <TextView
             android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="● ACTIVE"
-            android:textColor="#00E676"
-            android:textSize="11sp"
-            android:layout_marginTop="2dp"/>
+            android:text="VIRTUAL SANDBOX ACTIVE"
+            android:textColor="#00E5FF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"
+            android:letterSpacing="0.1"/>
     </LinearLayout>
 
-    <!-- Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#3300E5FF"/>
+        android:background="#1AFFFFFF"/>
 
-    <!-- Toggles Section -->
+    <!-- Content Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp"
-        android:background="#DD1A1A2E">
+        android:padding="18dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AIM SETTINGS"
-            android:textColor="#80FFFFFF"
+            android:text="MAIN FEATURES"
+            android:textColor="#55FFFFFF"
             android:textSize="10sp"
-            android:letterSpacing="0.2"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="12dp"/>
 
-        <!-- Bank Shots Toggle -->
-        <LinearLayout
+        <!-- Bank Shots -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
-
+            android:layout_marginBottom="14dp">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bank Shots"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"/>
-
+                android:text="Show Bank Shots"
+                android:textColor="#E0FFFFFF"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"/>
             <Switch
                 android:id="@+id/switchBankShots"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                android:layout_alignParentEnd="true"
                 android:thumbTint="#00E5FF"
-                android:trackTint="#555555"/>
-        </LinearLayout>
+                android:trackTint="#3300E5FF"
+                android:checked="true"/>
+        </RelativeLayout>
 
-        <!-- Cue Reflection Toggle -->
-        <LinearLayout
+        <!-- Cue Path -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
-
+            android:layout_marginBottom="14dp">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cue Ball Path"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"/>
-
+                android:textColor="#E0FFFFFF"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"/>
             <Switch
                 android:id="@+id/switchCueReflection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                android:layout_alignParentEnd="true"
                 android:thumbTint="#00E5FF"
-                android:trackTint="#555555"/>
-        </LinearLayout>
+                android:trackTint="#3300E5FF"
+                android:checked="true"/>
+        </RelativeLayout>
 
-        <!-- Memory Hooking Toggle (Always On) -->
-        <LinearLayout
+        <!-- Anti-Ban (Visual Only Toggle) -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
-
+            android:layout_marginBottom="14dp">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Memory Mode (Cheto)"
-                android:textColor="#FFD600"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
-            <Switch
-                android:id="@+id/switchMemoryMode"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:enabled="false"
-                android:thumbTint="#FFD600"
-                android:trackTint="#555555"/>
-        </LinearLayout>
-
-        <!-- Auto Play Toggle -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Auto-Play (Beta)"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"/>
-
-            <Switch
-                android:id="@+id/switchAutoPlay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:thumbTint="#FF5252"
-                android:trackTint="#555555"/>
-        </LinearLayout>
-
-        <!-- Anti-Ban Protection Toggle -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Anti-Ban Protection"
                 android:textColor="#00E676"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"/>
             <Switch
                 android:id="@+id/switchAntiBan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                android:layout_alignParentEnd="true"
                 android:thumbTint="#00E676"
-                android:trackTint="#555555"/>
-        </LinearLayout>
+                android:trackTint="#3300E676"
+                android:checked="true"
+                android:enabled="false"/>
+        </RelativeLayout>
 
-        <!-- Always Break Toggle -->
-        <LinearLayout
+        <!-- Always Break -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
-
+            android:layout_marginBottom="14dp">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Always Break (High Risk)"
+                android:text="Always Break"
                 android:textColor="#FF8F00"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"/>
             <Switch
                 android:id="@+id/switchAlwaysBreak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
+                android:layout_alignParentEnd="true"
                 android:thumbTint="#FF8F00"
-                android:trackTint="#555555"/>
-        </LinearLayout>
+                android:trackTint="#33FF8F00"
+                android:checked="false"/>
+        </RelativeLayout>
 
-        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#22FFFFFF"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"/>
+            android:background="#1AFFFFFF"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LINE OPACITY"
-            android:textColor="#80FFFFFF"
+            android:textColor="#55FFFFFF"
             android:textSize="10sp"
-            android:letterSpacing="0.2"
-            android:layout_marginBottom="4dp"/>
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"/>
 
-        <!-- Opacity Slider -->
         <SeekBar
             android:id="@+id/seekBarOpacity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="255"
-            android:progress="200"
+            android:progress="180"
             android:progressTint="#00E5FF"
-            android:thumbTint="#00E5FF"/>
+            android:thumbTint="#00E5FF"
+            android:layout_marginHorizontal="-12dp"/>
 
     </LinearLayout>
 
-    <!-- Divider -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#22FFFFFF"/>
-
-    <!-- Close Button -->
+    <!-- Bottom Button Section -->
     <Button
         android:id="@+id/btnClose"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:text="CLOSE TOOL"
+        android:layout_height="56dp"
+        android:text="MINIMIZE TOOL"
         android:textColor="#FFFFFF"
-        android:textSize="13sp"
         android:textStyle="bold"
-        android:backgroundTint="#CCFF1744"
-        android:layout_margin="0dp"
+        android:textSize="14sp"
+        android:backgroundTint="#22FFFFFF"
         android:insetTop="0dp"
-        android:insetBottom="0dp"/>
+        android:insetBottom="0dp"
+        android:layout_margin="12dp"
+        android:stateListAnimator="@null"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
 
 </LinearLayout>

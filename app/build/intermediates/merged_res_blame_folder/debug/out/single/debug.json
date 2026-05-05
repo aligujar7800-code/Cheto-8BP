@@ -24,6 +24,10 @@
         "source": "com.cheto.eightball.app-main-35:/layout/overlay_menu.xml"
     },
     {
+        "merged": "com.cheto.eightball.app-merged_res-33:/drawable_header_bg.xml.flat",
+        "source": "com.cheto.eightball.app-main-35:/drawable/header_bg.xml"
+    },
+    {
         "merged": "com.cheto.eightball.app-merged_res-33:/drawable_ninja_logo.png.flat",
         "source": "com.cheto.eightball.app-main-35:/drawable/ninja_logo.png"
     },

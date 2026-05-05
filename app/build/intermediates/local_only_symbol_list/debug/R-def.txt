@@ -14,6 +14,7 @@ drawable app_logo
 drawable bg_button
 drawable bg_input
 drawable bg_neon_button
+drawable header_bg
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable menu_bg
@@ -31,10 +32,8 @@ id ivMainLogo
 id seekBarOpacity
 id switchAlwaysBreak
 id switchAntiBan
-id switchAutoPlay
 id switchBankShots
 id switchCueReflection
-id switchMemoryMode
 id tilPassword
 id tilUsername
 id tvInstallWarning

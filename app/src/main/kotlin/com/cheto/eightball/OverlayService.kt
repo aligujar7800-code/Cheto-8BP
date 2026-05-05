@@ -103,7 +103,7 @@ class OverlayService : Service() {
                 if (now - lastProcessedTime >= FRAME_INTERVAL_MS) {
                     lastProcessedTime = now
 
-                    val memResult = memoryManager.readGameData()
+                    val memResult: MemoryManager.AimResult? = memoryManager.readGameData()
                     
                     android.os.Handler(android.os.Looper.getMainLooper()).post {
                         if (memResult != null) {
@@ -223,8 +223,7 @@ class OverlayService : Service() {
 
             val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             menuView = inflater.inflate(R.layout.overlay_menu, null)
-            
-            menuView?.findViewById<android.widget.Switch>(R.id.switchBankShots)?.setOnCheckedChangeListener { _, isChecked ->
+                     menuView?.findViewById<android.widget.Switch>(R.id.switchBankShots)?.setOnCheckedChangeListener { _, isChecked ->
                 guidelineView?.showBankShots = isChecked
                 guidelineView?.invalidate()
             }
@@ -234,17 +233,6 @@ class OverlayService : Service() {
                 guidelineView?.invalidate()
             }
 
-            // Auto-Play toggle
-            menuView?.findViewById<android.widget.Switch>(R.id.switchAutoPlay)?.setOnCheckedChangeListener { _, isChecked ->
-                AutoPlayManager.getInstance().setEnabled(isChecked)
-            }
-
-            // Anti-Ban Protection toggle
-            menuView?.findViewById<android.widget.Switch>(R.id.switchAntiBan)?.setOnCheckedChangeListener { _, isChecked ->
-                // Security is always checked in native if enabled
-            }
-
-            // Always Break toggle
             menuView?.findViewById<android.widget.Switch>(R.id.switchAlwaysBreak)?.setOnCheckedChangeListener { _, isChecked ->
                 memoryManager.forceBreak(isChecked)
             }
@@ -259,7 +247,7 @@ class OverlayService : Service() {
             })
             
             menuView?.findViewById<android.widget.Button>(R.id.btnClose)?.setOnClickListener {
-                stopSelf()
+                toggleMenu()
             }
 
             try {

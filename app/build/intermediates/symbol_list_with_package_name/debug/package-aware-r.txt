@@ -2928,6 +2928,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable header_bg
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3466,10 +3467,8 @@ id submit_area
 id supportScrollUp
 id switchAlwaysBreak
 id switchAntiBan
-id switchAutoPlay
 id switchBankShots
 id switchCueReflection
-id switchMemoryMode
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans

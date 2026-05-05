@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionCode="22"
-    android:versionName="1.2.2" >
+    android:versionCode="23"
+    android:versionName="1.2.3" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -268,11 +268,21 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <!-- BlackBox System Provider -->
         <provider
             android:name="top.niunaijun.blackbox.core.system.SystemCallProvider"
             android:authorities="com.cheto.eightball.blackbox.SystemCallProvider"
             android:exported="false"
-            android:process="@string/black_box_service_name" /> <!-- file provider -->
+            android:process=":blackbox_service" />
+
+        <!-- BlackBox Daemon Service -->
+        <service
+            android:name="top.niunaijun.blackbox.core.system.DaemonService"
+            android:exported="false"
+            android:process=":blackbox_service" />
+
+        <!-- file provider -->
         <provider
             android:name="top.niunaijun.blackbox.fake.provider.FileProvider"
             android:authorities="com.cheto.eightball.blackbox.FileProvider"
@@ -293,10 +303,6 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name="top.niunaijun.blackbox.core.system.DaemonService"
-            android:exported="false"
-            android:process="@string/black_box_service_name" />
         <service
             android:name="top.niunaijun.blackbox.core.system.DaemonService$DaemonInnerService"
             android:exported="false"
