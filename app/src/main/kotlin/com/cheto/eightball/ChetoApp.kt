@@ -37,6 +37,10 @@ class ChetoApp : Application() {
                 override fun isHideXposed(): Boolean {
                     return true // Stealth mode
                 }
+
+                override fun isEnableDaemonService(): Boolean {
+                    return true // Keep engine alive in background
+                }
             })
             Log.d("ChetoApp", "✅ Virtual Engine Attached to ${base.packageName}")
         } catch (e: Throwable) {

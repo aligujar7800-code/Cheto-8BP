@@ -19,6 +19,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -120,6 +121,9 @@ class OverlayService : Service() {
                         
                         android.os.Handler(android.os.Looper.getMainLooper()).post {
                             if (memResult != null) {
+                                if (guidelineView?.debugStatus == "CHETO: SCANNING...") {
+                                    Toast.makeText(this@OverlayService, "Cheto Hooked: Game Process Detected!", Toast.LENGTH_SHORT).show()
+                                }
                                 guidelineView?.aimResult = memResult
                                 guidelineView?.debugStatus = "CHETO: ACTIVE ✓"
                             } else {

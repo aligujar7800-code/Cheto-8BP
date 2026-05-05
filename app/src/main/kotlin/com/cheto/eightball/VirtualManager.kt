@@ -61,24 +61,28 @@ object VirtualManager {
                     BlackBoxCore.get().stopPackage(GAME_PACKAGE, USER_ID)
                 } catch (_: Exception) {}
 
-                // Professional Step: Use Intent-based launch for maximum compatibility
+                // Professional Step: Direct BActivityManager launch
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     try {
-                        Log.i("VirtualManager", "Generating launch intent for $GAME_PACKAGE...")
+                        Log.i("VirtualManager", "Fetching direct intent for $GAME_PACKAGE...")
                         val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
+                        
                         if (launchIntent != null) {
                             launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            context.startActivity(launchIntent)
-                            Log.d("VirtualManager", "✅ Game launch intent started successfully")
+                            // Direct call to the virtual activity manager
+                            BlackBoxCore.getBActivityManager().startActivity(launchIntent, USER_ID)
+                            Log.d("VirtualManager", "✅ Direct BActivityManager.startActivity called")
+                            Toast.makeText(context, "Game Launching (Direct Mode)...", Toast.LENGTH_SHORT).show()
                         } else {
-                            Log.e("VirtualManager", "❌ Could not find launch activity for game")
-                            // Fallback to internal launchApk
+                            Log.e("VirtualManager", "❌ Still could not find launch intent. Trying internal fallback...")
                             BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
                         }
                     } catch (e: Exception) {
-                        Log.e("VirtualManager", "Launch execution failed", e)
+                        Log.e("VirtualManager", "Direct launch failed", e)
+                        // Last resort: standard launchApk
+                        BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
                     }
-                }, 800)
+                }, 1000)
             } else {
                 Log.w("VirtualManager", "Game not installed. Triggering install flow...")
                 installGameToVirtualSpace(context)

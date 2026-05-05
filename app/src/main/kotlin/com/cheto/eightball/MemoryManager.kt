@@ -189,7 +189,17 @@ class MemoryManager {
                 try {
                     val cmdline = File(file, "cmdline").readText().trimEnd('\u0000')
                     if (cmdline == packageName) {
-                        cachedPid = file.name.toInt()
+                        val pid = file.name.toInt()
+                        if (cachedPid == -1) {
+                            // Show toast ONLY the first time we find the process
+                            android.os.Handler(android.os.Looper.getMainLooper()).post {
+                                // context is needed here, but since this is a manager, 
+                                // we'll use a static reference or just Log for now.
+                                // Actually, let's just Log and I'll update the OverlayService to show the toast.
+                                Log.i("MemoryManager", "✅ Process Found! PID: $pid")
+                            }
+                        }
+                        cachedPid = pid
                         return cachedPid
                     }
                 } catch (e: Exception) {}
