@@ -25,6 +25,7 @@
     <application
         android:name=".ChetoApp"
         android:allowBackup="true"
+        android:allowNativeHeapPointerTagging="false"
         android:icon="@drawable/app_logo"
         android:label="8ball aimers"
         android:roundIcon="@drawable/app_logo"
@@ -112,6 +113,17 @@
 
         <service
             android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"
+            android:process=":blackbox_service" />
+
+        <!-- BlackBox IPC Services (CRITICAL FOR STABILITY) -->
+        <service
+            android:name="top.niunaijun.blackbox.client.ClientService"
+            android:exported="false"
+            android:process=":blackbox_service" />
+
+        <service
+            android:name="top.niunaijun.blackbox.server.ServerService"
+            android:exported="false"
             android:process=":blackbox_service" />
 
     </application>

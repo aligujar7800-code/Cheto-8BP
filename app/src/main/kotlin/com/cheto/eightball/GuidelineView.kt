@@ -13,6 +13,12 @@ class GuidelineView(context: Context) : View(context) {
     var showCueReflection = true
     var lineAlpha: Int = 200
 
+    init {
+        // Professional Stability Fix: Disable Hardware Acceleration for the overlay view.
+        // This prevents GPU context conflicts between the virtual game and the overlay.
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null)
+    }
+
     // Aim data from MemoryManager
     var aimResult: MemoryManager.AimResult? = null
 

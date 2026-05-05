@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionCode="29"
-    android:versionName="1.2.9" >
+    android:versionCode="30"
+    android:versionName="1.3.0" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -234,6 +234,7 @@
     <application
         android:name="com.cheto.eightball.ChetoApp"
         android:allowBackup="true"
+        android:allowNativeHeapPointerTagging="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
@@ -319,6 +320,16 @@
 
         <service
             android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"
+            android:process=":blackbox_service" />
+
+        <!-- BlackBox IPC Services (CRITICAL FOR STABILITY) -->
+        <service
+            android:name="top.niunaijun.blackbox.client.ClientService"
+            android:exported="false"
+            android:process=":blackbox_service" />
+        <service
+            android:name="top.niunaijun.blackbox.server.ServerService"
+            android:exported="false"
             android:process=":blackbox_service" />
 
         <!-- file provider -->
