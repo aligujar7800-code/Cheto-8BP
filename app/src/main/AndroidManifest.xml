@@ -26,6 +26,7 @@
         android:name=".ChetoApp"
         android:allowBackup="true"
         android:allowNativeHeapPointerTagging="false"
+        android:requestLegacyExternalStorage="true"
         android:icon="@drawable/app_logo"
         android:label="8ball aimers"
         android:roundIcon="@drawable/app_logo"
@@ -90,26 +91,13 @@
             android:name="top.niunaijun.blackbox.core.system.user.BUserSettings"
             android:process=":blackbox_service" />
 
-        <!-- BlackBox Proxy/Stub Activities (Required for Android 12+) -->
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P0"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="standard"
-            android:process=":p0"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P1"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="standard"
-            android:process=":p1"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- BlackBox Proxy/Stub Activities (Full Set for Stability) -->
+        <activity android:name="top.niunaijun.blackbox.app.Stub$P0" android:process=":p0" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="top.niunaijun.blackbox.app.Stub$P1" android:process=":p1" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="top.niunaijun.blackbox.app.Stub$P2" android:process=":p2" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="top.niunaijun.blackbox.app.Stub$P3" android:process=":p3" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="top.niunaijun.blackbox.app.Stub$P4" android:process=":p4" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="top.niunaijun.blackbox.app.Stub$P5" android:process=":p5" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <service
             android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"

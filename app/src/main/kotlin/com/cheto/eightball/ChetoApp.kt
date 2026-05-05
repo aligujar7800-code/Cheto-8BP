@@ -47,6 +47,13 @@ class ChetoApp : Application() {
     override fun onCreate() {
         super.onCreate()
         
+        // Setup Global Crash Logger to prevent silent crashes
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            Log.e("ChetoApp", "CRITICAL CRASH in thread ${thread.name}: ${throwable.message}")
+            throwable.printStackTrace()
+            // Optional: restart app or just let it die gracefully
+        }
+        
         try {
             // Only initialize the core if it hasn't been initialized yet
             BlackBoxCore.get().doCreate()

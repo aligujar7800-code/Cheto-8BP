@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         // Step 2: Launch the game after the service has successfully started
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
             launchGame()
-        }, 1000)
+        }, 2000)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

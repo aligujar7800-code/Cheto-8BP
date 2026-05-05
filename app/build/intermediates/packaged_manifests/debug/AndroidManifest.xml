@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionCode="30"
-    android:versionName="1.3.0" >
+    android:versionCode="31"
+    android:versionName="1.3.1" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -240,6 +240,7 @@
         android:extractNativeLibs="false"
         android:icon="@drawable/app_logo"
         android:label="8ball aimers"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
@@ -298,23 +299,47 @@
             android:name="top.niunaijun.blackbox.core.system.user.BUserSettings"
             android:process=":blackbox_service" />
 
-        <!-- BlackBox Proxy/Stub Activities (Required for Android 12+) -->
+        <!-- BlackBox Proxy/Stub Activities (Full Set for Stability) -->
         <activity
             android:name="top.niunaijun.blackbox.app.Stub$P0"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:exported="false"
             android:hardwareAccelerated="true"
-            android:launchMode="standard"
             android:process=":p0"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="top.niunaijun.blackbox.app.Stub$P1"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:exported="false"
             android:hardwareAccelerated="true"
-            android:launchMode="standard"
             android:process=":p1"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="top.niunaijun.blackbox.app.Stub$P2"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:process=":p2"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="top.niunaijun.blackbox.app.Stub$P3"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:process=":p3"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="top.niunaijun.blackbox.app.Stub$P4"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:process=":p4"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="top.niunaijun.blackbox.app.Stub$P5"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:process=":p5"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
