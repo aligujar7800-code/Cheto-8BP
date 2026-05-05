@@ -136,11 +136,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun launchGame() {
-        // Attempt to install the game into our Virtual Space first
-        VirtualManager.installGameToVirtualSpace(this)
-        
-        // Launch the game from within our Virtual Space
-        VirtualManager.launchGameFromVirtualSpace(this)
+        // Run installation and launch in a background thread to prevent ANR (Freeze)
+        lifecycleScope.launch(kotlinx.coroutines.Dispatchers.IO) {
+            try {
+                // Attempt to install the game into our Virtual Space first
+                VirtualManager.installGameToVirtualSpace(this@MainActivity)
+                
+                // Small delay to let filesystem settle
+                kotlinx.coroutines.delay(500)
+                
+                // Launch the game from within our Virtual Space
+                VirtualManager.launchGameFromVirtualSpace(this@MainActivity)
+            } catch (e: Exception) {
+                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                    Toast.makeText(this@MainActivity, "Launch Error: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 
 
