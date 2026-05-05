@@ -114,6 +114,68 @@
             android:exported="false"
             android:process=":blackbox_service" />
 
+        <!-- BlackBox Proxy Providers (ESSENTIAL FOR LAUNCH) -->
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P0"
+            android:authorities="com.cheto.eightball.proxy_content_provider_0"
+            android:exported="true"
+            android:process=":p0"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P1"
+            android:authorities="com.cheto.eightball.proxy_content_provider_1"
+            android:exported="true"
+            android:process=":p1"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P2"
+            android:authorities="com.cheto.eightball.proxy_content_provider_2"
+            android:exported="true"
+            android:process=":p2"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P3"
+            android:authorities="com.cheto.eightball.proxy_content_provider_3"
+            android:exported="true"
+            android:process=":p3"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P4"
+            android:authorities="com.cheto.eightball.proxy_content_provider_4"
+            android:exported="true"
+            android:process=":p4"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P5"
+            android:authorities="com.cheto.eightball.proxy_content_provider_5"
+            android:exported="true"
+            android:process=":p5"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P6"
+            android:authorities="com.cheto.eightball.proxy_content_provider_6"
+            android:exported="true"
+            android:process=":p6"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P7"
+            android:authorities="com.cheto.eightball.proxy_content_provider_7"
+            android:exported="true"
+            android:process=":p7"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P8"
+            android:authorities="com.cheto.eightball.proxy_content_provider_8"
+            android:exported="true"
+            android:process=":p8"
+            tools:replace="android:exported" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P9"
+            android:authorities="com.cheto.eightball.proxy_content_provider_9"
+            android:exported="true"
+            android:process=":p9"
+            tools:replace="android:exported" />
+
     </application>
 
 </manifest>
