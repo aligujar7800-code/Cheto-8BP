@@ -163,7 +163,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] D:\Android\.gradle\caches\t
 	android:allowBackup
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:9-35
 	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:30:9-67
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:30:9-65
 	android:usesCleartextTraffic
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:32:9-44
 	android:name
@@ -175,7 +175,7 @@ ADDED from D:\cheto\app\src\main\AndroidManifest.xml:34:9-43:20
 	android:exported
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:36:13-36
 	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:38:13-71
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:38:13-69
 	android:name
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:35:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER

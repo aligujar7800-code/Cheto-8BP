@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.cheto.eightball"
-4    android:versionCode="46"
-5    android:versionName="1.4.6" >
+4    android:versionCode="47"
+5    android:versionName="1.4.7" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
@@ -630,8 +630,8 @@
 240-->D:\cheto\app\src\main\AndroidManifest.xml:28:9-54
 241        android:supportsRtl="true"
 241-->D:\cheto\app\src\main\AndroidManifest.xml:29:9-35
-242        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-242-->D:\cheto\app\src\main\AndroidManifest.xml:30:9-67
+242        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+242-->D:\cheto\app\src\main\AndroidManifest.xml:30:9-65
 243        android:usesCleartextTraffic="true" >
 243-->D:\cheto\app\src\main\AndroidManifest.xml:32:9-44
 244        <activity
@@ -642,8 +642,8 @@
 246-->D:\cheto\app\src\main\AndroidManifest.xml:36:13-36
 247            android:screenOrientation="portrait"
 247-->D:\cheto\app\src\main\AndroidManifest.xml:37:13-49
-248            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-248-->D:\cheto\app\src\main\AndroidManifest.xml:38:13-71
+248            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+248-->D:\cheto\app\src\main\AndroidManifest.xml:38:13-69
 249            <intent-filter>
 249-->D:\cheto\app\src\main\AndroidManifest.xml:39:13-42:29
 250                <action android:name="android.intent.action.MAIN" />
