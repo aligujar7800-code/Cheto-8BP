@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionCode="44"
-    android:versionName="1.4.4" >
+    android:versionCode="45"
+    android:versionName="1.4.5" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -284,22 +284,58 @@
             android:name="top.niunaijun.blackbox.core.system.SystemCallProvider"
             android:authorities="com.cheto.eightball.blackbox.SystemCallProvider"
             android:exported="false"
-            android:process=":blackbox_service" />
+            android:process=":black" />
 
         <service
             android:name="top.niunaijun.blackbox.core.system.DaemonService"
             android:exported="false"
-            android:process=":blackbox_service" />
+            android:process=":black" />
+        <service
+            android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"
+            android:process=":black" />
+
+        <!-- BlackBox IPC Services -->
+        <service
+            android:name="top.niunaijun.blackbox.client.ClientService"
+            android:exported="false"
+            android:process=":black" />
+        <service
+            android:name="top.niunaijun.blackbox.server.ServerService"
+            android:exported="false"
+            android:process=":black" />
+
+        <!-- File Provider for Virtual Engine -->
+        <provider
+            android:name="top.niunaijun.blackbox.fake.provider.FileProvider"
+            android:authorities="com.cheto.eightball.blackbox.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            android:process=":black" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepath" />
+        </provider>
+
+        <!-- Proxy Broadcast Receiver -->
+        <receiver
+            android:name="top.niunaijun.blackbox.proxy.ProxyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":black" >
+            <intent-filter>
+                <action android:name="com.cheto.eightball.stub_receiver" />
+            </intent-filter>
+        </receiver>
 
         <!-- Stub Activities for Hosting the Game -->
         <activity
             android:name="top.niunaijun.blackbox.core.system.user.BUserHandle"
-            android:process=":blackbox_service" />
+            android:process=":black" />
         <activity
             android:name="top.niunaijun.blackbox.core.system.user.BUserSettings"
-            android:process=":blackbox_service" />
+            android:process=":black" />
 
-        <!-- BlackBox Proxy/Stub Activities (Full Set for Stability) -->
+        <!-- BlackBox Proxy/Stub Activities -->
         <activity
             android:name="top.niunaijun.blackbox.app.Stub$P0"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
@@ -342,20 +378,6 @@
             android:process=":p5"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-        <service
-            android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"
-            android:process=":blackbox_service" />
-
-        <!-- BlackBox IPC Services (CRITICAL FOR STABILITY) -->
-        <service
-            android:name="top.niunaijun.blackbox.client.ClientService"
-            android:exported="false"
-            android:process=":blackbox_service" />
-        <service
-            android:name="top.niunaijun.blackbox.server.ServerService"
-            android:exported="false"
-            android:process=":blackbox_service" />
 
         <!-- BlackBox Proxy Providers (ESSENTIAL FOR LAUNCH) -->
         <provider
@@ -408,27 +430,6 @@
             android:authorities="com.cheto.eightball.proxy_content_provider_9"
             android:exported="true"
             android:process=":p9" />
-
-        <!-- file provider -->
-        <provider
-            android:name="top.niunaijun.blackbox.fake.provider.FileProvider"
-            android:authorities="com.cheto.eightball.blackbox.FileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/filepath" />
-        </provider>
-
-        <receiver
-            android:name="top.niunaijun.blackbox.proxy.ProxyBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:process="@string/black_box_service_name" >
-            <intent-filter>
-                <action android:name="com.cheto.eightball.stub_receiver" />
-            </intent-filter>
-        </receiver>
 
         <service
             android:name="top.niunaijun.blackbox.core.system.DaemonService$DaemonInnerService"
