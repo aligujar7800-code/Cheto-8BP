@@ -13,58 +13,31 @@ import top.niunaijun.blackbox.app.configuration.ClientConfiguration
 class ChetoApp : Application() {
 
     override fun attachBaseContext(base: Context) {
-        // Step 1: Bypass hidden API restrictions as EARLY as possible.
-        // On newer Android versions, even super.attachBaseContext() can trigger checks.
-        try {
-            HiddenApiBypass.unseal()
-        } catch (e: Throwable) {
-            Log.e("ChetoApp", "Critical: HiddenApiBypass failed", e)
-        }
-
         super.attachBaseContext(base)
-        
         try {
-            val hostPkg = "com.cheto.eightball"
-            // Step 2: Initialize BlackBox virtual engine for all processes
+            // Standard initialization using the app's own package name
             BlackBoxCore.get().doAttachBaseContext(base, object : ClientConfiguration() {
                 override fun getHostPackageName(): String {
-                    return hostPkg
-                }
-
-                override fun isHideRoot(): Boolean {
-                    return true // Stealth mode
-                }
-
-                override fun isHideXposed(): Boolean {
-                    return true // Stealth mode
-                }
-
-                override fun isEnableDaemonService(): Boolean {
-                    return true // Keep engine alive in background
+                    return base.packageName
                 }
             })
-            Log.d("ChetoApp", "✅ Virtual Engine Attached to $hostPkg")
         } catch (e: Throwable) {
-            Log.e("ChetoApp", "❌ Failed to attach Virtual Engine", e)
+            Log.e("ChetoApp", "Failed to attach engine", e)
         }
     }
 
     override fun onCreate() {
         super.onCreate()
         
-        // Setup Global Crash Logger to prevent silent crashes
-        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            Log.e("ChetoApp", "CRITICAL CRASH in thread ${thread.name}: ${throwable.message}")
-            throwable.printStackTrace()
-            // Optional: restart app or just let it die gracefully
-        }
+        // Bypass hidden API restrictions in onCreate instead of attachBaseContext
+        try {
+            HiddenApiBypass.unseal()
+        } catch (_: Throwable) {}
         
         try {
-            // Only initialize the core if it hasn't been initialized yet
             BlackBoxCore.get().doCreate()
-            Log.d("ChetoApp", "✅ Virtual Engine Created Successfully!")
         } catch (e: Throwable) {
-            Log.e("ChetoApp", "❌ Failed to create Virtual Engine", e)
+            Log.e("ChetoApp", "Failed to create engine", e)
         }
     }
 }

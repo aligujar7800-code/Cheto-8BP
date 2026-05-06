@@ -2,20 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Essential Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
-    <uses-permission
-        android:name="android.permission.PACKAGE_USAGE_STATS"
-        tools:ignore="ProtectedPermissions" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <!-- Storage Permissions -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
 
     <queries>
@@ -25,186 +23,30 @@
     <application
         android:name=".ChetoApp"
         android:allowBackup="true"
-        android:allowNativeHeapPointerTagging="false"
-        android:requestLegacyExternalStorage="true"
-        android:icon="@drawable/app_logo"
-        android:label="8ball aimers"
-        android:roundIcon="@drawable/app_logo"
+        android:icon="@mipmap/ic_launcher"
+        android:label="8ball Aimers"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <service
             android:name=".OverlayService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaProjection|specialUse">
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Gaming overlay tool for visual assistance and guidelines." />
-        </service>
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
-        <!-- BlackBox Virtual Engine Components -->
-        <provider
-            android:name="top.niunaijun.blackbox.core.system.SystemCallProvider"
-            android:authorities="com.cheto.eightball.blackbox.SystemCallProvider"
-            android:exported="false"
-            android:process=":black"
-            tools:replace="android:process,android:authorities" />
-
-        <service
-            android:name="top.niunaijun.blackbox.core.system.DaemonService"
-            android:exported="false"
-            android:process=":black"
-            tools:replace="android:process" />
-
-        <service
-            android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"
-            android:process=":black"
-            tools:replace="android:process" />
-
-        <!-- BlackBox IPC Services -->
-        <service
-            android:name="top.niunaijun.blackbox.client.ClientService"
-            android:exported="false"
-            android:process=":black"
-            tools:replace="android:process" />
-
-        <service
-            android:name="top.niunaijun.blackbox.server.ServerService"
-            android:exported="false"
-            android:process=":black"
-            tools:replace="android:process" />
-
-        <!-- File Provider for Virtual Engine -->
-        <provider
-            android:name="top.niunaijun.blackbox.fake.provider.FileProvider"
-            android:authorities="com.cheto.eightball.blackbox.FileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true"
-            android:process=":black"
-            tools:replace="android:process">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/filepath" />
-        </provider>
-
-        <!-- Proxy Broadcast Receiver -->
-        <receiver
-            android:name="top.niunaijun.blackbox.proxy.ProxyBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:process=":black"
-            tools:replace="android:process">
-            <intent-filter>
-                <action android:name="com.cheto.eightball.stub_receiver" />
-            </intent-filter>
-        </receiver>
-
-        <!-- Stub Activities for Hosting the Game -->
-        <activity
-            android:name="top.niunaijun.blackbox.core.system.user.BUserHandle"
-            android:process=":black"
-            tools:replace="android:process" />
-
-        <activity
-            android:name="top.niunaijun.blackbox.core.system.user.BUserSettings"
-            android:process=":black"
-            tools:replace="android:process" />
-
-        <!-- BlackBox Proxy/Stub Activities -->
-        <activity android:name="top.niunaijun.blackbox.app.Stub$P0" android:process=":p0" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name="top.niunaijun.blackbox.app.Stub$P1" android:process=":p1" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name="top.niunaijun.blackbox.app.Stub$P2" android:process=":p2" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name="top.niunaijun.blackbox.app.Stub$P3" android:process=":p3" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name="top.niunaijun.blackbox.app.Stub$P4" android:process=":p4" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name="top.niunaijun.blackbox.app.Stub$P5" android:process=":p5" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection" android:hardwareAccelerated="true" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-        <!-- BlackBox Proxy Providers (ESSENTIAL FOR LAUNCH) -->
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P0"
-            android:authorities="com.cheto.eightball.proxy_content_provider_0"
-            android:exported="true"
-            android:process=":p0"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P1"
-            android:authorities="com.cheto.eightball.proxy_content_provider_1"
-            android:exported="true"
-            android:process=":p1"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P2"
-            android:authorities="com.cheto.eightball.proxy_content_provider_2"
-            android:exported="true"
-            android:process=":p2"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P3"
-            android:authorities="com.cheto.eightball.proxy_content_provider_3"
-            android:exported="true"
-            android:process=":p3"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P4"
-            android:authorities="com.cheto.eightball.proxy_content_provider_4"
-            android:exported="true"
-            android:process=":p4"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P5"
-            android:authorities="com.cheto.eightball.proxy_content_provider_5"
-            android:exported="true"
-            android:process=":p5"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P6"
-            android:authorities="com.cheto.eightball.proxy_content_provider_6"
-            android:exported="true"
-            android:process=":p6"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P7"
-            android:authorities="com.cheto.eightball.proxy_content_provider_7"
-            android:exported="true"
-            android:process=":p7"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P8"
-            android:authorities="com.cheto.eightball.proxy_content_provider_8"
-            android:exported="true"
-            android:process=":p8"
-            tools:replace="android:exported" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P9"
-            android:authorities="com.cheto.eightball.proxy_content_provider_9"
-            android:exported="true"
-            android:process=":p9"
-            tools:replace="android:exported" />
+            android:foregroundServiceType="specialUse" />
 
     </application>
 

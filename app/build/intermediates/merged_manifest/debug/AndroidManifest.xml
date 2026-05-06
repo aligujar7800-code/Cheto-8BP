@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cheto.eightball"
-    android:versionCode="45"
-    android:versionName="1.4.5" >
+    android:versionCode="46"
+    android:versionName="1.4.6" >
 
     <uses-sdk
         android:minSdkVersion="24"
         android:targetSdkVersion="33" />
 
+    <!-- Essential Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+
+    <!-- Storage Permissions -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <queries>
@@ -115,8 +112,7 @@
         android:required="false" /> <!-- 位置服务 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 网络 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
@@ -165,8 +161,7 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" /> <!-- 红外线 -->
     <uses-permission android:name="android.permission.TRANSMIT_IR" /> <!-- SIP服务 -->
-    <uses-permission android:name="android.permission.USE_SIP" /> <!-- 唤醒屏幕 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.USE_SIP" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" /> <!-- boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- system app start -->
     <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
@@ -184,7 +179,8 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" /> <!-- xdja -->
     <uses-permission android:name="android.permission.BIND_APPWIDGET" />
-    <uses-permission android:name="android.permission.ACCOUNT_MANAGER" /> <!-- system app end -->
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> <!-- system app end -->
     <!-- not found -->
     <uses-permission android:name="android.permission.READ_INSTALL_SESSIONS" />
     <uses-permission android:name="android.permission.READ_OWNER_DATA" />
@@ -224,6 +220,7 @@
 
     <uses-permission android:name="android.hardware.usb.host" />
     <uses-permission android:name="android.permission.HARDWARE_TEST" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
 
     <permission
         android:name="com.cheto.eightball.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -234,203 +231,63 @@
     <application
         android:name="com.cheto.eightball.ChetoApp"
         android:allowBackup="true"
-        android:allowNativeHeapPointerTagging="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:icon="@drawable/app_logo"
-        android:label="8ball aimers"
+        android:icon="@mipmap/ic_launcher"
+        android:label="8ball Aimers"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@drawable/app_logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.cheto.eightball.LoginActivity"
+            android:name="com.cheto.eightball.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.cheto.eightball.MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service
             android:name="com.cheto.eightball.OverlayService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaProjection|specialUse" >
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Gaming overlay tool for visual assistance and guidelines." />
-        </service>
+            android:foregroundServiceType="specialUse" />
 
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.cheto.eightball.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
-        <!-- BlackBox Virtual Engine Components -->
         <provider
             android:name="top.niunaijun.blackbox.core.system.SystemCallProvider"
             android:authorities="com.cheto.eightball.blackbox.SystemCallProvider"
             android:exported="false"
-            android:process=":black" />
-
-        <service
-            android:name="top.niunaijun.blackbox.core.system.DaemonService"
-            android:exported="false"
-            android:process=":black" />
-        <service
-            android:name="top.niunaijun.blackbox.core.system.BProcessManagerService"
-            android:process=":black" />
-
-        <!-- BlackBox IPC Services -->
-        <service
-            android:name="top.niunaijun.blackbox.client.ClientService"
-            android:exported="false"
-            android:process=":black" />
-        <service
-            android:name="top.niunaijun.blackbox.server.ServerService"
-            android:exported="false"
-            android:process=":black" />
-
-        <!-- File Provider for Virtual Engine -->
+            android:process="@string/black_box_service_name" /> <!-- file provider -->
         <provider
             android:name="top.niunaijun.blackbox.fake.provider.FileProvider"
             android:authorities="com.cheto.eightball.blackbox.FileProvider"
             android:exported="false"
-            android:grantUriPermissions="true"
-            android:process=":black" >
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepath" />
         </provider>
 
-        <!-- Proxy Broadcast Receiver -->
         <receiver
             android:name="top.niunaijun.blackbox.proxy.ProxyBroadcastReceiver"
             android:enabled="true"
             android:exported="true"
-            android:process=":black" >
+            android:process="@string/black_box_service_name" >
             <intent-filter>
                 <action android:name="com.cheto.eightball.stub_receiver" />
             </intent-filter>
         </receiver>
 
-        <!-- Stub Activities for Hosting the Game -->
-        <activity
-            android:name="top.niunaijun.blackbox.core.system.user.BUserHandle"
-            android:process=":black" />
-        <activity
-            android:name="top.niunaijun.blackbox.core.system.user.BUserSettings"
-            android:process=":black" />
-
-        <!-- BlackBox Proxy/Stub Activities -->
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P0"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:hardwareAccelerated="true"
-            android:process=":p0"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P1"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:hardwareAccelerated="true"
-            android:process=":p1"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P2"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:hardwareAccelerated="true"
-            android:process=":p2"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P3"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:hardwareAccelerated="true"
-            android:process=":p3"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P4"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:hardwareAccelerated="true"
-            android:process=":p4"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="top.niunaijun.blackbox.app.Stub$P5"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
-            android:hardwareAccelerated="true"
-            android:process=":p5"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-        <!-- BlackBox Proxy Providers (ESSENTIAL FOR LAUNCH) -->
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P0"
-            android:authorities="com.cheto.eightball.proxy_content_provider_0"
-            android:exported="true"
-            android:process=":p0" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P1"
-            android:authorities="com.cheto.eightball.proxy_content_provider_1"
-            android:exported="true"
-            android:process=":p1" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P2"
-            android:authorities="com.cheto.eightball.proxy_content_provider_2"
-            android:exported="true"
-            android:process=":p2" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P3"
-            android:authorities="com.cheto.eightball.proxy_content_provider_3"
-            android:exported="true"
-            android:process=":p3" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P4"
-            android:authorities="com.cheto.eightball.proxy_content_provider_4"
-            android:exported="true"
-            android:process=":p4" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P5"
-            android:authorities="com.cheto.eightball.proxy_content_provider_5"
-            android:exported="true"
-            android:process=":p5" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P6"
-            android:authorities="com.cheto.eightball.proxy_content_provider_6"
-            android:exported="true"
-            android:process=":p6" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P7"
-            android:authorities="com.cheto.eightball.proxy_content_provider_7"
-            android:exported="true"
-            android:process=":p7" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P8"
-            android:authorities="com.cheto.eightball.proxy_content_provider_8"
-            android:exported="true"
-            android:process=":p8" />
-        <provider
-            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P9"
-            android:authorities="com.cheto.eightball.proxy_content_provider_9"
-            android:exported="true"
-            android:process=":p9" />
-
+        <service
+            android:name="top.niunaijun.blackbox.core.system.DaemonService"
+            android:exported="false"
+            android:process="@string/black_box_service_name" />
         <service
             android:name="top.niunaijun.blackbox.core.system.DaemonService$DaemonInnerService"
             android:exported="false"
@@ -1707,6 +1564,56 @@
             android:exported="true"
             android:process=":p49" />
 
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P0"
+            android:authorities="com.cheto.eightball.proxy_content_provider_0"
+            android:exported="true"
+            android:process=":p0" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P1"
+            android:authorities="com.cheto.eightball.proxy_content_provider_1"
+            android:exported="true"
+            android:process=":p1" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P2"
+            android:authorities="com.cheto.eightball.proxy_content_provider_2"
+            android:exported="true"
+            android:process=":p2" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P3"
+            android:authorities="com.cheto.eightball.proxy_content_provider_3"
+            android:exported="true"
+            android:process=":p3" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P4"
+            android:authorities="com.cheto.eightball.proxy_content_provider_4"
+            android:exported="true"
+            android:process=":p4" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P5"
+            android:authorities="com.cheto.eightball.proxy_content_provider_5"
+            android:exported="true"
+            android:process=":p5" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P6"
+            android:authorities="com.cheto.eightball.proxy_content_provider_6"
+            android:exported="true"
+            android:process=":p6" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P7"
+            android:authorities="com.cheto.eightball.proxy_content_provider_7"
+            android:exported="true"
+            android:process=":p7" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P8"
+            android:authorities="com.cheto.eightball.proxy_content_provider_8"
+            android:exported="true"
+            android:process=":p8" />
+        <provider
+            android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P9"
+            android:authorities="com.cheto.eightball.proxy_content_provider_9"
+            android:exported="true"
+            android:process=":p9" />
         <provider
             android:name="top.niunaijun.blackbox.proxy.ProxyContentProvider$P10"
             android:authorities="com.cheto.eightball.proxy_content_provider_10"

@@ -1,20 +1,9 @@
 -- Merging decision tree log ---
-provider#androidx.core.content.FileProvider
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:61:9-69:20
-	android:grantUriPermissions
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:65:13-47
-	android:authorities
-		INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:63:13-64
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:64:13-37
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:62:13-62
 manifest
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-211:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-211:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-211:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-211:12
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:2:1-2146:12
 MERGED from [com.google.android.material:material:1.9.0] D:\Android\.gradle\caches\transforms-4\922061dd1a4a06918123ab1d3843270f\transformed\material-1.9.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\Android\.gradle\caches\transforms-4\6e099b6c49494dd39b8d97ee03be7d92\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -68,91 +57,77 @@ MERGED from [androidx.print:print:1.0.0] D:\Android\.gradle\caches\transforms-4\
 		INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:2:11-69
-uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:5:5-78
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:219:5-78
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:219:5-78
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:5:22-75
-uses-permission#android.permission.FOREGROUND_SERVICE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:6:5-77
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:319:5-77
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:319:5-77
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:6:22-74
 uses-permission#android.permission.INTERNET
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:7:5-67
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:6:5-67
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:100:5-67
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:100:5-67
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:7:22-64
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:7:5-79
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:115:5-79
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:115:5-79
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:7:22-76
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:8:5-78
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:219:5-78
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:219:5-78
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:8:22-75
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:9:5-77
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:319:5-77
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:319:5-77
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:9:22-74
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:10:5-68
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:217:5-68
+MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:217:5-68
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:10:22-65
 uses-permission#android.permission.QUERY_ALL_PACKAGES
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:8:5-77
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:11:5-77
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:333:5-77
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:333:5-77
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:8:22-74
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:11:22-74
 uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:9:5-83
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:12:5-83
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:320:5-83
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:320:5-83
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:9:22-80
-uses-permission#android.permission.POST_NOTIFICATIONS
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:10:5-77
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:10:22-74
-uses-permission#android.permission.FOREGROUND_SERVICE_SPECIAL_USE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:11:5-89
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:11:22-86
-uses-permission#android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:12:5-94
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:12:22-91
-uses-permission#android.permission.PACKAGE_USAGE_STATS
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:13:5-15:47
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:268:5-270:47
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:268:5-270:47
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:331:5-78
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:331:5-78
-	tools:ignore
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:15:9-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:14:9-62
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:12:22-80
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:5-107
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:15:5-80
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:125:5-80
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:125:5-80
-	android:maxSdkVersion
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:78-104
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:22-77
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:15:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:18:5-108
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:16:5-81
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:124:5-81
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:124:5-81
-	android:maxSdkVersion
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:18:79-105
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:18:22-78
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:16:22-78
 uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:5-111
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:5-111
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:321:5-82
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:321:5-82
 	tools:ignore
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:80-108
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:80-108
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:22-79
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:22-79
 queries
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:21:5-23:15
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:5-21:15
 package#com.miniclip.eightballpool
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:22:9-62
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:20:9-62
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:22:18-59
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:20:18-59
 application
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:5-209:19
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:25:5-209:19
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:23:5-51:19
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:23:5-51:19
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:335:5-2144:19
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:335:5-2144:19
 MERGED from [com.google.android.material:material:1.9.0] D:\Android\.gradle\caches\transforms-4\922061dd1a4a06918123ab1d3843270f\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
@@ -174,419 +149,55 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] D:\Android\.gradle\caches\t
 	android:extractNativeLibs
 		INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
 	android:requestLegacyExternalStorage
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:29:9-52
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:31:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] D:\Android\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:33:9-35
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:29:9-35
 	android:label
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:31:9-37
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:27:9-37
 	android:roundIcon
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:32:9-47
-	android:icon
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:30:9-42
-	android:allowBackup
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:27:9-35
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:34:9-65
-	android:allowNativeHeapPointerTagging
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:28:9-54
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:9-33
-activity#com.cheto.eightball.LoginActivity
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:36:9-44:20
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:38:13-36
+	android:icon
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:9-43
+	android:allowBackup
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:9-35
 	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:39:13-69
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:30:9-67
+	android:usesCleartextTraffic
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:32:9-44
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:37:13-42
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:40:13-43:29
-action#android.intent.action.MAIN
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:17-69
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:25-66
-category#android.intent.category.LAUNCHER
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:42:17-77
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:42:27-74
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:24:9-33
 activity#com.cheto.eightball.MainActivity
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:46:9-49:72
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:34:9-43:20
+	android:screenOrientation
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:37:13-49
+	android:exported
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:36:13-36
+	android:theme
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:38:13-71
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:35:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:39:13-42:29
+action#android.intent.action.MAIN
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:40:17-69
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:40:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:17-77
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:27-74
+service#com.cheto.eightball.OverlayService
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:45:9-49:58
+	android:enabled
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:47:13-35
 	android:exported
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:48:13-37
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:49:13-69
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:47:13-41
-service#com.cheto.eightball.OverlayService
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:51:9-59:19
-	android:enabled
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:53:13-35
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:54:13-37
 	android:foregroundServiceType
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:55:13-71
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:49:13-55
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:52:13-43
-property
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:56:13-58:93
-	android:value
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:58:17-90
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:57:17-76
-provider#top.niunaijun.blackbox.core.system.SystemCallProvider
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:72:9-77:67
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:336:9-340:64
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:336:9-340:64
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:76:13-37
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:340:13-61
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:74:13-82
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:338:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:75:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:77:13-64
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:73:13-81
-service#top.niunaijun.blackbox.core.system.DaemonService
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:79:9-83:47
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:363:9-366:64
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:363:9-366:64
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:82:13-37
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:366:13-61
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:81:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:83:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:80:13-76
-service#top.niunaijun.blackbox.core.system.BProcessManagerService
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:85:9-88:47
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:87:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:88:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:86:13-85
-service#top.niunaijun.blackbox.client.ClientService
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:91:9-95:47
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:94:13-37
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:93:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:95:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:92:13-71
-service#top.niunaijun.blackbox.server.ServerService
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:97:9-101:47
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:100:13-37
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:99:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:101:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:98:13-71
-provider#top.niunaijun.blackbox.fake.provider.FileProvider
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:104:9-114:20
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:343:9-351:20
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:343:9-351:20
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:109:13-37
-	android:grantUriPermissions
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:108:13-47
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:106:13-76
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:107:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:110:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:105:13-77
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:111:13-113:52
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:348:13-350:52
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:348:13-350:52
-	android:resource
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:113:17-49
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:112:17-67
-receiver#top.niunaijun.blackbox.proxy.ProxyBroadcastReceiver
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:117:9-126:20
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:353:9-361:20
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:353:9-361:20
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:121:13-37
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:357:13-61
-	android:enabled
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:119:13-35
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:120:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:122:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:118:13-79
-intent-filter#action:name:com.cheto.eightball.stub_receiver
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:123:13-125:29
-action#com.cheto.eightball.stub_receiver
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:124:17-76
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:124:25-73
-activity#top.niunaijun.blackbox.core.system.user.BUserHandle
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:129:9-132:47
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:131:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:132:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:130:13-79
-activity#top.niunaijun.blackbox.core.system.user.BUserSettings
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:134:9-137:47
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:136:13-37
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:137:13-44
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:135:13-81
-activity#top.niunaijun.blackbox.app.Stub$P0
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:140:9-399
-	android:screenOrientation
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:140:300-337
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:140:69-90
-	android:hardwareAccelerated
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:140:265-299
-	android:configChanges
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:140:91-264
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:140:338-396
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:140:19-68
-activity#top.niunaijun.blackbox.app.Stub$P1
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:141:9-399
-	android:screenOrientation
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:141:300-337
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:141:69-90
-	android:hardwareAccelerated
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:141:265-299
-	android:configChanges
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:141:91-264
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:141:338-396
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:141:19-68
-activity#top.niunaijun.blackbox.app.Stub$P2
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:142:9-399
-	android:screenOrientation
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:142:300-337
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:142:69-90
-	android:hardwareAccelerated
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:142:265-299
-	android:configChanges
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:142:91-264
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:142:338-396
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:142:19-68
-activity#top.niunaijun.blackbox.app.Stub$P3
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:143:9-399
-	android:screenOrientation
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:143:300-337
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:143:69-90
-	android:hardwareAccelerated
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:143:265-299
-	android:configChanges
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:143:91-264
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:143:338-396
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:143:19-68
-activity#top.niunaijun.blackbox.app.Stub$P4
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:144:9-399
-	android:screenOrientation
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:144:300-337
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:144:69-90
-	android:hardwareAccelerated
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:144:265-299
-	android:configChanges
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:144:91-264
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:144:338-396
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:144:19-68
-activity#top.niunaijun.blackbox.app.Stub$P5
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:145:9-399
-	android:screenOrientation
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:145:300-337
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:145:69-90
-	android:hardwareAccelerated
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:145:265-299
-	android:configChanges
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:145:91-264
-	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:145:338-396
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:145:19-68
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P0
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:148:9-153:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1643:9-1647:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1643:9-1647:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:152:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:150:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:151:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1646:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:153:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:149:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P1
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:154:9-159:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1648:9-1652:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1648:9-1652:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:158:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:156:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:157:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1651:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:159:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:155:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P2
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:160:9-165:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1653:9-1657:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1653:9-1657:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:164:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:162:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:163:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1656:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:165:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:161:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P3
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:166:9-171:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1658:9-1662:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1658:9-1662:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:170:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:168:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:169:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1661:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:171:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:167:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P4
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:172:9-177:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1663:9-1667:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1663:9-1667:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:176:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:174:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:175:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1666:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:177:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:173:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P5
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:178:9-183:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1668:9-1672:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1668:9-1672:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:182:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:180:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:181:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1671:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:183:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:179:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P6
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:184:9-189:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1673:9-1677:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1673:9-1677:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:188:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:186:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:187:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1676:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:189:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:185:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P7
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:190:9-195:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1678:9-1682:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1678:9-1682:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:194:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:192:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:193:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1681:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:195:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:191:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P8
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:196:9-201:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1683:9-1687:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1683:9-1687:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:200:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:198:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:199:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1686:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:201:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:197:13-80
-provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P9
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:202:9-207:48
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1688:9-1692:37
-MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1688:9-1692:37
-	android:process
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:206:13-34
-	android:authorities
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:204:13-79
-	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:205:13-36
-		REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1691:13-36
-	tools:replace
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:207:13-45
-	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:203:13-80
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:46:13-43
 uses-sdk
 INJECTED from D:\cheto\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
@@ -975,10 +586,6 @@ uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:113:5-89
 	android:name
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:113:22-86
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:115:5-79
-	android:name
-		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:115:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:116:5-76
 	android:name
@@ -1183,10 +790,6 @@ uses-permission#android.permission.USE_SIP
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:215:5-66
 	android:name
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:215:22-63
-uses-permission#android.permission.WAKE_LOCK
-ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:217:5-68
-	android:name
-		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:217:22-65
 uses-permission#android.permission.SYSTEM_OVERLAY_WINDOW
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:220:5-80
 	android:name
@@ -1269,6 +872,12 @@ ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:267:9-44
 	android:name
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:266:9-58
+uses-permission#android.permission.PACKAGE_USAGE_STATS
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:268:5-270:47
+	tools:ignore
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:270:9-44
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:269:9-62
 uses-permission#android.permission.READ_INSTALL_SESSIONS
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:273:5-80
 	android:name
@@ -1399,6 +1008,62 @@ ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:330:9-44
 	android:name
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:329:9-56
+provider#top.niunaijun.blackbox.core.system.SystemCallProvider
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:336:9-340:64
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:340:13-61
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:338:13-79
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:339:13-37
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:337:13-81
+provider#top.niunaijun.blackbox.fake.provider.FileProvider
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:343:9-351:20
+	android:grantUriPermissions
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:347:13-47
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:345:13-73
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:346:13-37
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:344:13-77
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:348:13-350:52
+	android:resource
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:350:17-49
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:349:17-67
+receiver#top.niunaijun.blackbox.proxy.ProxyBroadcastReceiver
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:353:9-361:20
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:357:13-61
+	android:enabled
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:355:13-35
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:356:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:354:13-79
+intent-filter#action:name:${applicationId}.stub_receiver
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:358:13-360:29
+intent-filter#action:name:com.cheto.eightball.stub_receiver
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:358:13-360:29
+action#${applicationId}.stub_receiver
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:359:17-73
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:359:25-70
+action#com.cheto.eightball.stub_receiver
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:359:17-73
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:359:25-70
+service#top.niunaijun.blackbox.core.system.DaemonService
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:363:9-366:64
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:366:13-61
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:365:13-37
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:364:13-76
 service#top.niunaijun.blackbox.core.system.DaemonService$DaemonInnerService
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:367:9-370:64
 	android:process
@@ -3937,6 +3602,106 @@ ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1640:13-36
 	android:name
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1639:13-73
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P0
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1643:9-1647:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1647:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1645:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1646:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1644:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P1
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1648:9-1652:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1652:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1650:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1651:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1649:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P2
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1653:9-1657:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1657:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1655:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1656:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1654:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P3
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1658:9-1662:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1662:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1660:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1661:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1659:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P4
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1663:9-1667:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1667:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1665:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1666:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1664:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P5
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1668:9-1672:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1672:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1670:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1671:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1669:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P6
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1673:9-1677:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1677:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1675:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1676:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1674:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P7
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1678:9-1682:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1682:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1680:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1681:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1679:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P8
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1683:9-1687:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1687:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1685:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1686:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1684:13-80
+provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P9
+ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1688:9-1692:37
+	android:process
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1692:13-34
+	android:authorities
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1690:13-76
+	android:exported
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1691:13-36
+	android:name
+		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1689:13-80
 provider#top.niunaijun.blackbox.proxy.ProxyContentProvider$P10
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:1693:9-1697:38
 	android:process
