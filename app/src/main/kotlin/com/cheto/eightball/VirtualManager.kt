@@ -53,37 +53,27 @@ object VirtualManager {
             android.os.Handler(android.os.Looper.getMainLooper()).post {
                 Toast.makeText(context, "Engine warning: ${initErr.message}", Toast.LENGTH_SHORT).show()
             }
-            // Don't block - still try to launch, engine might have recovered
         }
 
-        // UI Feedback
         android.os.Handler(android.os.Looper.getMainLooper()).post {
-            Toast.makeText(context, "Initializing Engine... Please wait", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Launching Game...", Toast.LENGTH_SHORT).show()
         }
 
-        // Run on background thread
         Thread {
             try {
-                // Give the engine 2 seconds to warm up and start its service
-                Thread.sleep(2000)
-
-                android.os.Handler(android.os.Looper.getMainLooper()).post {
-                    Toast.makeText(context, "Step 1: Connecting...", Toast.LENGTH_SHORT).show()
-                }
-
-                // Check if engine is actually alive by calling a lightweight method
+                // Check if game is installed in virtual container
                 val isInstalled = try {
                     BlackBoxCore.get().isInstalled(GAME_PACKAGE, USER_ID)
                 } catch (t: Throwable) {
                     android.os.Handler(android.os.Looper.getMainLooper()).post {
-                        Toast.makeText(context, "Engine Check Error: ${t.message}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Engine Error: ${t.message}", Toast.LENGTH_LONG).show()
                     }
                     false
                 }
 
                 if (!isInstalled) {
                     android.os.Handler(android.os.Looper.getMainLooper()).post {
-                        Toast.makeText(context, "Game not in container. Installing...", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Installing game in container...", Toast.LENGTH_SHORT).show()
                     }
                     val result = BlackBoxCore.get().installPackageAsUser(GAME_PACKAGE, USER_ID)
                     if (!result.success) {
@@ -93,27 +83,28 @@ object VirtualManager {
                         return@Thread
                     }
                 }
+                
+                // FORCE STOP existing process for clean re-launch
+                try {
+                    BlackBoxCore.get().stopPackage(GAME_PACKAGE, USER_ID)
+                    Thread.sleep(500)
+                } catch (_: Throwable) {}
 
+                // Use BlackBox's own launch method - this goes through the virtual
+                // activity manager which properly handles process creation & lifecycle
+                val success = BlackBoxCore.get().launchApk(GAME_PACKAGE, USER_ID)
+                
                 android.os.Handler(android.os.Looper.getMainLooper()).post {
-                    Toast.makeText(context, "Step 2: Intent Retrieved!", Toast.LENGTH_SHORT).show()
-                }
-
-                val launchIntent = BlackBoxCore.getBPackageManager().getLaunchIntentForPackage(GAME_PACKAGE, USER_ID)
-                if (launchIntent != null) {
-                    launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    android.os.Handler(android.os.Looper.getMainLooper()).post {
-                        context.startActivity(launchIntent)
-                        Toast.makeText(context, "Launch: Success!", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    android.os.Handler(android.os.Looper.getMainLooper()).post {
-                        Toast.makeText(context, "Error: Could not generate intent", Toast.LENGTH_LONG).show()
+                    if (success) {
+                        Toast.makeText(context, "Game Launched!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "Launch failed - could not get intent", Toast.LENGTH_LONG).show()
                     }
                 }
             } catch (t: Throwable) {
                 Log.e("VirtualManager", "Launch error", t)
                 android.os.Handler(android.os.Looper.getMainLooper()).post {
-                    Toast.makeText(context, "Fatal Error: ${t.javaClass.simpleName} - ${t.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Fatal: ${t.javaClass.simpleName} - ${t.message}", Toast.LENGTH_LONG).show()
                 }
             }
         }.start()

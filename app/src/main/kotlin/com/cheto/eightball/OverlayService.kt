@@ -303,8 +303,11 @@ class OverlayService : Service() {
 
                 // Game runs INSIDE our virtual container, so the foreground app
                 // will be OUR package, not the real game package
-                isGameInForeground = (currentApp == "com.miniclip.eightballpool" 
+                val isActuallyGame = (currentApp == "com.miniclip.eightballpool" 
                     || currentApp == "com.cheto.eightball")
+                
+                // If we couldn't detect ANY app (permission missing), default to VISIBLE
+                isGameInForeground = if (currentApp.isEmpty()) true else isActuallyGame
 
                 kotlinx.coroutines.withContext(Dispatchers.Main) {
                     val visibility = if (isGameInForeground) View.VISIBLE else View.GONE

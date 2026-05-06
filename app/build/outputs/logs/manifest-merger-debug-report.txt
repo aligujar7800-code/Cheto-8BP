@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-53:12
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:2:1-55:12
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:2:1-2146:12
 MERGED from [com.google.android.material:material:1.9.0] D:\Android\.gradle\caches\transforms-4\922061dd1a4a06918123ab1d3843270f\transformed\material-1.9.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\Android\.gradle\caches\transforms-4\6e099b6c49494dd39b8d97ee03be7d92\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -100,35 +100,47 @@ MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a0
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:320:5-83
 	android:name
 		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:12:22-80
+uses-permission#android.permission.PACKAGE_USAGE_STATS
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:13:5-99
+REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:268:5-270:47
+REJECTED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:331:5-78
+	tools:node
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:13:76-96
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:13:22-75
+uses-permission#android.permission.FOREGROUND_SERVICE_SPECIAL_USE
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:14:5-89
+	android:name
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:14:22-86
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:15:5-80
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:5-80
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:125:5-80
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:125:5-80
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:15:22-77
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:16:5-81
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:18:5-81
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:124:5-81
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:124:5-81
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:16:22-78
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:18:22-78
 uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:5-111
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:5-111
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:321:5-82
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:321:5-82
 	tools:ignore
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:80-108
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:80-108
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:17:22-79
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:22-79
 queries
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:19:5-21:15
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:21:5-23:15
 package#com.miniclip.eightballpool
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:20:9-62
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:22:9-62
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:20:18-59
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:22:18-59
 application
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:23:5-51:19
-INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:23:5-51:19
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:5-53:19
+INJECTED from D:\cheto\app\src\main\AndroidManifest.xml:25:5-53:19
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:335:5-2144:19
 MERGED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:335:5-2144:19
 MERGED from [com.google.android.material:material:1.9.0] D:\Android\.gradle\caches\transforms-4\922061dd1a4a06918123ab1d3843270f\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
@@ -150,55 +162,55 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] D:\Android\.gradle\caches\t
 	android:extractNativeLibs
 		INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
 	android:requestLegacyExternalStorage
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:31:9-52
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:33:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] D:\Android\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:29:9-35
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:31:9-35
 	android:label
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:27:9-37
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:29:9-37
 	android:roundIcon
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:28:9-54
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:30:9-54
 	android:icon
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:9-43
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:28:9-43
 	android:allowBackup
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:25:9-35
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:27:9-35
 	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:30:9-65
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:32:9-65
 	android:usesCleartextTraffic
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:32:9-44
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:34:9-44
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:24:9-33
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:26:9-33
 activity#com.cheto.eightball.MainActivity
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:34:9-43:20
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:36:9-45:20
 	android:screenOrientation
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:37:13-49
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:39:13-49
 	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:36:13-36
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:38:13-36
 	android:theme
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:38:13-69
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:40:13-69
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:35:13-41
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:37:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:39:13-42:29
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:13-44:29
 action#android.intent.action.MAIN
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:40:17-69
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:42:17-69
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:40:25-66
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:42:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:17-77
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:43:17-77
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:41:27-74
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:43:27-74
 service#com.cheto.eightball.OverlayService
-ADDED from D:\cheto\app\src\main\AndroidManifest.xml:45:9-49:58
+ADDED from D:\cheto\app\src\main\AndroidManifest.xml:47:9-51:58
 	android:enabled
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:47:13-35
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:49:13-35
 	android:exported
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:48:13-37
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:50:13-37
 	android:foregroundServiceType
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:49:13-55
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:51:13-55
 	android:name
-		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:46:13-43
+		ADDED from D:\cheto\app\src\main\AndroidManifest.xml:48:13-43
 uses-sdk
 INJECTED from D:\cheto\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
@@ -875,12 +887,6 @@ ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:267:9-44
 	android:name
 		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:266:9-58
-uses-permission#android.permission.PACKAGE_USAGE_STATS
-ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:268:5-270:47
-	tools:ignore
-		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:270:9-44
-	android:name
-		ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:269:9-62
 uses-permission#android.permission.READ_INSTALL_SESSIONS
 ADDED from [Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:273:5-80
 	android:name

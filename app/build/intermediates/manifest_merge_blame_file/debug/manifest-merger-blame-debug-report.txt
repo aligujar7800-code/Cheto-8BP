@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.cheto.eightball"
-4    android:versionCode="55"
-5    android:versionName="1.5.5" >
+4    android:versionCode="56"
+5    android:versionName="1.5.6" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
@@ -30,574 +30,574 @@
 18    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 18-->D:\cheto\app\src\main\AndroidManifest.xml:12:5-83
 18-->D:\cheto\app\src\main\AndroidManifest.xml:12:22-80
-19
-20    <!-- Storage Permissions -->
-21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-21-->D:\cheto\app\src\main\AndroidManifest.xml:15:5-80
-21-->D:\cheto\app\src\main\AndroidManifest.xml:15:22-77
-22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-22-->D:\cheto\app\src\main\AndroidManifest.xml:16:5-81
-22-->D:\cheto\app\src\main\AndroidManifest.xml:16:22-78
-23    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-23-->D:\cheto\app\src\main\AndroidManifest.xml:17:5-111
-23-->D:\cheto\app\src\main\AndroidManifest.xml:17:22-79
-24
-25    <queries>
-25-->D:\cheto\app\src\main\AndroidManifest.xml:19:5-21:15
-26        <package android:name="com.miniclip.eightballpool" />
-26-->D:\cheto\app\src\main\AndroidManifest.xml:20:9-62
-26-->D:\cheto\app\src\main\AndroidManifest.xml:20:18-59
-27    </queries>
-28
-29    <!-- unknown -->
-30    <uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
-30-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:9:5-78
-30-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:9:22-75
-31    <uses-permission android:name="android.permission.READ_SOCIAL_STREAM" />
-31-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:10:5-77
-31-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:10:22-74
-32    <uses-permission android:name="android.permission.READ_PROFILE" />
-32-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:11:5-71
-32-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:11:22-68
-33    <uses-permission android:name="android.permission.WRITE_PROFILE" />
-33-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:12:5-72
-33-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:12:22-69
-34    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
-34-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:13:5-79
-34-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:13:22-76
-35    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
-35-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:14:5-80
-35-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:14:22-77
-36    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-36-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:15:5-74
-36-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:15:22-71
-37    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" /> <!-- samsung start -->
-37-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:16:5-80
-37-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:16:22-77
-38    <uses-permission android:name="com.samsung.svoice.sync.READ_DATABASE" />
-38-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:19:5-77
-38-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:19:22-74
-39    <uses-permission android:name="com.samsung.svoice.sync.ACCESS_SERVICE" />
-39-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:20:5-78
-39-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:20:22-75
-40    <uses-permission android:name="com.samsung.svoice.sync.WRITE_DATABASE" />
-40-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:21:5-78
-40-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:21:22-75
-41    <uses-permission android:name="com.sec.android.app.voicenote.Controller" />
-41-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:22:5-80
-41-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:22:22-77
-42    <uses-permission android:name="com.sec.android.permission.VOIP_INTERFACE" />
-42-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:23:5-81
-42-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:23:22-78
-43    <uses-permission android:name="com.sec.android.permission.LAUNCH_PERSONAL_PAGE_SERVICE" />
-43-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:24:5-95
-43-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:24:22-92
-44    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
-44-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:25:5-117
-44-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:25:22-114
-45    <uses-permission android:name="com.samsung.android.providers.context.permission.READ_RECORD_AUDIO" />
-45-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:26:5-106
-45-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:26:22-103
-46    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_RECORD_AUDIO" />
-46-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:27:5-107
-46-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:27:22-104
-47    <uses-permission android:name="com.sec.android.settings.permission.SOFT_RESET" />
-47-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:28:5-86
-47-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:28:22-83
-48    <uses-permission android:name="sec.android.permission.READ_MSG_PREF" />
-48-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:29:5-76
-48-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:29:22-73
-49    <uses-permission android:name="com.samsung.android.scloud.backup.lib.read" />
-49-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:30:5-82
-49-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:30:22-79
-50    <uses-permission android:name="com.samsung.android.scloud.backup.lib.write" /> <!-- samsung end -->
-50-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:31:5-83
-50-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:31:22-80
-51    <!-- other app start -->
-52    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-52-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:36:5-78
-52-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:36:22-75
-53    <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL" />
-53-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:37:5-86
-53-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:37:22-83
-54    <uses-permission android:name="com.android.voicemail.permission.READ_WRITE_ALL_VOICEMAIL" />
-54-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:38:5-97
-54-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:38:22-94
-55    <uses-permission android:name="com.huawei.authentication.HW_ACCESS_AUTH_SERVICE" /> <!-- other app end -->
-55-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:39:5-88
-55-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:39:22-85
-56    <!-- google play store start -->
-57    <uses-permission android:name="com.android.vending.BILLING" />
-57-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:44:5-67
-57-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:44:22-64
-58    <uses-permission android:name="com.android.vending.CHECK_LICENSE" /> <!-- google play store end -->
-58-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:45:5-73
-58-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:45:22-70
-59    <!-- google services framework start -->
-60    <uses-permission android:name="com.google.android.providers.talk.permission.READ_ONLY" />
-60-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:50:5-94
-60-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:50:22-91
-61    <uses-permission android:name="com.google.android.providers.talk.permission.WRITE_ONLY" />
-61-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:51:5-95
-61-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:51:22-92
-62    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-62-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:52:5-82
-62-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:52:22-79
-63    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
-63-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:53:5-94
-63-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:53:22-91
-64    <uses-permission android:name="com.google.android.gms.permission.AD_ID_NOTIFICATION" />
-64-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:54:5-92
-64-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:54:22-89
-65    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- google services framework end -->
-65-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:55:5-98
-65-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:55:22-95
-66    <!-- shortcut and badge start -->
-67    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-67-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:60:5-88
-67-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:60:22-85
-68    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
-68-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:61:5-90
-68-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:61:22-87
-69    <uses-permission android:name="android.permission.READ_APP_BADGE" />
-69-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:62:5-73
-69-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:62:22-70
-70    <uses-permission android:name="com.google.android.launcher.permission.READ_SETTINGS" />
-70-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:63:5-92
-70-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:63:22-89
-71    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
-71-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:5-82
-71-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:22-79
-72    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
-72-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:65:5-83
-72-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:65:22-80
-73    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
-73-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:66:5-88
-73-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:66:22-85
-74    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
-74-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:67:5-89
-74-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:67:22-86
-75    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-75-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:5-85
-75-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:22-82
-76    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
-76-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:69:5-86
-76-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:69:22-83
-77    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
-77-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:70:5-87
-77-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:70:22-84
-78    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
-78-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:5-81
-78-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:22-78
-79    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
-79-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:72:5-83
-79-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:72:22-80
-80    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
-80-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:73:5-88
-80-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:73:22-85
-81    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
-81-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:74:5-92
-81-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:74:22-89
-82    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
-82-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:75:5-84
-82-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:75:22-81
-83    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
-83-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:76:5-83
-83-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:76:22-80
-84    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
-84-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:5-91
-84-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:22-88
-85    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
-85-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:5-92
-85-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:22-89
-86    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
-86-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:79:5-93
-86-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:79:22-90
-87    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-87-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:5-85
-87-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:22-82
-88    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
-88-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:81:5-86
-88-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:81:22-83
-89    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
-89-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:82:5-86
-89-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:82:22-83
-90    <uses-permission android:name="com.android.launcher2.permission.READ_SETTINGS" />
-90-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:83:5-86
-90-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:83:22-83
-91    <uses-permission android:name="com.teslacoilsw.launcher.permission.READ_SETTINGS" />
-91-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:84:5-89
-91-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:84:22-86
-92    <uses-permission android:name="com.actionlauncher.playstore.permission.READ_SETTINGS" />
-92-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:85:5-93
-92-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:85:22-90
-93    <uses-permission android:name="com.mx.launcher.permission.READ_SETTINGS" />
-93-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:86:5-80
-93-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:86:22-77
-94    <uses-permission android:name="com.anddoes.launcher.permission.READ_SETTINGS" />
-94-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:87:5-85
-94-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:87:22-82
-95    <uses-permission android:name="com.apusapps.launcher.permission.READ_SETTINGS" />
-95-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:88:5-86
-95-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:88:22-83
-96    <uses-permission android:name="com.tsf.shell.permission.READ_SETTINGS" />
-96-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:89:5-78
-96-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:89:22-75
-97    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
-97-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:5-81
-97-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:22-78
-98    <uses-permission android:name="com.lenovo.launcher.permission.READ_SETTINGS" />
-98-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:91:5-84
-98-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:91:22-81
-99    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
-99-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:5-82
-99-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:22-79
-100    <uses-permission android:name="com.bbk.launcher2.permission.READ_SETTINGS" />
-100-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:93:5-82
-100-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:93:22-79
-101    <uses-permission android:name="com.s.launcher.permission.READ_SETTINGS" />
-101-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:94:5-79
-101-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:94:22-76
-102    <uses-permission android:name="cn.nubia.launcher.permission.READ_SETTINGS" />
-102-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:95:5-82
-102-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:95:22-79
-103    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
-103-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:5-92
-103-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:22-89
-104    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
-104-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:5-91
-104-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:22-88
-105    <uses-permission android:name="android.permission.CAMERA" />
-105-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:101:5-65
-105-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:101:22-62
-106    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- 相机 -->
-106-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:102:5-69
-106-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:102:22-66
+19    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+19-->D:\cheto\app\src\main\AndroidManifest.xml:13:5-99
+19-->D:\cheto\app\src\main\AndroidManifest.xml:13:22-75
+20    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+20-->D:\cheto\app\src\main\AndroidManifest.xml:14:5-89
+20-->D:\cheto\app\src\main\AndroidManifest.xml:14:22-86
+21
+22    <!-- Storage Permissions -->
+23    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+23-->D:\cheto\app\src\main\AndroidManifest.xml:17:5-80
+23-->D:\cheto\app\src\main\AndroidManifest.xml:17:22-77
+24    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+24-->D:\cheto\app\src\main\AndroidManifest.xml:18:5-81
+24-->D:\cheto\app\src\main\AndroidManifest.xml:18:22-78
+25    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+25-->D:\cheto\app\src\main\AndroidManifest.xml:19:5-111
+25-->D:\cheto\app\src\main\AndroidManifest.xml:19:22-79
+26
+27    <queries>
+27-->D:\cheto\app\src\main\AndroidManifest.xml:21:5-23:15
+28        <package android:name="com.miniclip.eightballpool" />
+28-->D:\cheto\app\src\main\AndroidManifest.xml:22:9-62
+28-->D:\cheto\app\src\main\AndroidManifest.xml:22:18-59
+29    </queries>
+30
+31    <!-- unknown -->
+32    <uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
+32-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:9:5-78
+32-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:9:22-75
+33    <uses-permission android:name="android.permission.READ_SOCIAL_STREAM" />
+33-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:10:5-77
+33-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:10:22-74
+34    <uses-permission android:name="android.permission.READ_PROFILE" />
+34-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:11:5-71
+34-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:11:22-68
+35    <uses-permission android:name="android.permission.WRITE_PROFILE" />
+35-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:12:5-72
+35-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:12:22-69
+36    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+36-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:13:5-79
+36-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:13:22-76
+37    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+37-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:14:5-80
+37-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:14:22-77
+38    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+38-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:15:5-74
+38-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:15:22-71
+39    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" /> <!-- samsung start -->
+39-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:16:5-80
+39-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:16:22-77
+40    <uses-permission android:name="com.samsung.svoice.sync.READ_DATABASE" />
+40-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:19:5-77
+40-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:19:22-74
+41    <uses-permission android:name="com.samsung.svoice.sync.ACCESS_SERVICE" />
+41-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:20:5-78
+41-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:20:22-75
+42    <uses-permission android:name="com.samsung.svoice.sync.WRITE_DATABASE" />
+42-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:21:5-78
+42-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:21:22-75
+43    <uses-permission android:name="com.sec.android.app.voicenote.Controller" />
+43-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:22:5-80
+43-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:22:22-77
+44    <uses-permission android:name="com.sec.android.permission.VOIP_INTERFACE" />
+44-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:23:5-81
+44-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:23:22-78
+45    <uses-permission android:name="com.sec.android.permission.LAUNCH_PERSONAL_PAGE_SERVICE" />
+45-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:24:5-95
+45-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:24:22-92
+46    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+46-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:25:5-117
+46-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:25:22-114
+47    <uses-permission android:name="com.samsung.android.providers.context.permission.READ_RECORD_AUDIO" />
+47-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:26:5-106
+47-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:26:22-103
+48    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_RECORD_AUDIO" />
+48-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:27:5-107
+48-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:27:22-104
+49    <uses-permission android:name="com.sec.android.settings.permission.SOFT_RESET" />
+49-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:28:5-86
+49-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:28:22-83
+50    <uses-permission android:name="sec.android.permission.READ_MSG_PREF" />
+50-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:29:5-76
+50-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:29:22-73
+51    <uses-permission android:name="com.samsung.android.scloud.backup.lib.read" />
+51-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:30:5-82
+51-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:30:22-79
+52    <uses-permission android:name="com.samsung.android.scloud.backup.lib.write" /> <!-- samsung end -->
+52-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:31:5-83
+52-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:31:22-80
+53    <!-- other app start -->
+54    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+54-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:36:5-78
+54-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:36:22-75
+55    <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL" />
+55-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:37:5-86
+55-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:37:22-83
+56    <uses-permission android:name="com.android.voicemail.permission.READ_WRITE_ALL_VOICEMAIL" />
+56-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:38:5-97
+56-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:38:22-94
+57    <uses-permission android:name="com.huawei.authentication.HW_ACCESS_AUTH_SERVICE" /> <!-- other app end -->
+57-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:39:5-88
+57-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:39:22-85
+58    <!-- google play store start -->
+59    <uses-permission android:name="com.android.vending.BILLING" />
+59-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:44:5-67
+59-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:44:22-64
+60    <uses-permission android:name="com.android.vending.CHECK_LICENSE" /> <!-- google play store end -->
+60-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:45:5-73
+60-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:45:22-70
+61    <!-- google services framework start -->
+62    <uses-permission android:name="com.google.android.providers.talk.permission.READ_ONLY" />
+62-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:50:5-94
+62-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:50:22-91
+63    <uses-permission android:name="com.google.android.providers.talk.permission.WRITE_ONLY" />
+63-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:51:5-95
+63-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:51:22-92
+64    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+64-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:52:5-82
+64-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:52:22-79
+65    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+65-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:53:5-94
+65-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:53:22-91
+66    <uses-permission android:name="com.google.android.gms.permission.AD_ID_NOTIFICATION" />
+66-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:54:5-92
+66-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:54:22-89
+67    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- google services framework end -->
+67-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:55:5-98
+67-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:55:22-95
+68    <!-- shortcut and badge start -->
+69    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+69-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:60:5-88
+69-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:60:22-85
+70    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+70-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:61:5-90
+70-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:61:22-87
+71    <uses-permission android:name="android.permission.READ_APP_BADGE" />
+71-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:62:5-73
+71-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:62:22-70
+72    <uses-permission android:name="com.google.android.launcher.permission.READ_SETTINGS" />
+72-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:63:5-92
+72-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:63:22-89
+73    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+73-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:5-82
+73-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:22-79
+74    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+74-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:65:5-83
+74-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:65:22-80
+75    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+75-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:66:5-88
+75-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:66:22-85
+76    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+76-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:67:5-89
+76-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:67:22-86
+77    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+77-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:5-85
+77-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:22-82
+78    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+78-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:69:5-86
+78-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:69:22-83
+79    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+79-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:70:5-87
+79-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:70:22-84
+80    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+80-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:5-81
+80-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:22-78
+81    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+81-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:72:5-83
+81-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:72:22-80
+82    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+82-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:73:5-88
+82-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:73:22-85
+83    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
+83-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:74:5-92
+83-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:74:22-89
+84    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
+84-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:75:5-84
+84-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:75:22-81
+85    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+85-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:76:5-83
+85-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:76:22-80
+86    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+86-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:5-91
+86-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:22-88
+87    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+87-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:5-92
+87-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:22-89
+88    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+88-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:79:5-93
+88-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:79:22-90
+89    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+89-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:5-85
+89-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:68:22-82
+90    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+90-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:81:5-86
+90-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:81:22-83
+91    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
+91-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:82:5-86
+91-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:82:22-83
+92    <uses-permission android:name="com.android.launcher2.permission.READ_SETTINGS" />
+92-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:83:5-86
+92-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:83:22-83
+93    <uses-permission android:name="com.teslacoilsw.launcher.permission.READ_SETTINGS" />
+93-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:84:5-89
+93-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:84:22-86
+94    <uses-permission android:name="com.actionlauncher.playstore.permission.READ_SETTINGS" />
+94-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:85:5-93
+94-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:85:22-90
+95    <uses-permission android:name="com.mx.launcher.permission.READ_SETTINGS" />
+95-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:86:5-80
+95-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:86:22-77
+96    <uses-permission android:name="com.anddoes.launcher.permission.READ_SETTINGS" />
+96-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:87:5-85
+96-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:87:22-82
+97    <uses-permission android:name="com.apusapps.launcher.permission.READ_SETTINGS" />
+97-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:88:5-86
+97-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:88:22-83
+98    <uses-permission android:name="com.tsf.shell.permission.READ_SETTINGS" />
+98-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:89:5-78
+98-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:89:22-75
+99    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+99-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:5-81
+99-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:71:22-78
+100    <uses-permission android:name="com.lenovo.launcher.permission.READ_SETTINGS" />
+100-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:91:5-84
+100-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:91:22-81
+101    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+101-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:5-82
+101-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:64:22-79
+102    <uses-permission android:name="com.bbk.launcher2.permission.READ_SETTINGS" />
+102-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:93:5-82
+102-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:93:22-79
+103    <uses-permission android:name="com.s.launcher.permission.READ_SETTINGS" />
+103-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:94:5-79
+103-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:94:22-76
+104    <uses-permission android:name="cn.nubia.launcher.permission.READ_SETTINGS" />
+104-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:95:5-82
+104-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:95:22-79
+105    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+105-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:5-92
+105-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:78:22-89
+106    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+106-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:5-91
+106-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:77:22-88
 107    <uses-permission android:name="android.permission.CAMERA" />
 107-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:101:5-65
 107-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:101:22-62
-108
-109    <uses-feature android:name="android.hardware.camera" />
-109-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:106:5-60
-109-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:106:19-57
-110    <uses-feature
-110-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:107:5-109:36
-111        android:name="android.hardware.camera.autofocus"
-111-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:108:9-57
-112        android:required="false" /> <!-- 位置服务 -->
-112-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:109:9-33
-113    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-113-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:111:5-81
-113-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:111:22-78
-114    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-114-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:112:5-79
-114-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:112:22-76
-115    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-115-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:113:5-89
-115-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:113:22-86
-116    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-116-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:116:5-76
-116-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:116:22-73
-117    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-117-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:117:5-79
-117-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:117:22-76
-118    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-118-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:118:5-86
-118-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:118:22-83
-119    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- sdcard -->
-119-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:119:5-76
-119-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:119:22-73
-120    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- 电量 -->
-120-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:121:5-123:47
-120-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:122:9-68
-121    <uses-permission android:name="android.permission.BATTERY_STATS" /> <!-- 身体传感器 -->
-121-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:127:5-129:47
-121-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:128:9-56
-122    <uses-permission android:name="android.permission.BODY_SENSORS" />
-122-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:131:5-71
-122-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:131:22-68
-123    <uses-permission android:name="android.permission.BROADCAST_STICKY" /> <!-- 锁屏 -->
-123-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:132:5-75
-123-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:132:22-72
-124    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 允许应用程序展开或折叠状态栏 -->
-124-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:134:5-75
-124-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:134:22-72
-125    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" /> <!-- 账号相关 -->
-125-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:136:5-76
-125-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:136:22-73
-126    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-126-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:138:5-71
-126-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:138:22-68
-127    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" /> <!-- 通话状态 -->
-127-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:139:5-74
-127-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:139:22-71
-128    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 修改当前配置 -->
-128-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:141:5-75
-128-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:141:22-72
-129    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" /> <!-- 设置 -->
-129-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:143:5-145:47
-129-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:144:9-63
-130    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> <!-- 最近任务/进程 -->
-130-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:147:5-149:47
-130-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:148:9-57
-131    <uses-permission android:name="android.permission.GET_TASKS" />
-131-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:151:5-68
-131-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:151:22-65
-132    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-132-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:152:5-84
-132-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:152:22-81
-133    <uses-permission android:name="android.permission.REORDER_TASKS" />
-133-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:153:5-72
-133-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:153:22-69
-134    <uses-permission android:name="android.permission.PERSISTENT_ACTIVITY" /> <!-- 录音 -->
-134-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:154:5-78
-134-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:154:22-75
-135    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- bluetooth -->
-135-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:156:5-71
-135-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:156:22-68
-136    <uses-permission android:name="android.permission.BLUETOOTH" />
-136-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:158:5-68
-136-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:158:22-65
-137    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- nfc -->
-137-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:159:5-74
-137-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:159:22-71
-138    <uses-permission android:name="android.permission.NFC" />
-138-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:161:5-62
-138-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:161:22-59
-139    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- 震动 -->
-139-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:162:5-80
-139-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:162:22-77
-140    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 指纹 -->
-140-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:164:5-66
-140-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:164:22-63
-141    <uses-permission android:name="android.permission.USE_FINGERPRINT" /> <!-- 下面自己按需保留 -->
-141-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:166:5-74
-141-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:166:22-71
-142    <!-- browser history start -->
-143    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
-143-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:172:5-93
-143-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:172:22-90
-144    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" /> <!-- browser history end -->
-144-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:173:5-94
-144-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:173:22-91
-145    <!-- 清空应用缓存 -->
-146    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
-146-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:178:5-180:47
-146-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:179:9-58
-147    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" /> <!-- 同步设置 -->
-147-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:181:5-75
-147-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:181:22-72
-148    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
-148-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:183:5-78
-148-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:183:22-75
-149    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
-149-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:184:5-77
-149-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:184:22-74
-150    <uses-permission android:name="android.permission.READ_SYNC_STATS" /> <!-- rss -->
-150-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:185:5-74
-150-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:185:22-71
-151    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
-151-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:187:5-80
-151-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:187:22-77
-152    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" /> <!-- 日历 -->
-152-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:188:5-81
-152-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:188:22-78
-153    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-153-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:190:5-73
-153-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:190:22-70
-154    <uses-permission android:name="android.permission.READ_CALENDAR" /> <!-- 通讯录 -->
-154-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:191:5-72
-154-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:191:22-69
-155    <uses-permission android:name="android.permission.READ_CONTACTS" />
-155-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:193:5-72
-155-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:193:22-69
-156    <uses-permission android:name="android.permission.WRITE_CONTACTS" /> <!-- 系统日志 -->
-156-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:194:5-73
-156-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:194:22-70
-157    <uses-permission android:name="android.permission.READ_LOGS" /> <!-- 重启应用 -->
-157-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:196:5-198:47
-157-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:197:9-52
-158    <uses-permission android:name="android.permission.RESTART_PACKAGES" /> <!-- 时间/时区 -->
-158-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:200:5-75
-158-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:200:22-72
-159    <uses-permission android:name="android.permission.SET_TIME" />
-159-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:202:5-204:47
-159-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:203:9-51
-160    <uses-permission android:name="android.permission.SET_TIME_ZONE" /> <!-- 墙纸 -->
-160-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:205:5-207:47
-160-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:206:9-56
-161    <uses-permission android:name="android.permission.SET_WALLPAPER" />
-161-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:209:5-72
-161-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:209:22-69
-162    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" /> <!-- 红外线 -->
-162-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:210:5-78
-162-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:210:22-75
-163    <uses-permission android:name="android.permission.TRANSMIT_IR" /> <!-- SIP服务 -->
-163-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:212:5-70
-163-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:212:22-67
-164    <uses-permission android:name="android.permission.USE_SIP" />
-164-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:215:5-66
-164-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:215:22-63
-165    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" /> <!-- boot -->
-165-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:220:5-80
-165-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:220:22-77
-166    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- system app start -->
-166-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:222:5-81
-166-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:222:22-78
-167    <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
-167-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:225:5-227:47
-167-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:226:9-67
-168    <uses-permission android:name="android.permission.BIND_DIRECTORY_SEARCH" />
-168-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:228:5-230:47
-168-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:229:9-64
-169    <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS" />
-169-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:231:5-233:47
-169-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:232:9-63
-170    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
-170-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:234:5-236:47
-170-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:235:9-59
-171    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
-171-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:237:5-239:47
-171-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:238:9-58
-172    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
-172-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:240:5-242:47
-172-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:241:9-62
-173    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
-173-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:243:5-245:47
-173-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:244:9-62
-174    <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM" />
-174-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:246:5-248:47
-174-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:247:9-66
-175    <uses-permission android:name="android.permission.DEVICE_POWER" /> <!-- <uses-permission -->
-175-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:249:5-251:47
-175-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:250:9-55
-176    <!-- android:name="android.permission.WRITE_APN_SETTINGS" -->
-177    <!-- tools:ignore="ProtectedPermissions" /> -->
-178    <!-- xdja -->
-179    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
-179-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:258:5-80
-179-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:258:22-77
-180    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" /> <!-- xdja -->
-180-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:259:5-85
-180-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:259:22-82
-181    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
-181-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:262:5-264:47
-181-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:263:9-57
-182    <uses-permission android:name="android.permission.ACCOUNT_MANAGER" />
-182-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:265:5-267:47
-182-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:266:9-58
-183    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> <!-- system app end -->
-183-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:268:5-270:47
-183-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:269:9-62
-184    <!-- not found -->
-185    <uses-permission android:name="android.permission.READ_INSTALL_SESSIONS" />
-185-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:273:5-80
-185-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:273:22-77
-186    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
-186-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:274:5-74
-186-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:274:22-71
-187    <uses-permission android:name="android.permission.READ_CELL_BROADCASTS" />
-187-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:275:5-79
-187-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:275:22-76
-188    <uses-permission android:name="android.permission.WRITE_CLIPS" />
-188-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:276:5-70
-188-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:276:22-67
-189    <uses-permission android:name="android.permission.READ_CLIPS" />
-189-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:277:5-69
-189-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:277:22-66
-190    <uses-permission android:name="android.permission.GET_CLIPS" />
-190-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:278:5-68
-190-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:278:22-65
-191    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
-191-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:279:5-75
-191-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:279:22-72
-192    <uses-permission android:name="android.permission.ACCESS_GPS" />
-192-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:280:5-69
-192-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:280:22-66
-193    <uses-permission android:name="android.permission.ACCESS_WIMAX_STATE" />
-193-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:281:5-77
-193-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:281:22-74
-194    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
-194-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:282:5-82
-194-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:282:22-79
-195    <uses-permission android:name="android.permission.CHANGE_WIMAX_STATE" />
-195-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:283:5-77
-195-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:283:22-74
-196    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" /> <!-- xdja -->
-196-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:284:5-88
-196-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:284:22-85
-197    <uses-permission android:name="android.permission.CALL_PHONE" />
-197-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:5-69
-197-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:22-66
-198    <uses-permission android:name="android.permission.SEND_SMS" />
-198-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:288:5-67
-198-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:288:22-64
-199    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> <!-- 安全接入 -->
-199-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:5-81
-199-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:22-78
-200    <uses-permission android:name="android.permission.RECEIVE_MMS" />
-200-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:291:5-70
-200-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:291:22-67
-201    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-201-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:292:5-70
-201-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:292:22-67
-202    <uses-permission android:name="android.permission.READ_SMS" />
-202-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:293:5-67
-202-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:293:22-64
-203    <uses-permission android:name="android.permission.WRITE_SMS" /> <!-- xdja -->
-203-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:294:5-68
-203-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:294:22-65
-204    <!-- 通话记录 -->
-205    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> <!-- call phone -->
-205-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:5-81
-205-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:22-78
-206    <uses-permission android:name="android.permission.CALL_PHONE" />
-206-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:5-69
-206-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:22-66
-207    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-207-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:302:5-72
-207-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:302:22-69
-208    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
-208-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:303:5-73
-208-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:303:22-70
-209    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
-209-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:304:5-75
-209-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:304:22-72
-210    <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
-210-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:305:5-77
-210-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:305:22-74
-211    <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED" />
-211-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:306:5-79
-211-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:306:22-76
-212    <uses-permission android:name="android.permission.BROADCAST_WAP_PUSH" />
-212-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:307:5-309:47
-212-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:308:9-61
-213    <uses-permission android:name="android.permission.BROADCAST_SMS" />
-213-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:310:5-312:47
-213-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:311:9-56
-214    <uses-permission android:name="android.permission.SEND_RESPOND_VIA_MESSAGE" />
-214-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:313:5-315:47
-214-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:314:9-67
-215    <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
-215-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:225:5-227:47
-215-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:226:9-67
-216
-217    <uses-feature
-217-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:323:5-325:36
-218        android:name="android.hardware.nfc"
-218-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:324:9-44
-219        android:required="false" />
-219-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:325:9-33
-220
-221    <uses-permission android:name="android.hardware.usb.host" />
-221-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:327:5-65
-221-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:327:22-62
-222    <uses-permission android:name="android.permission.HARDWARE_TEST" />
-222-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:328:5-330:47
-222-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:329:9-56
-223    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
-223-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:268:5-270:47
-223-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:269:9-62
+108    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- 相机 -->
+108-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:102:5-69
+108-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:102:22-66
+109    <uses-permission android:name="android.permission.CAMERA" />
+109-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:101:5-65
+109-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:101:22-62
+110
+111    <uses-feature android:name="android.hardware.camera" />
+111-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:106:5-60
+111-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:106:19-57
+112    <uses-feature
+112-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:107:5-109:36
+113        android:name="android.hardware.camera.autofocus"
+113-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:108:9-57
+114        android:required="false" /> <!-- 位置服务 -->
+114-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:109:9-33
+115    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+115-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:111:5-81
+115-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:111:22-78
+116    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+116-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:112:5-79
+116-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:112:22-76
+117    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+117-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:113:5-89
+117-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:113:22-86
+118    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+118-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:116:5-76
+118-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:116:22-73
+119    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+119-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:117:5-79
+119-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:117:22-76
+120    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+120-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:118:5-86
+120-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:118:22-83
+121    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- sdcard -->
+121-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:119:5-76
+121-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:119:22-73
+122    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- 电量 -->
+122-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:121:5-123:47
+122-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:122:9-68
+123    <uses-permission android:name="android.permission.BATTERY_STATS" /> <!-- 身体传感器 -->
+123-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:127:5-129:47
+123-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:128:9-56
+124    <uses-permission android:name="android.permission.BODY_SENSORS" />
+124-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:131:5-71
+124-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:131:22-68
+125    <uses-permission android:name="android.permission.BROADCAST_STICKY" /> <!-- 锁屏 -->
+125-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:132:5-75
+125-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:132:22-72
+126    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 允许应用程序展开或折叠状态栏 -->
+126-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:134:5-75
+126-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:134:22-72
+127    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" /> <!-- 账号相关 -->
+127-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:136:5-76
+127-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:136:22-73
+128    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+128-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:138:5-71
+128-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:138:22-68
+129    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" /> <!-- 通话状态 -->
+129-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:139:5-74
+129-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:139:22-71
+130    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 修改当前配置 -->
+130-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:141:5-75
+130-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:141:22-72
+131    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" /> <!-- 设置 -->
+131-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:143:5-145:47
+131-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:144:9-63
+132    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> <!-- 最近任务/进程 -->
+132-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:147:5-149:47
+132-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:148:9-57
+133    <uses-permission android:name="android.permission.GET_TASKS" />
+133-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:151:5-68
+133-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:151:22-65
+134    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+134-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:152:5-84
+134-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:152:22-81
+135    <uses-permission android:name="android.permission.REORDER_TASKS" />
+135-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:153:5-72
+135-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:153:22-69
+136    <uses-permission android:name="android.permission.PERSISTENT_ACTIVITY" /> <!-- 录音 -->
+136-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:154:5-78
+136-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:154:22-75
+137    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- bluetooth -->
+137-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:156:5-71
+137-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:156:22-68
+138    <uses-permission android:name="android.permission.BLUETOOTH" />
+138-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:158:5-68
+138-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:158:22-65
+139    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- nfc -->
+139-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:159:5-74
+139-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:159:22-71
+140    <uses-permission android:name="android.permission.NFC" />
+140-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:161:5-62
+140-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:161:22-59
+141    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- 震动 -->
+141-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:162:5-80
+141-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:162:22-77
+142    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 指纹 -->
+142-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:164:5-66
+142-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:164:22-63
+143    <uses-permission android:name="android.permission.USE_FINGERPRINT" /> <!-- 下面自己按需保留 -->
+143-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:166:5-74
+143-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:166:22-71
+144    <!-- browser history start -->
+145    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+145-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:172:5-93
+145-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:172:22-90
+146    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" /> <!-- browser history end -->
+146-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:173:5-94
+146-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:173:22-91
+147    <!-- 清空应用缓存 -->
+148    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+148-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:178:5-180:47
+148-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:179:9-58
+149    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" /> <!-- 同步设置 -->
+149-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:181:5-75
+149-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:181:22-72
+150    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+150-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:183:5-78
+150-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:183:22-75
+151    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+151-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:184:5-77
+151-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:184:22-74
+152    <uses-permission android:name="android.permission.READ_SYNC_STATS" /> <!-- rss -->
+152-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:185:5-74
+152-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:185:22-71
+153    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
+153-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:187:5-80
+153-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:187:22-77
+154    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" /> <!-- 日历 -->
+154-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:188:5-81
+154-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:188:22-78
+155    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+155-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:190:5-73
+155-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:190:22-70
+156    <uses-permission android:name="android.permission.READ_CALENDAR" /> <!-- 通讯录 -->
+156-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:191:5-72
+156-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:191:22-69
+157    <uses-permission android:name="android.permission.READ_CONTACTS" />
+157-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:193:5-72
+157-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:193:22-69
+158    <uses-permission android:name="android.permission.WRITE_CONTACTS" /> <!-- 系统日志 -->
+158-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:194:5-73
+158-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:194:22-70
+159    <uses-permission android:name="android.permission.READ_LOGS" /> <!-- 重启应用 -->
+159-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:196:5-198:47
+159-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:197:9-52
+160    <uses-permission android:name="android.permission.RESTART_PACKAGES" /> <!-- 时间/时区 -->
+160-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:200:5-75
+160-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:200:22-72
+161    <uses-permission android:name="android.permission.SET_TIME" />
+161-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:202:5-204:47
+161-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:203:9-51
+162    <uses-permission android:name="android.permission.SET_TIME_ZONE" /> <!-- 墙纸 -->
+162-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:205:5-207:47
+162-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:206:9-56
+163    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+163-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:209:5-72
+163-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:209:22-69
+164    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" /> <!-- 红外线 -->
+164-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:210:5-78
+164-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:210:22-75
+165    <uses-permission android:name="android.permission.TRANSMIT_IR" /> <!-- SIP服务 -->
+165-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:212:5-70
+165-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:212:22-67
+166    <uses-permission android:name="android.permission.USE_SIP" />
+166-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:215:5-66
+166-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:215:22-63
+167    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" /> <!-- boot -->
+167-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:220:5-80
+167-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:220:22-77
+168    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- system app start -->
+168-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:222:5-81
+168-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:222:22-78
+169    <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
+169-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:225:5-227:47
+169-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:226:9-67
+170    <uses-permission android:name="android.permission.BIND_DIRECTORY_SEARCH" />
+170-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:228:5-230:47
+170-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:229:9-64
+171    <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS" />
+171-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:231:5-233:47
+171-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:232:9-63
+172    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+172-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:234:5-236:47
+172-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:235:9-59
+173    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+173-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:237:5-239:47
+173-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:238:9-58
+174    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
+174-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:240:5-242:47
+174-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:241:9-62
+175    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+175-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:243:5-245:47
+175-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:244:9-62
+176    <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM" />
+176-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:246:5-248:47
+176-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:247:9-66
+177    <uses-permission android:name="android.permission.DEVICE_POWER" /> <!-- <uses-permission -->
+177-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:249:5-251:47
+177-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:250:9-55
+178    <!-- android:name="android.permission.WRITE_APN_SETTINGS" -->
+179    <!-- tools:ignore="ProtectedPermissions" /> -->
+180    <!-- xdja -->
+181    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+181-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:258:5-80
+181-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:258:22-77
+182    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" /> <!-- xdja -->
+182-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:259:5-85
+182-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:259:22-82
+183    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
+183-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:262:5-264:47
+183-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:263:9-57
+184    <uses-permission android:name="android.permission.ACCOUNT_MANAGER" /> <!-- system app end -->
+184-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:265:5-267:47
+184-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:266:9-58
+185    <!-- not found -->
+186    <uses-permission android:name="android.permission.READ_INSTALL_SESSIONS" />
+186-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:273:5-80
+186-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:273:22-77
+187    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+187-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:274:5-74
+187-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:274:22-71
+188    <uses-permission android:name="android.permission.READ_CELL_BROADCASTS" />
+188-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:275:5-79
+188-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:275:22-76
+189    <uses-permission android:name="android.permission.WRITE_CLIPS" />
+189-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:276:5-70
+189-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:276:22-67
+190    <uses-permission android:name="android.permission.READ_CLIPS" />
+190-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:277:5-69
+190-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:277:22-66
+191    <uses-permission android:name="android.permission.GET_CLIPS" />
+191-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:278:5-68
+191-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:278:22-65
+192    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+192-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:279:5-75
+192-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:279:22-72
+193    <uses-permission android:name="android.permission.ACCESS_GPS" />
+193-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:280:5-69
+193-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:280:22-66
+194    <uses-permission android:name="android.permission.ACCESS_WIMAX_STATE" />
+194-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:281:5-77
+194-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:281:22-74
+195    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+195-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:282:5-82
+195-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:282:22-79
+196    <uses-permission android:name="android.permission.CHANGE_WIMAX_STATE" />
+196-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:283:5-77
+196-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:283:22-74
+197    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" /> <!-- xdja -->
+197-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:284:5-88
+197-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:284:22-85
+198    <uses-permission android:name="android.permission.CALL_PHONE" />
+198-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:5-69
+198-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:22-66
+199    <uses-permission android:name="android.permission.SEND_SMS" />
+199-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:288:5-67
+199-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:288:22-64
+200    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> <!-- 安全接入 -->
+200-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:5-81
+200-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:22-78
+201    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+201-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:291:5-70
+201-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:291:22-67
+202    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+202-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:292:5-70
+202-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:292:22-67
+203    <uses-permission android:name="android.permission.READ_SMS" />
+203-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:293:5-67
+203-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:293:22-64
+204    <uses-permission android:name="android.permission.WRITE_SMS" /> <!-- xdja -->
+204-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:294:5-68
+204-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:294:22-65
+205    <!-- 通话记录 -->
+206    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> <!-- call phone -->
+206-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:5-81
+206-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:289:22-78
+207    <uses-permission android:name="android.permission.CALL_PHONE" />
+207-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:5-69
+207-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:287:22-66
+208    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+208-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:302:5-72
+208-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:302:22-69
+209    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+209-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:303:5-73
+209-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:303:22-70
+210    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
+210-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:304:5-75
+210-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:304:22-72
+211    <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
+211-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:305:5-77
+211-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:305:22-74
+212    <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED" />
+212-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:306:5-79
+212-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:306:22-76
+213    <uses-permission android:name="android.permission.BROADCAST_WAP_PUSH" />
+213-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:307:5-309:47
+213-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:308:9-61
+214    <uses-permission android:name="android.permission.BROADCAST_SMS" />
+214-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:310:5-312:47
+214-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:311:9-56
+215    <uses-permission android:name="android.permission.SEND_RESPOND_VIA_MESSAGE" />
+215-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:313:5-315:47
+215-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:314:9-67
+216    <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
+216-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:225:5-227:47
+216-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:226:9-67
+217
+218    <uses-feature
+218-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:323:5-325:36
+219        android:name="android.hardware.nfc"
+219-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:324:9-44
+220        android:required="false" />
+220-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:325:9-33
+221
+222    <uses-permission android:name="android.hardware.usb.host" />
+222-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:327:5-65
+222-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:327:22-62
+223    <uses-permission android:name="android.permission.HARDWARE_TEST" />
+223-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:328:5-330:47
+223-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:329:9-56
 224
 225    <permission
 225-->[androidx.core:core:1.12.0] D:\Android\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
@@ -611,61 +611,61 @@
 229-->[androidx.core:core:1.12.0] D:\Android\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
 230
 231    <application
-231-->D:\cheto\app\src\main\AndroidManifest.xml:23:5-51:19
+231-->D:\cheto\app\src\main\AndroidManifest.xml:25:5-53:19
 232        android:name="com.cheto.eightball.ChetoApp"
-232-->D:\cheto\app\src\main\AndroidManifest.xml:24:9-33
+232-->D:\cheto\app\src\main\AndroidManifest.xml:26:9-33
 233        android:allowBackup="true"
-233-->D:\cheto\app\src\main\AndroidManifest.xml:25:9-35
+233-->D:\cheto\app\src\main\AndroidManifest.xml:27:9-35
 234        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 234-->[androidx.core:core:1.12.0] D:\Android\.gradle\caches\transforms-4\a09928384ec1935e808ab75bc8da5541\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 235        android:debuggable="true"
 236        android:extractNativeLibs="false"
 237        android:icon="@mipmap/ic_launcher"
-237-->D:\cheto\app\src\main\AndroidManifest.xml:26:9-43
+237-->D:\cheto\app\src\main\AndroidManifest.xml:28:9-43
 238        android:label="8ball Aimers"
-238-->D:\cheto\app\src\main\AndroidManifest.xml:27:9-37
+238-->D:\cheto\app\src\main\AndroidManifest.xml:29:9-37
 239        android:requestLegacyExternalStorage="true"
-239-->D:\cheto\app\src\main\AndroidManifest.xml:31:9-52
+239-->D:\cheto\app\src\main\AndroidManifest.xml:33:9-52
 240        android:roundIcon="@mipmap/ic_launcher_round"
-240-->D:\cheto\app\src\main\AndroidManifest.xml:28:9-54
+240-->D:\cheto\app\src\main\AndroidManifest.xml:30:9-54
 241        android:supportsRtl="true"
-241-->D:\cheto\app\src\main\AndroidManifest.xml:29:9-35
+241-->D:\cheto\app\src\main\AndroidManifest.xml:31:9-35
 242        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-242-->D:\cheto\app\src\main\AndroidManifest.xml:30:9-65
+242-->D:\cheto\app\src\main\AndroidManifest.xml:32:9-65
 243        android:usesCleartextTraffic="true" >
-243-->D:\cheto\app\src\main\AndroidManifest.xml:32:9-44
+243-->D:\cheto\app\src\main\AndroidManifest.xml:34:9-44
 244        <activity
-244-->D:\cheto\app\src\main\AndroidManifest.xml:34:9-43:20
+244-->D:\cheto\app\src\main\AndroidManifest.xml:36:9-45:20
 245            android:name="com.cheto.eightball.MainActivity"
-245-->D:\cheto\app\src\main\AndroidManifest.xml:35:13-41
+245-->D:\cheto\app\src\main\AndroidManifest.xml:37:13-41
 246            android:exported="true"
-246-->D:\cheto\app\src\main\AndroidManifest.xml:36:13-36
+246-->D:\cheto\app\src\main\AndroidManifest.xml:38:13-36
 247            android:screenOrientation="portrait"
-247-->D:\cheto\app\src\main\AndroidManifest.xml:37:13-49
+247-->D:\cheto\app\src\main\AndroidManifest.xml:39:13-49
 248            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-248-->D:\cheto\app\src\main\AndroidManifest.xml:38:13-69
+248-->D:\cheto\app\src\main\AndroidManifest.xml:40:13-69
 249            <intent-filter>
-249-->D:\cheto\app\src\main\AndroidManifest.xml:39:13-42:29
+249-->D:\cheto\app\src\main\AndroidManifest.xml:41:13-44:29
 250                <action android:name="android.intent.action.MAIN" />
-250-->D:\cheto\app\src\main\AndroidManifest.xml:40:17-69
-250-->D:\cheto\app\src\main\AndroidManifest.xml:40:25-66
+250-->D:\cheto\app\src\main\AndroidManifest.xml:42:17-69
+250-->D:\cheto\app\src\main\AndroidManifest.xml:42:25-66
 251
 252                <category android:name="android.intent.category.LAUNCHER" />
-252-->D:\cheto\app\src\main\AndroidManifest.xml:41:17-77
-252-->D:\cheto\app\src\main\AndroidManifest.xml:41:27-74
+252-->D:\cheto\app\src\main\AndroidManifest.xml:43:17-77
+252-->D:\cheto\app\src\main\AndroidManifest.xml:43:27-74
 253            </intent-filter>
 254        </activity>
 255
 256        <service
-256-->D:\cheto\app\src\main\AndroidManifest.xml:45:9-49:58
+256-->D:\cheto\app\src\main\AndroidManifest.xml:47:9-51:58
 257            android:name="com.cheto.eightball.OverlayService"
-257-->D:\cheto\app\src\main\AndroidManifest.xml:46:13-43
+257-->D:\cheto\app\src\main\AndroidManifest.xml:48:13-43
 258            android:enabled="true"
-258-->D:\cheto\app\src\main\AndroidManifest.xml:47:13-35
+258-->D:\cheto\app\src\main\AndroidManifest.xml:49:13-35
 259            android:exported="false"
-259-->D:\cheto\app\src\main\AndroidManifest.xml:48:13-37
+259-->D:\cheto\app\src\main\AndroidManifest.xml:50:13-37
 260            android:foregroundServiceType="specialUse" />
-260-->D:\cheto\app\src\main\AndroidManifest.xml:49:13-55
+260-->D:\cheto\app\src\main\AndroidManifest.xml:51:13-55
 261
 262        <provider
 262-->[Bcore-debug.aar] D:\Android\.gradle\caches\transforms-4\59d833585a01ef2eb72a6c1731ae3592\transformed\jetified-Bcore-debug\AndroidManifest.xml:336:9-340:64
