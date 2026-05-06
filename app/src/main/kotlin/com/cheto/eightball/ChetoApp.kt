@@ -2,18 +2,22 @@ package com.cheto.eightball
 
 import android.app.Application
 import android.content.Context
+import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import top.niunaijun.blackbox.BlackBoxCore
 import top.niunaijun.blackbox.app.configuration.ClientConfiguration
+import kotlin.system.exitProcess
 
 /**
  * ChetoApp: The main application class.
- * Initializes the Virtual Container (BlackBox) engine for memory hooking.
+ * Initializes the Virtual Container (BlackBox) engine and handles global crashes.
  */
 class ChetoApp : Application() {
 
     companion object {
-        // Store the FIRST initialization error so VirtualManager can display it
         @JvmStatic
         var initError: Throwable? = null
             private set
@@ -24,7 +28,21 @@ class ChetoApp : Application() {
     }
 
     override fun attachBaseContext(base: Context) {
-        // MUST BE FIRST LINE: Bypass hidden API restrictions before ANY engine code is loaded.
+        // Setup Global Crash Handler to show errors on screen
+        val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            Handler(Looper.getMainLooper()).post {
+                val errorMsg = "CRASH IN ${thread.name}: ${throwable.javaClass.simpleName}\n${throwable.message}"
+                Log.e("ChetoCrash", errorMsg, throwable)
+                // We try to show a Toast before dying
+                Toast.makeText(base, errorMsg, Toast.LENGTH_LONG).show()
+            }
+            // Give time for Toast then call old handler
+            Thread.sleep(3000)
+            oldHandler?.uncaughtException(thread, throwable) ?: exitProcess(1)
+        }
+
+        // MUST BE FIRST LINE: Bypass hidden API restrictions
         try {
             HiddenApiBypass.unseal()
         } catch (_: Throwable) {}
@@ -39,13 +57,12 @@ class ChetoApp : Application() {
             })
         } catch (e: Throwable) {
             initError = e
-            // Walk the full exception chain to find the ROOT cause
             val sb = StringBuilder()
             sb.appendLine("=== ENGINE INIT FAILED ===")
             var current: Throwable? = e
             var depth = 0
-            while (current != null && depth < 10) {
-                sb.appendLine("[$depth] ${current.javaClass.name}: ${current.message}")
+            while (current != null && depth < 5) {
+                sb.appendLine("[$depth] ${current.javaClass.simpleName}: ${current.message}")
                 current = current.cause
                 depth++
             }
@@ -57,23 +74,12 @@ class ChetoApp : Application() {
     override fun onCreate() {
         super.onCreate()
         
-        // Only proceed if attachBaseContext succeeded
         if (initError == null) {
             try {
                 BlackBoxCore.get().doCreate()
             } catch (e: Throwable) {
                 initError = e
-                val sb = StringBuilder()
-                sb.appendLine("=== ENGINE CREATE FAILED ===")
-                var current: Throwable? = e
-                var depth = 0
-                while (current != null && depth < 10) {
-                    sb.appendLine("[$depth] ${current.javaClass.name}: ${current.message}")
-                    current = current.cause
-                    depth++
-                }
-                initErrorDetail = sb.toString()
-                Log.e("ChetoApp", initErrorDetail)
+                Log.e("ChetoApp", "Failed to create engine", e)
             }
         }
     }

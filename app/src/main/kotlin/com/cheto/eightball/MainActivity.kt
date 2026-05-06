@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         btnStart.startAnimation(pulseAnimation)
 
         btnStart.setOnClickListener {
+            Toast.makeText(this, "Button Clicked: Checking Permissions...", Toast.LENGTH_SHORT).show()
             if (checkOverlayPermission()) {
                 if (checkNotificationPermission()) {
                     if (checkUsageStatsPermission()) {
