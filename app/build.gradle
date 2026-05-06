@@ -11,8 +11,8 @@ android {
         applicationId "com.cheto.eightball"
         minSdk 24
         targetSdk 33
-        versionCode 53
-        versionName "1.5.3"
+        versionCode 54
+        versionName "1.5.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -79,4 +79,5 @@ dependencies {
     
     // Remote dependencies required by BlackBox
     implementation 'me.weishu:free_reflection:3.0.1'
+    implementation 'com.github.CodingGay.BlackReflection:core:1.1.2'
 }
