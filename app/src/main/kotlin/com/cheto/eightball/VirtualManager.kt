@@ -65,7 +65,10 @@ object VirtualManager {
                 // Check if engine is actually alive by calling a lightweight method
                 val isInstalled = try {
                     BlackBoxCore.get().isInstalled(GAME_PACKAGE, USER_ID)
-                } catch (e: Exception) {
+                } catch (t: Throwable) {
+                    android.os.Handler(android.os.Looper.getMainLooper()).post {
+                        Toast.makeText(context, "Engine Check Error: ${t.message}", Toast.LENGTH_LONG).show()
+                    }
                     false
                 }
 
@@ -98,10 +101,10 @@ object VirtualManager {
                         Toast.makeText(context, "Error: Could not generate intent", Toast.LENGTH_LONG).show()
                     }
                 }
-            } catch (e: Exception) {
-                Log.e("VirtualManager", "Launch error", e)
+            } catch (t: Throwable) {
+                Log.e("VirtualManager", "Launch error", t)
                 android.os.Handler(android.os.Looper.getMainLooper()).post {
-                    Toast.makeText(context, "Fatal Error: ${e.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Fatal Error: ${t.javaClass.simpleName} - ${t.message}", Toast.LENGTH_LONG).show()
                 }
             }
         }.start()
