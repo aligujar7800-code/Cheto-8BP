@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cheto.eightball.app-mergeDebugResources-31:/values-uz/values-uz.xml",
+            "outputFile": "com.cheto.eightball.app-mergeDebugResources-32:/values-uz/values-uz.xml",
             "map": [
                 {
                     "source": "D:\\Android\\.gradle\\caches\\transforms-4\\aab7af3e5d36cf4acf79358de2256105\\transformed\\appcompat-1.6.1\\res\\values-uz\\values-uz.xml",

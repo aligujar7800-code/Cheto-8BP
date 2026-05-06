@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cheto.eightball.app-mergeDebugResources-31:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "com.cheto.eightball.app-mergeDebugResources-32:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "D:\\Android\\.gradle\\caches\\transforms-4\\a09928384ec1935e808ab75bc8da5541\\transformed\\core-1.12.0\\res\\values-zh-rTW\\values-zh-rTW.xml",

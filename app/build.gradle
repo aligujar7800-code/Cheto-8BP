@@ -11,8 +11,8 @@ android {
         applicationId "com.cheto.eightball"
         minSdk 24
         targetSdk 33
-        versionCode 49
-        versionName "1.4.9"
+        versionCode 51
+        versionName "1.5.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -66,5 +66,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    
+    // Virtual Engine Core
     implementation files('libs/Bcore-debug.aar')
+    
+    // Required Transitive Dependencies for BlackBox Engine
+    implementation 'me.weishu:free_reflection:3.0.1'
+    implementation 'top.canyie.pine:core:0.2.7'
 }

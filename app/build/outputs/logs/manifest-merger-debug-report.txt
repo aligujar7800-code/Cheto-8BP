@@ -47,6 +47,9 @@ MERGED from [androidx.arch.core:core-runtime:2.2.0] D:\Android\.gradle\caches\tr
 MERGED from [androidx.documentfile:documentfile:1.0.0] D:\Android\.gradle\caches\transforms-4\eea861382c2ecb38e6091f24209b27ac\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\Android\.gradle\caches\transforms-4\936a51dbdbd9b9409e0cb19a4e340e10\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] D:\Android\.gradle\caches\transforms-4\f15f6fae5c6aab38da08ad1039b14aba\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [me.weishu:free_reflection:3.0.1] D:\Android\.gradle\caches\transforms-4\a6b6b5f6e9c1805da2473105825ce697\transformed\jetified-free_reflection-3.0.1\AndroidManifest.xml:2:1-11:12
+MERGED from [top.canyie.pine:core:0.2.7] D:\Android\.gradle\caches\transforms-4\b1b8e11c29c41ca79b94a35fdbb7ffc2\transformed\jetified-core-0.2.7\AndroidManifest.xml:2:1-7:12
+MERGED from [dev.rikka.ndk.thirdparty:cxx:1.2.0] D:\Android\.gradle\caches\transforms-4\4c212ed85578041cdf7a27b67005849b\transformed\jetified-cxx-1.2.0\AndroidManifest.xml:2:1-9:12
 	package
 		INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -288,6 +291,12 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\Andr
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] D:\Android\.gradle\caches\transforms-4\936a51dbdbd9b9409e0cb19a4e340e10\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] D:\Android\.gradle\caches\transforms-4\f15f6fae5c6aab38da08ad1039b14aba\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] D:\Android\.gradle\caches\transforms-4\f15f6fae5c6aab38da08ad1039b14aba\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [me.weishu:free_reflection:3.0.1] D:\Android\.gradle\caches\transforms-4\a6b6b5f6e9c1805da2473105825ce697\transformed\jetified-free_reflection-3.0.1\AndroidManifest.xml:7:5-9:41
+MERGED from [me.weishu:free_reflection:3.0.1] D:\Android\.gradle\caches\transforms-4\a6b6b5f6e9c1805da2473105825ce697\transformed\jetified-free_reflection-3.0.1\AndroidManifest.xml:7:5-9:41
+MERGED from [top.canyie.pine:core:0.2.7] D:\Android\.gradle\caches\transforms-4\b1b8e11c29c41ca79b94a35fdbb7ffc2\transformed\jetified-core-0.2.7\AndroidManifest.xml:5:5-44
+MERGED from [top.canyie.pine:core:0.2.7] D:\Android\.gradle\caches\transforms-4\b1b8e11c29c41ca79b94a35fdbb7ffc2\transformed\jetified-core-0.2.7\AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.ndk.thirdparty:cxx:1.2.0] D:\Android\.gradle\caches\transforms-4\4c212ed85578041cdf7a27b67005849b\transformed\jetified-cxx-1.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [dev.rikka.ndk.thirdparty:cxx:1.2.0] D:\Android\.gradle\caches\transforms-4\4c212ed85578041cdf7a27b67005849b\transformed\jetified-cxx-1.2.0\AndroidManifest.xml:5:5-7:41
 	android:targetSdkVersion
 		INJECTED from D:\cheto\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
