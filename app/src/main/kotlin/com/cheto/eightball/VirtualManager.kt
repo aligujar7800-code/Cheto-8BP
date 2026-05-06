@@ -47,6 +47,26 @@ object VirtualManager {
     }
 
     fun launchGameFromVirtualSpace(context: Context) {
+        // FIRST: Check if engine initialization failed in ChetoApp
+        val initErr = ChetoApp.initError
+        if (initErr != null) {
+            android.os.Handler(android.os.Looper.getMainLooper()).post {
+                // Show full error chain in an AlertDialog so user can read & screenshot it
+                val detail = ChetoApp.initErrorDetail
+                try {
+                    android.app.AlertDialog.Builder(context)
+                        .setTitle("Engine Init Failed")
+                        .setMessage(detail)
+                        .setPositiveButton("OK", null)
+                        .show()
+                } catch (_: Throwable) {
+                    // If dialog fails (wrong context), fall back to Toast
+                    Toast.makeText(context, "ROOT CAUSE: $detail", Toast.LENGTH_LONG).show()
+                }
+            }
+            return
+        }
+
         // UI Feedback
         android.os.Handler(android.os.Looper.getMainLooper()).post {
             Toast.makeText(context, "Initializing Engine... Please wait", Toast.LENGTH_SHORT).show()
