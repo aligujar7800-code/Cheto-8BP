@@ -11,8 +11,8 @@ android {
         applicationId "com.cheto.eightball"
         minSdk 24
         targetSdk 33
-        versionCode 51
-        versionName "1.5.1"
+        versionCode 52
+        versionName "1.5.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -67,10 +67,16 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
     
-    // Virtual Engine Core
+    // BlackBox Virtual Engine - Core AAR
     implementation files('libs/Bcore-debug.aar')
     
-    // Required Transitive Dependencies for BlackBox Engine
+    // BlackBox Sub-Modules (REQUIRED - AAR does not bundle these)
+    implementation files('libs/android-mirror.jar')   // BRUserHandle, BRActivityThread etc.
+    implementation files('libs/black-fake.jar')        // Android framework stubs
+    implementation files('libs/black-hook.jar')        // Method hooking internals
+    implementation files('libs/pine-core.jar')         // Pine method interception
+    implementation files('libs/pine-xposed.jar')       // Xposed compatibility layer
+    
+    // Remote dependencies required by BlackBox
     implementation 'me.weishu:free_reflection:3.0.1'
-    implementation 'top.canyie.pine:core:0.2.7'
 }
