@@ -13,7 +13,14 @@ import top.niunaijun.blackbox.app.configuration.ClientConfiguration
 class ChetoApp : Application() {
 
     override fun attachBaseContext(base: Context) {
+        // MUST BE FIRST LINE: Bypass hidden API restrictions before ANY engine code is loaded.
+        // If this is delayed, BlackBoxCore static initialization will fail causing NoClassDefFoundError.
+        try {
+            HiddenApiBypass.unseal()
+        } catch (_: Throwable) {}
+
         super.attachBaseContext(base)
+        
         try {
             // Standard initialization using the app's own package name
             BlackBoxCore.get().doAttachBaseContext(base, object : ClientConfiguration() {
@@ -28,11 +35,6 @@ class ChetoApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        
-        // Bypass hidden API restrictions in onCreate instead of attachBaseContext
-        try {
-            HiddenApiBypass.unseal()
-        } catch (_: Throwable) {}
         
         try {
             BlackBoxCore.get().doCreate()
